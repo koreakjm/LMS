@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
    
 <!DOCTYPE html>
 <html>
@@ -85,17 +86,19 @@
 					<div class="d-flex align-items-center">
 						<!-- Top Account -->
 						<div class="dropdown">
-						  <a class="dropdown-toggle" href="#" role="button" id="dropdownAccount" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ti-user mr-2"></i>Account </a>
-						  <div class="dropdown-menu mt-2 shadow" aria-labelledby="dropdownAccount">
-						    <a class="dropdown-item" href="sign-in.html">Log In</a>
-						    <a class="dropdown-item" href="sign-up.html">Register</a>
-						    <a class="dropdown-item" href="#">Settings</a>
+						  <a class="dropdown-toggle" href="/user/login" role="button" id="dropdownAccount" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						  	<i class="ti-user mr-2"></i>${login.userName}님 반갑습니다.</a>
+						   <div class="dropdown-menu mt-2 shadow" aria-labelledby="dropdownAccount">
+						    <a class="dropdown-item" href="user/pwModify">비밀번호 변경</a>
+						    <!-- <a class="dropdown-item" href="sign-up.html">Register</a>
+						    <a class="dropdown-item" href="#">Settings</a> -->
 						  </div>
+						
 						</div>
 						<!-- top link -->
 						<ul class="nav">
               <li class="nav-item">
-                  <a class="nav-link" href="contact.html">Contact</a>
+                  <a class="nav-link" href="/user/login">회원 목록</a>
               </li>
             </ul>
 						<!-- top social -->

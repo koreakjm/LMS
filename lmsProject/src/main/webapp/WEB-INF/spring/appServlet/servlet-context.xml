@@ -32,10 +32,10 @@
 	<beans:bean id="authInterceptor" class="com.lms.interceptor.AuthInterceptor"></beans:bean>
 
 	<interceptors>
-		<interceptor>
+		<!-- <interceptor>
 			<mapping path="/user/loginPost" />
 			<beans:ref bean="loginInterceptor" />
-		</interceptor>
+		</interceptor> -->
 
 		<interceptor>
 			<!-- <mapping path="/sboard/register" />
