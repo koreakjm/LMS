@@ -7,5 +7,6 @@ public interface UserDAO {
 	
 	public UserVO login(LoginDTO dto) throws Exception;
 	
+	
 
 }

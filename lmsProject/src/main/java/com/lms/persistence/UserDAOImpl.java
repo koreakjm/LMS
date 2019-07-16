@@ -19,8 +19,9 @@ public class UserDAOImpl implements UserDAO{
 	@Override
 	public UserVO login(LoginDTO dto) throws Exception {
 		
-		return session.selectOne(namespace+".login", dto);
+		return session.selectOne(namespace + ".login", dto);
 	}
+
 
 	
 

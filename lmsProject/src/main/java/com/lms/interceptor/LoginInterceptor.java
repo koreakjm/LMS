@@ -16,7 +16,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 	private static final Logger logger = LoggerFactory.getLogger(LoginInterceptor.class);
 
 	
-	//UserVO °´Ã¼ È®ÀÎ(·Î±×ÀÎ °¡´ÉÇÑÁö ¾Æ´ÑÁö) ÈÄ HttpSession ÀúÀå
+	//UserVO ï¿½ï¿½Ã¼ È®ï¿½ï¿½(ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½ï¿½ï¿½) ï¿½ï¿½ HttpSession ï¿½ï¿½ï¿½ï¿½
 	@Override
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
@@ -28,18 +28,19 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 
 		if (userVO != null) {
 
-			logger.info("new login success");
+			logger.info("new login success " + userVO);
 			session.setAttribute(LOGIN, userVO);
+			
 			// response.sendRedirect("/");
 
-			//»ç¿ëÀÚ°¡ ·Î±×ÀÎ Àü¿¡ º¸°í ÀÖ´ø °æ·Î
+			//ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½
 			Object dest = session.getAttribute("dest");
 
 			response.sendRedirect(dest != null ? (String) dest : "/");
 		}
 	}
 
-	//HttpSession ÃÊ±âÈ­
+	//HttpSession ï¿½Ê±ï¿½È­
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {

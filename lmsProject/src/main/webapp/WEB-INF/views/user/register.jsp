@@ -1,7 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<%@include file="../include/header.jsp"%>
+
+	<!-- =======================
+	header Start-->
+	<header>
+		<%@ include file="/WEB-INF/views/include/header.jsp"%>
+	</header>
+	<!-- =======================
+	header End-->
+
 
 <!-- Main content -->
 <section class="content">
@@ -21,7 +29,7 @@
 						
 						<div class="form-group">
 							<label for="exampleInputEmail1">Writer</label> <input type="text"
-								name="userNo" class="form-control" value='${login.userNo }'
+								name="userNo" class="form-control" value='${login.userName}'
 								readonly>
 						</div>
 						
@@ -53,4 +61,4 @@
 </div>
 <!-- /.content-wrapper -->
 
-<%@include file="../include/footer.jsp"%>
+

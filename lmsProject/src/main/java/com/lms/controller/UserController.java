@@ -1,5 +1,6 @@
 package com.lms.controller;
 
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -26,48 +27,15 @@ public class UserController {
 	@Inject
 	private UserService service;
 
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public void loginGET(@ModelAttribute("dto") LoginDTO dto) {
-
-	}
-
-	@RequestMapping(value = "/loginPost", method = RequestMethod.POST)
-	public void loginPOST(LoginDTO dto, HttpSession session, Model model) throws Exception {
-
-		UserVO vo = service.login(dto);
-
-		System.out.println("================>" + vo);
-
-		if (vo == null) {
-			return;
-		}
-
-		model.addAttribute("userVO", vo);
-
-	}
-
-	@RequestMapping(value = "/logout", method = RequestMethod.GET)
-	public String logout(HttpServletRequest request, HttpServletResponse response, HttpSession session)
-			throws Exception {
-
-		Object obj = session.getAttribute("login");
-
-		if (obj != null) {
-
-			logger.info("logout: session.invalidate()");
-
-			session.removeAttribute("login");
-			session.invalidate();
-		}
-
-		return "redirect:/user/login";
-
-	}
-
+	
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
-	public void registerGet(UserVO user, Model model) throws Exception {
+	public void loginGET() {
 
-		logger.info("register get...........");
+	}
+	
+	@RequestMapping(value = "/mypage", method = RequestMethod.GET)
+	public void pwModifyGET() {
+
 	}
 
 }

@@ -19,6 +19,7 @@ public class UserVO {
 	private String state;
 	private String authority;
 	private int regNum;
+	
 	public int getUserNo() {
 		return userNo;
 	}

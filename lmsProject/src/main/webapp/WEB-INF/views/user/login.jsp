@@ -83,7 +83,7 @@
 									<div class="row align-items-center no-gutters m-0">
 										<div class="col-6 col-md-8"></div>
 										<div class="col-6 col-md-4 text-right">
-											<button type="submit" class="btn btn-dark ">Let's Rock</button></div>
+											<button type="submit" class="btn btn-primary ">Let's Rock</button></div>
 									</div>
 								</div>
 								</form>

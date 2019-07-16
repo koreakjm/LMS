@@ -51,7 +51,7 @@
 							</svg>
 							<!-- SVG Logo End -->
 						</div>
-						<h3 class="font-weight-light">비밀번호 변경</h3>
+						<h3 class="font-weight-light">We connect you with the world largest community</h3>
 						<ul class="list-group list-group-borderless mt-4">
 							<li class="list-group-item text-white"><i class="fa fa-check"></i>Connect with your community via Wizixo</li>
 							<li class="list-group-item text-white"><i class="fa fa-check"></i>Discover the best experience with fellowship</li>
@@ -64,7 +64,7 @@
 					<div class="row h-100">
 						<div class="col-12 col-md-10 col-lg-5 text-left mx-auto d-flex align-items-center">
 							<div class="w-100">
-							<form action="/user/loginPost" method="post">
+							<form action="/loginPost" method="post">
 								<h2 class="">Sign into your account!</h2>
 								<h5 class="font-weight-light">Nice to see you! Please log in with your account.</h5>
 								<div class="form mt-4 ">
@@ -83,7 +83,7 @@
 									<div class="row align-items-center no-gutters m-0">
 										<div class="col-6 col-md-8"></div>
 										<div class="col-6 col-md-4 text-right">
-											<button type="submit" class="btn btn-dark ">Let's Rock</button></div>
+											<button type="submit" class="btn btn-primary ">Let's Rock</button></div>
 									</div>
 								</div>
 								</form>

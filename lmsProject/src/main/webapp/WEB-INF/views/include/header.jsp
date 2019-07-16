@@ -13,21 +13,21 @@
 	<meta name="description" content="Creative Multipurpose Bootstrap Template">
 
 	<!-- Favicon -->
-	<link rel="shortcut icon" href="resources/images/favicon.ico">
+	<link rel="shortcut icon" href="/resources/images/favicon.ico">
 
 	<!-- Google Font -->
 	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900%7CPlayfair+Display:400,400i,700,700i%7CRoboto:400,400i,500,700" rel="stylesheet">
 
 	<!-- Plugins CSS -->
-	<link rel="stylesheet" type="text/css" href="resources/vendor/font-awesome/css/font-awesome.min.css" />
-	<link rel="stylesheet" type="text/css" href="resources/vendor/themify-icons/css/themify-icons.css" />
-	<link rel="stylesheet" type="text/css" href="resources/vendor/animate/animate.min.css" />
-	<link rel="stylesheet" type="text/css" href="resources/vendor/fancybox/css/jquery.fancybox.min.css" />
-	<link rel="stylesheet" type="text/css" href="resources/vendor/owlcarousel/css/owl.carousel.min.css" />
-	<link rel="stylesheet" type="text/css" href="resources/vendor/swiper/css/swiper.min.css" />
+	<link rel="stylesheet" type="text/css" href="/resources/vendor/font-awesome/css/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css" href="/resources/vendor/themify-icons/css/themify-icons.css" />
+	<link rel="stylesheet" type="text/css" href="/resources/vendor/animate/animate.min.css" />
+	<link rel="stylesheet" type="text/css" href="/resources/vendor/fancybox/css/jquery.fancybox.min.css" />
+	<link rel="stylesheet" type="text/css" href="/resources/vendor/owlcarousel/css/owl.carousel.min.css" />
+	<link rel="stylesheet" type="text/css" href="/resources/vendor/swiper/css/swiper.min.css" />
 
 	<!-- Theme CSS -->
-	<link rel="stylesheet" type="text/css" href="resources/css/style.css" />
+	<link rel="stylesheet" type="text/css" href="/resources/css/style.css" />
     
   </head>
     
@@ -62,13 +62,13 @@
 					<div class="d-flex align-items-center">
 						<!-- Language -->
 						<div class="dropdown">
-						  <a class="dropdown-toggle" href="#" role="button" id="dropdownLanguage" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <img class="dropdown-item-icon" src="resources/images/flags/uk.svg" alt=""> English </a>
+						  <a class="dropdown-toggle" href="#" role="button" id="dropdownLanguage" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <img class="dropdown-item-icon" src="../resources/images/flags/uk.svg" alt=""> English </a>
 						  <div class="dropdown-menu mt-2 shadow" aria-labelledby="dropdownLanguage">
 						  	<span class="dropdown-item-text">Select language</span>
 						  	<div class="dropdown-divider"></div>
-						    <a class="dropdown-item" href="#"><img class="dropdown-item-icon" src="resources/images/flags/sp.svg" alt=""> Español</a>
-						    <a class="dropdown-item" href="#"><img class="dropdown-item-icon" src="resources/images/flags/fr.svg" alt=""> Français</a>
-						    <a class="dropdown-item" href="#"><img class="dropdown-item-icon" src="resources/images/flags/gr.svg" alt=""> Deutsch</a>
+						    <a class="dropdown-item" href="#"><img class="dropdown-item-icon" src="../resources/images/flags/sp.svg" alt=""> Español</a>
+						    <a class="dropdown-item" href="#"><img class="dropdown-item-icon" src="../resources/images/flags/fr.svg" alt=""> Français</a>
+						    <a class="dropdown-item" href="#"><img class="dropdown-item-icon" src="../resources/images/flags/gr.svg" alt=""> Deutsch</a>
 						  </div>
 						</div>
 						<!-- Top info -->
@@ -86,21 +86,21 @@
 					<div class="d-flex align-items-center">
 						<!-- Top Account -->
 						<div class="dropdown">
-						  <a class="dropdown-toggle" href="/user/login" role="button" id="dropdownAccount" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						  <a class="dropdown-toggle" href="#" role="button" id="dropdownAccount" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						  	<i class="ti-user mr-2"></i>${login.userName}님 반갑습니다.</a>
 						   <div class="dropdown-menu mt-2 shadow" aria-labelledby="dropdownAccount">
 						    <a class="dropdown-item" href="user/pwModify">비밀번호 변경</a>
-						    <!-- <a class="dropdown-item" href="sign-up.html">Register</a>
-						    <a class="dropdown-item" href="#">Settings</a> -->
+						    <a class="dropdown-item" href="sign-up.html">Register</a>
+						    <a class="dropdown-item" href="#">Settings</a>
 						  </div>
 						
 						</div>
 						<!-- top link -->
 						<ul class="nav">
-              <li class="nav-item">
-                  <a class="nav-link" href="/user/login">회원 목록</a>
-              </li>
-            </ul>
+			              <li class="nav-item">
+			                  <a class="nav-link" href="/user/mypage">내 정보</a>
+			              </li>
+			            </ul>
 						<!-- top social -->
 						<ul class="social-icons">
 							<li class="social-icons-item social-facebook m-0">
@@ -330,5 +330,21 @@
 	</header>
 	<!-- =======================
 	header End-->
+	
+	
+	<!--Global JS-->
+	<script src="../resources/vendor/jquery/jquery.min.js"></script>
+	<script src="../resources/vendor/popper.js/umd/popper.min.js"></script>
+	<script src="../resources/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="../resources/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+	<!--Vendors-->
+	<script src="../resources/vendor/fancybox/js/jquery.fancybox.min.js"></script>
+	<script src="../resources/vendor/owlcarousel/js/owl.carousel.min.js"></script>
+	<script src="../resources/vendor/swiper/js/swiper.js"></script>
+	<script src="../resources/vendor/wow/wow.min.js"></script>
+
+	<!--Template Functions-->
+	<script src="../resources/js/functions.js"></script>
 	</body>
 	</html>
