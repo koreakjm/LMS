@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.lms.domain.UserVO;
 import com.lms.dto.LoginDTO;
+import com.lms.service.LabListService;
 import com.lms.service.UserService;
 
 /**
@@ -25,17 +26,30 @@ public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
+	@Inject
+	private LabListService labservice;
+	
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home() {
+	public String home(Model model) throws Exception {
 		
 		logger.info("Welcome home!");
-		
+		logger.info("show post ...............");
+		// list.jsp에서 list를 쓰면됨.
+		model.addAttribute("list", labservice.labListAll());
 		return "home";
 	}
 	
+	/*@Inject
+	private LabListService labservice;
+
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public void listAll(Model model) throws Exception {
+
+		logger.info("show post ...............");
+		// list.jsp에서 list를 쓰면됨.
+		model.addAttribute("list", labservice.labListAll());
+	}*/
 	
 	@Inject
 	private UserService service;

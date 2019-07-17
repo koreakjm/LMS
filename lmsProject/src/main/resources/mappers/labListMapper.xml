@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace = "com.lms.mapper.LabListMapper">
+
+	<select id="getTime" resultType="java.util.Date">
+		select sysdate from dual
+	</select>
+
+	<insert id="labJoin">
+		insert into tbl_lab_list(lab_list_no,authority,starttime,lab_no,user_no) 
+		values(SEQ_LAB_LIST.nextval,1,sysdate,1234,1)
+	</insert>
+	
+	<select id="labListAll" resultType="com.lms.domain.LabListVO">
+		select l.user_no,u.user_name,l.starttime from tbl_lab_list l, tbl_user u where l.user_no = u.user_no
+	</select>
+	
+	<insert id="labApply">
+		insert into tbl_lab_list(lab_list_no,authority,starttime,lab_no,user_no) 
+		values(SEQ_LAB_LIST.nextval,0,sysdate,1234,1)
+	</insert>
+</mapper>
