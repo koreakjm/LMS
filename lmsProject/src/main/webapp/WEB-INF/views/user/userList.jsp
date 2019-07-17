@@ -66,8 +66,12 @@
 										</c:forEach>
 										</tbody>
 									</table>
+									
+									<div align="right">
+										<button class="btn btn-primary" id="newBtn">학생 등록</button>
+									</div>
+									
 								</div>
-								
 							</div>
 						</div>
 					</div>
@@ -83,13 +87,13 @@
 			
 										<c:if test="${pageMaker.prev}">
 											<li class="page-item">
-											<a href="list${pageMaker.makeSearch(pageMaker.startPage - 1) }">&laquo;</a></li>
+											<a class ="page-link" href="list${pageMaker.makeSearch(pageMaker.startPage - 1) }">&laquo;</a></li>
 										</c:if>
 			
 										<c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }" var="idx">
 											<li class="page-item active"
 												<c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
-												<a href="list${pageMaker.makeSearch(idx)}">${idx}</a>
+												<a class ="page-link" href="list${pageMaker.makeSearch(idx)}">${idx}</a>
 											</li>
 										</c:forEach>
 			
@@ -114,6 +118,47 @@
 		<%@ include file="/WEB-INF/views/include/footer.jsp" %>
 	</footer>
 	<!-- ======================= footer  -->
+	
+	<script>
+	$(document).ready(
+			function() {
+
+				$('#searchBtn').on(
+						"click",
+						function(event) {
+
+							self.location = "list"
+									+ '${pageMaker.makeQuery(1)}'
+									+ "&searchType="
+									+ $("select option:selected").val()
+									+ "&keyword=" + $('#keywordInput').val();
+
+						});
+
+				$('#newBtn').on("click", function(evt) {
+
+					self.location = "register";
+
+				});
+				
+				$('#logout').on("click", function(evt) {
+
+					self.location = "/user/logout";
+					alert("로그아웃 되었습니다.");
+
+				});
+
+			});
+	</script>
+	
+	<script>
+	var result = '${msg}';
+
+	if (result == 'SUCCESS') {
+		alert("처리가 완료되었습니다.");
+	}
+	</script>
 
 </body>
+
 </html>

@@ -33,11 +33,6 @@ public class UserController {
 	@Inject
 	private UserService service;
 
-	@RequestMapping(value = "/register", method = RequestMethod.GET)
-	public void loginGET() {
-
-	}
-
 	@RequestMapping(value = "/mypage", method = RequestMethod.GET)
 	public void pwModifyGET() throws Exception {
 
@@ -84,7 +79,7 @@ public class UserController {
 
 	}
 
-	//회원 목록, 페이징, 검색
+	// 회원 목록, 페이징, 검색
 	@RequestMapping(value = "/userList", method = RequestMethod.GET)
 	public void userList(@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception {
 
@@ -101,6 +96,27 @@ public class UserController {
 		pageMaker.setTotalCount(service.listSearchCount(cri));
 
 		model.addAttribute("pageMaker", pageMaker);
+
+	}
+
+	@RequestMapping(value = "/register", method = RequestMethod.GET)
+	public void registerGET(UserVO vo, Model model) throws Exception {
+
+		logger.info("register get...........");
+	}
+
+	// 등록 후 검색 페이지 유지(POST)//
+	@RequestMapping(value = "/register", method = RequestMethod.POST)
+	public String registPOST(UserVO vo, RedirectAttributes rttr) throws Exception {
+
+		logger.info("register post...........");
+		logger.info(vo.toString());
+
+		service.insert(vo);
+
+		rttr.addFlashAttribute("msg", "SUCCESS");
+
+		return "redirect:/user/userList";
 
 	}
 
