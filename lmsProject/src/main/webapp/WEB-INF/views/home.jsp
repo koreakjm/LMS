@@ -13,7 +13,7 @@
 	content="Creative Multipurpose Bootstrap Template">
 
 <!-- Favicon -->
-<link rel="shortcut icon" href="../resources/images/favicon.ico">
+<link rel="shortcut icon" href="/resources/images/favicon.ico">
 
 <!-- Google Font -->
 <link
@@ -22,26 +22,26 @@
 
 <!-- Plugins CSS -->
 <link rel="stylesheet" type="text/css"
-	href="resources/vendor/font-awesome/css/font-awesome.min.css" />
+	href="/resources/vendor/font-awesome/css/font-awesome.min.css" />
 <link rel="stylesheet" type="text/css"
-	href="resources/vendor/themify-icons/css/themify-icons.css" />
+	href="/resources/vendor/themify-icons/css/themify-icons.css" />
 <link rel="stylesheet" type="text/css"
-	href="resources/vendor/animate/animate.min.css" />
+	href="/resources/vendor/animate/animate.min.css" />
 <link rel="stylesheet" type="text/css"
-	href="resources/vendor/fancybox/css/jquery.fancybox.min.css" />
+	href="/resources/vendor/fancybox/css/jquery.fancybox.min.css" />
 <link rel="stylesheet" type="text/css"
-	href="resources/vendor/owlcarousel/css/owl.carousel.min.css" />
+	href="/resources/vendor/owlcarousel/css/owl.carousel.min.css" />
 <link rel="stylesheet" type="text/css"
-	href="resources/vendor/swiper/css/swiper.min.css" />
+	href="/resources/vendor/swiper/css/swiper.min.css" />
 
 <!-- Theme CSS -->
-<link rel="stylesheet" type="text/css" href="resources/css/style.css" />
+<link rel="stylesheet" type="text/css" href="/resources/css/style.css" />
 
 </head>
 
 <body>
 	<div class="preloader">
-		<img src="resources/images/preloader.svg" alt="Pre-loader">
+		<img src="/resources/images/preloader.svg" alt="Pre-loader">
 	</div>
 
 	<!-- =======================
@@ -53,7 +53,7 @@
 	header End-->
 
 	<div class="innerpage-banner center bg-overlay-dark-7 py-7"
-		style="background: url(../assets/images/bg/04.jpg) no-repeat; background-size: cover; background-position: center center;">
+		style="background: url(/resources/assets/images/bg/04.jpg) no-repeat; background-size: cover; background-position: center center;">
 		<div class="container">
 			<div class="row all-text-white">
 				<div class="col-md-12 align-self-center">

@@ -72,6 +72,7 @@
 		<div class="container">
 		<div class="col-md-5 align-self-center" style="margin-top:7%;">
 		<form role="form" method="post">
+		<input type='hidden' name='userNo' value="${login.userNo}">
 		<table class="table table-hover">
 
 		

@@ -9,7 +9,7 @@
 
 	<insert id="labJoin">
 		insert into tbl_lab_list(lab_list_no,authority,starttime,lab_no,user_no) 
-		values(SEQ_LAB_LIST.nextval,1,sysdate,1234,1)
+		values(SEQ_LAB_LIST.nextval,1,sysdate,1234,#{userNo})
 	</insert>
 	
 	<select id="labListAll" resultType="com.lms.domain.LabListVO">
@@ -18,6 +18,6 @@
 	
 	<insert id="labApply">
 		insert into tbl_lab_list(lab_list_no,authority,starttime,lab_no,user_no) 
-		values(SEQ_LAB_LIST.nextval,0,sysdate,1234,1)
+		values(SEQ_LAB_LIST.nextval,0,sysdate,1234,#{userNo})
 	</insert>
 </mapper>
