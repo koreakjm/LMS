@@ -358,18 +358,18 @@
 	
 	
 	<!--Global JS-->
-	<script src="/resources/vendor/jquery/jquery.min.js"></script>
-	<script src="/resources/vendor/popper.js/umd/popper.min.js"></script>
-	<script src="/resources/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-	<script src="/resources/vendor/jquery-easing/jquery.easing.min.js"></script>
+	<script src="../resources/vendor/jquery/jquery.min.js"></script>
+	<script src="../resources/vendor/popper.js/umd/popper.min.js"></script>
+	<script src="../resources/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="../resources/vendor/jquery-easing/jquery.easing.min.js"></script>
 
 	<!--Vendors-->
-	<script src="/resources/vendor/fancybox/js/jquery.fancybox.min.js"></script>
-	<script src="/resources/vendor/owlcarousel/js/owl.carousel.min.js"></script>
-	<script src="/resources/vendor/swiper/js/swiper.js"></script>
-	<script src="/resources/vendor/wow/wow.min.js"></script>
+	<script src="../resources/vendor/fancybox/js/jquery.fancybox.min.js"></script>
+	<script src="../resources/vendor/owlcarousel/js/owl.carousel.min.js"></script>
+	<script src="../resources/vendor/swiper/js/swiper.js"></script>
+	<script src="../resources/vendor/wow/wow.min.js"></script>
 
 	<!--Template Functions-->
-	<script src="/resources/js/functions.js"></script>
+	<script src="../resources/js/functions.js"></script>
 	</body>
 	</html>
