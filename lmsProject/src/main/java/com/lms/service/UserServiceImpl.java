@@ -61,6 +61,20 @@ public class UserServiceImpl implements UserService {
 		return dao.listSearchCount(cri);
 	}
 
+	@Override
+	public void update(UserVO vo) throws Exception {
+		
+		dao.update(vo);
+		
+	}
+
+	@Override
+	public void delete(String userNo) throws Exception {
+		
+		dao.delete(userNo);
+		
+	}
+
 	
 
 	

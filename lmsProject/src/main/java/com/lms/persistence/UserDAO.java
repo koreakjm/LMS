@@ -29,6 +29,10 @@ public interface UserDAO {
 	//관리자화면 회원 카운트
 	public int listSearchCount(SearchCriteria cri) throws Exception;
 	
+	//관리자 회원 수정
+	public void update(UserVO vo) throws Exception;
 	
+	//관리자 회원 삭제
+	public void delete(String userNo) throws Exception;
 
 }

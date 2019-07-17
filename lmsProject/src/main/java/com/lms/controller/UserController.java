@@ -99,14 +99,14 @@ public class UserController {
 
 	}
 
-	@RequestMapping(value = "/register", method = RequestMethod.GET)
+	@RequestMapping(value = "/userRegister", method = RequestMethod.GET)
 	public void registerGET(UserVO vo, Model model) throws Exception {
 
 		logger.info("register get...........");
 	}
 
 	// 등록 후 검색 페이지 유지(POST)//
-	@RequestMapping(value = "/register", method = RequestMethod.POST)
+	@RequestMapping(value = "/userRegister", method = RequestMethod.POST)
 	public String registPOST(UserVO vo, RedirectAttributes rttr) throws Exception {
 
 		logger.info("register post...........");
@@ -126,6 +126,47 @@ public class UserController {
 			throws Exception {
 
 		model.addAttribute(service.read(userNo));
+	}
+
+	// 회원 수정 페이지로 이동//
+	@RequestMapping(value = "/userModify", method = RequestMethod.GET)
+	public void modifyPagingGET(@RequestParam("userNo") String userNo, @ModelAttribute("cri") SearchCriteria cri,
+			Model model) throws Exception {
+
+		model.addAttribute(service.read(userNo));
+	}
+
+	// 수정 후 검색 페이지 유지 (POST)//
+	@RequestMapping(value = "/userModify", method = RequestMethod.POST)
+	public String modifyPagingPOST(UserVO vo, RedirectAttributes rttr, SearchCriteria cri) throws Exception {
+
+		service.update(vo);
+
+		rttr.addAttribute("page", cri.getPage());
+		rttr.addAttribute("perPageNum", cri.getPerPageNum());
+		rttr.addAttribute("searchType", cri.getSearchType());
+		rttr.addAttribute("keyword", cri.getKeyword());
+
+		rttr.addFlashAttribute("msg", "SUCCESS");
+
+		return "redirect:/user/userList";
+
+	}
+
+	// 삭제 후 검색 페이지 유지//
+	@RequestMapping(value = "/userRemove", method = RequestMethod.POST)
+	public String remove(@RequestParam("userNo") String userNo, SearchCriteria cri, RedirectAttributes rttr) throws Exception {
+
+		service.delete(userNo);
+
+		rttr.addAttribute("page", cri.getPage());
+		rttr.addAttribute("perPageNum", cri.getPerPageNum());
+		rttr.addAttribute("searchType", cri.getSearchType());
+		rttr.addAttribute("keyword", cri.getKeyword());
+
+		rttr.addFlashAttribute("msg", "SUCCESS");
+
+		return "redirect:/user/userList";
 	}
 
 }

@@ -69,7 +69,7 @@
 									</table>
 									
 									<div align="right">
-										<button class="btn btn-primary" id="newBtn">학생 등록</button>
+										<button class="btn btn-primary" id="newBtn">REGISTER</button>
 									</div>
 									
 								</div>
@@ -136,7 +136,7 @@
 
 				$('#newBtn').on("click", function(evt) {
 
-					self.location = "register";
+					self.location = "/user/userRegister";
 
 				});
 				

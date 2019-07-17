@@ -39,28 +39,28 @@
 	
 				<!-- ======================= Table -->
 				<section>
-					<form role="form" action="modifyPage" method="post">
-						<input type='hidden' name='page' value="${cri.page}"> 
-						<input type='hidden' name='perPageNum' value="${cri.perPageNum}">
-						<input type='hidden' name='searchType' value="${cri.searchType}">
-						<input type='hidden' name='keyword' value="${cri.keyword}">
+					<form role="form" action="userModify" method="post">
+					<input type='hidden' name='page' value="${cri.page}"> 
+					<input type='hidden' name='perPageNum' value="${cri.perPageNum}">
+					<input type='hidden' name='searchType' value="${cri.searchType}">
+					<input type='hidden' name='keyword' value="${cri.keyword}">
 					<div class="container">
 						<div class="row">
 							<div class="col-sm-12 mb-5">
-								<h5 class="text-center mb-4">Student Register</h5>
+								<h5 class="text-center mb-4">Student Modify</h5>
 								<div class="table-responsive-sm">
 									<table class="table table-hover">
 										<tr>
 											<th scope="col">Student Number</th>
-											<td><input type="text" name="userNo" value="${userVO.userNo}" 
-											readonly="readonly" class="form-control" placeholder="학번을 입력해주세요.">
+											<td><input type="text" name="userNo" value="${userVO.userNo}"  
+											class="form-control" placeholder="학번을 입력해주세요.">
 											</td>
 										</tr>
 										
 										<tr>
 											<th scope="col">Name</th>
 											<td><input type="text" name="userName" value="${userVO.userName}" 
-											readonly="readonly" class="form-control" placeholder="이름을 입력해주세요.">
+											class="form-control" placeholder="이름을 입력해주세요.">
 											</td>
 										</tr>
 											
@@ -69,16 +69,26 @@
 											<td><!-- Select -->
 												<div class="form-group">
 													<select name="state" class="custom-select select-big mb-3" >
-														<option value="재학" selected="selected" >${userVO.state}</option>
+														<option value="재학"
+															<c:out value="${userVO.state eq '재학'?'selected':''}"/>>
+															재학</option>
+														<option value="휴학"
+															<c:out value="${userVO.state eq '휴학'?'selected':''}"/>>
+															휴학</option>
+														<option value="수료"
+															<c:out value="${userVO.state eq '수료'?'selected':''}"/>>
+															수료</option>
+														<option value="졸업"
+															<c:out value="${userVO.state eq '졸업'?'selected':''}"/>>
+															졸업</option>
 													</select>
 												</div></td>
 										</tr>
 									</table>
 									
 									<div align="right">
-										<button type="submit" class="btn btn-warning">MODIFY</button>
-										<button type="submit" class="btn btn-danger">REMOVE</button>
-										<button type="submit" class="btn btn-primary">GO LIST</button>
+										<button type="submit" class="btn btn-primary">SAVE</button>
+										<button type="submit" class="btn btn-warning">CANCEL</button>
 									</div>
 									
 								</div>
@@ -102,24 +112,17 @@
 
 		console.log(formObj);
 
-		$(".btn-warning").on("click", function() {
-			formObj.attr("action", "/user/userModify");
-			formObj.attr("method", "get");
-			formObj.submit();
+		$(".btn-warning")
+		.on("click",function() {
+			self.location = "/user/userList?page=${cri.page}&perPageNum=${cri.perPageNum}"
+					+ "&searchType=${cri.searchType}&keyword=${cri.keyword}";
 		});
 
-		$(".btn-danger").on("click", function() {
-			formObj.attr("action", "/user/userRemove");
-			formObj.submit();
+		$(".btn-primary").on("click",
+				function() {
+					formObj.submit();
+				});
 		});
-
-		$(".btn-primary").on("click", function() {
-			formObj.attr("method", "get");
-			formObj.attr("action", "/user/userList");
-			formObj.submit();
-		});
-
-	});
 	</script>
 	
 

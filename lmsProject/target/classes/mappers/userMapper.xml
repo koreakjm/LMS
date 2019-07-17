@@ -14,7 +14,7 @@
 	
 	</select>
 	
-	<!-- 회원 상세보기 -->
+	<!-- 학생 상세보기 -->
 	<select id="read" resultType="com.lms.domain.UserVO">
 		SELECT 
 			USER_NO, USER_PW, USER_NAME, STATE
@@ -44,13 +44,29 @@
 			USER_NO = #{userNo}
 	</update>
 	
-	<!-- 회원 등록 -->
+	<!-- 학생 등록 -->
 	<insert id="insert">
 		INSERT INTO 
 			TBL_USER (USER_NO, STATE, USER_NAME, REG_NUM)
 		VALUES 
 			(#{userNo}, #{state}, #{userName}, seq_user.nextval)
 	</insert>
+	
+	<!-- 학생 정보 수정 -->
+	<update id="update">
+		UPDATE 
+			TBL_USER
+		SET
+				USER_NAME = #{userName}
+			,	STATE = #{state}
+		WHERE
+			USER_NO  = #{userNo}
+	</update>
+	
+	<!-- 학생 정보 삭제 -->
+	<delete id="delete">
+		DELETE FROM TBL_USER WHERE USER_NO = #{userNo}
+	</delete>
 	
 	<!-- 회원 정보 검색 -->
 	<sql id="search">

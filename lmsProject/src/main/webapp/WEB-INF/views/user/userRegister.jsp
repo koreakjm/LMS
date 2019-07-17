@@ -40,6 +40,10 @@
 				<!-- ======================= Table -->
 				<section>
 					<form role="form" method="post">
+					<input type='hidden' name='page' value="${cri.page}"> 
+					<input type='hidden' name='perPageNum' value="${cri.perPageNum}">
+					<input type='hidden' name='searchType' value="${cri.searchType}">
+					<input type='hidden' name='keyword' value="${cri.keyword}">
 					<div class="container">
 						<div class="row">
 							<div class="col-sm-12 mb-5">
@@ -71,7 +75,8 @@
 									</table>
 									
 									<div align="right">
-										<button type="submit" class="btn btn-primary">등록하기</button>
+										<button type="submit" class="btn btn-primary">SUBMIT</button>
+										<button type="submit" class="btn btn-warning">CANCEL</button>
 									</div>
 									
 								</div>
@@ -87,6 +92,28 @@
 		<%@ include file="/WEB-INF/views/include/footer.jsp" %>
 	</footer>
 	<!-- ======================= footer  -->
+	
+	<script>
+	$(document).ready(function() {
+
+		var formObj = $("form[role='form']");
+
+		console.log(formObj);
+
+		$(".btn-warning")
+		.on("click",function() {
+			self.location = "/user/userList?page=${cri.page}&perPageNum=${cri.perPageNum}"
+				+ "&searchType=${cri.searchType}&keyword=${cri.keyword}";
+			});
+		
+		$(".btn-primary").on("click",
+				function() {
+					formObj.submit();
+				});
+		});
+
+
+	</script>
 	
 
 </body>

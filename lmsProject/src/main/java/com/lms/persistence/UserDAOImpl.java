@@ -55,7 +55,7 @@ public class UserDAOImpl implements UserDAO {
 
 	}
 
-	//회원 등록
+	// 학생 등록
 	@Override
 	public void insert(UserVO vo) throws Exception {
 
@@ -63,18 +63,33 @@ public class UserDAOImpl implements UserDAO {
 
 	}
 
-	// 회원 목록, 검색, 페이징
+	// 학생 목록, 검색, 페이징
 	@Override
 	public List<UserVO> listSearch(SearchCriteria cri) throws Exception {
 		
 		return session.selectList(namespace+".listSearch", cri);
 	}
 
-	// 회원 카운트
+	// 학생 카운트
 	@Override
 	public int listSearchCount(SearchCriteria cri) throws Exception {
 		
 		return session.selectOne(namespace+".listSearchCount", cri);
+	}
+
+	// 학생 정보 수정
+	@Override
+	public void update(UserVO vo) throws Exception {
+
+		session.update(namespace + ".update", vo);
+	}
+
+	// 학생 정보 삭재
+	@Override
+	public void delete(String userNo) throws Exception {
+		
+		session.delete(namespace + ".delete", userNo);
+		
 	}
 
 }

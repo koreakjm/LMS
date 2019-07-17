@@ -16,12 +16,19 @@ public interface UserService {
 
 	public void updatePw(UserVO vo) throws Exception;
 
-	// 관리자가 회원 등록
+	// 관리자가 학생 등록
 	public void insert(UserVO vo) throws Exception;
 
-	// 관리자화면 회원 목록, 페이징, 검색
+	// 관리자화면 학생 목록, 페이징, 검색
 	public List<UserVO> listSearch(SearchCriteria cri) throws Exception;
 
-	// 관리자화면 회원 카운트
+	// 관리자화면 학생 카운트
 	public int listSearchCount(SearchCriteria cri) throws Exception;
+
+	// 관리자 학생 수정
+	public void update(UserVO vo) throws Exception;
+
+	// 관리자 학생 삭제
+	public void delete(String userNo) throws Exception;
+
 }
