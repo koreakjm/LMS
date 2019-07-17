@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -37,49 +37,74 @@
 	<!-- ======================= header End-->
 	
 	
-		<!-- =======================
-	Table -->
-	<section>
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-12 mb-5">
-					<h5 class="text-center mb-4">Student List</h5>
-					<div class="table-responsive-sm">
-						<table class="table table-hover">
-							<thead>
-								<tr>
-									<th scope="col">#</th>
-									<th scope="col">Student Number</th>
-									<th scope="col">Name</th>
-									<th scope="col">State</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<th scope="row">1</th>
-									<td>Mark</td>
-									<td>Otto</td>
-									<td>@mdo</td>
-								</tr>
-								<tr>
-									<th scope="row">2</th>
-									<td>Jacob</td>
-									<td>Thornton</td>
-									<td>@fat</td>
-								</tr>
-								<tr>
-									<th scope="row">3</th>
-									<td>Larry</td>
-									<td>the Bird</td>
-									<td>@twitter</td>
-								</tr>
-							</tbody>
-						</table>
+				<!-- ======================= Table -->
+				<section>
+					<div class="container">
+						<div class="row">
+							<div class="col-sm-12 mb-5">
+								<h5 class="text-center mb-4">Student List</h5>
+								<div class="table-responsive-sm">
+									<table class="table table-hover">
+										<thead>
+											<tr>
+												<th scope="col">#</th>
+												<th scope="col">Student Number</th>
+												<th scope="col">Name</th>
+												<th scope="col">State</th>
+											</tr>
+										</thead>
+										<tbody>
+										
+										<c:forEach items="${list}" var="userVO" varStatus="var">
+											<tr>
+												<th scope="row">${var.count}</th>
+												<td>${userVO.userNo}</td>
+												<td>${userVO.userName}</td>
+												<td>${userVO.state}</td>
+											</tr>
+											
+										</c:forEach>
+										</tbody>
+									</table>
+								</div>
+								
+							</div>
+						</div>
 					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+				</section>
+	
+				<!-- 페이징 -->
+				<section class="pt-0">
+					<div class="container">
+						<div class="row justify-content-center">
+							<div id="pageForm" class="col-md-8">
+								<nav>
+									<ul class="pagination justify-content-center">
+			
+										<c:if test="${pageMaker.prev}">
+											<li class="page-item">
+											<a href="list${pageMaker.makeSearch(pageMaker.startPage - 1) }">&laquo;</a></li>
+										</c:if>
+			
+										<c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }" var="idx">
+											<li class="page-item active"
+												<c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
+												<a href="list${pageMaker.makeSearch(idx)}">${idx}</a>
+											</li>
+										</c:forEach>
+			
+										<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+											<li class="page-item">
+											<a class="page-link" href="list${pageMaker.makeSearch(pageMaker.endPage +1) }">&raquo;</a></li>
+										</c:if>
+			
+									</ul>
+								</nav>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- 페이징 처리 마지막 -->
 	
 	
 	
