@@ -120,4 +120,12 @@ public class UserController {
 
 	}
 
+	// 회원 상세보기, 페이징, 검색
+	@RequestMapping(value = "/userRead", method = RequestMethod.GET)
+	public void read(@RequestParam("userNo") String userNo, @ModelAttribute("cri") SearchCriteria cri, Model model)
+			throws Exception {
+
+		model.addAttribute(service.read(userNo));
+	}
+
 }

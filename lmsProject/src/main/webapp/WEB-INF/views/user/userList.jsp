@@ -58,7 +58,8 @@
 										<c:forEach items="${list}" var="userVO" varStatus="var">
 											<tr>
 												<th scope="row">${var.count}</th>
-												<td>${userVO.userNo}</td>
+												<td><a href='/user/userRead${pageMaker.makeSearch(pageMaker.cri.page) }&userNo=${userVO.userNo}'>
+												${userVO.userNo}</a></td>
 												<td>${userVO.userName}</td>
 												<td>${userVO.state}</td>
 											</tr>
@@ -78,22 +79,21 @@
 				</section>
 	
 				<!-- 페이징 -->
-				<section class="pt-0">
-					<div class="container">
+					<div class="container mb-6">
 						<div class="row justify-content-center">
-							<div id="pageForm" class="col-md-8">
+							<div class="col-md-8">
 								<nav>
 									<ul class="pagination justify-content-center">
 			
 										<c:if test="${pageMaker.prev}">
-											<li class="page-item">
+											<li class="page-item disabled">
 											<a class ="page-link" href="list${pageMaker.makeSearch(pageMaker.startPage - 1) }">&laquo;</a></li>
 										</c:if>
 			
 										<c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }" var="idx">
 											<li class="page-item active"
 												<c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
-												<a class ="page-link" href="list${pageMaker.makeSearch(idx)}">${idx}</a>
+												<a class="page-link bg-grad" href="list${pageMaker.makeSearch(idx)}">${idx}</a>
 											</li>
 										</c:forEach>
 			
@@ -107,7 +107,6 @@
 							</div>
 						</div>
 					</div>
-				</section>
 				<!-- 페이징 처리 마지막 -->
 	
 	

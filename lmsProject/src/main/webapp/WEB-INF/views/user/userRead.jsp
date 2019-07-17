@@ -40,6 +40,11 @@
 				<!-- ======================= Table -->
 				<section>
 					<form role="form" method="post">
+					<input type='hidden' name='userNo' value="${userVO.userNo}">
+					<input type='hidden' name='page' value="${cri.page}"> 
+					<input type='hidden' name='perPageNum' value="${cri.perPageNum}">
+					<input type='hidden' name='searchType' value="${cri.searchType}">
+					<input type='hidden' name='keyword' value="${cri.keyword}">
 					<div class="container">
 						<div class="row">
 							<div class="col-sm-12 mb-5">
@@ -48,30 +53,33 @@
 									<table class="table table-hover">
 										<tr>
 											<th scope="col">Student Number</th>
-											<td><input type="text" name="userNo" class="form-control" placeholder="학번을 입력해주세요."></td>
+											<td><input type="text" name="userNo" value="${userVO.userNo}" 
+											readonly="readonly" class="form-control" placeholder="학번을 입력해주세요.">
+											</td>
 										</tr>
 										
 										<tr>
 											<th scope="col">Name</th>
-											<td><input type="text" name="userName" class="form-control" placeholder="이름을 입력해주세요."></td>
+											<td><input type="text" name="userName" value="${userVO.userName}" 
+											readonly="readonly" class="form-control" placeholder="이름을 입력해주세요.">
+											</td>
 										</tr>
 											
 										<tr>
 											<th scope="col">State</th>
 											<td><!-- Select -->
 												<div class="form-group">
-													<select name="state" class="custom-select select-big mb-3">
-														<option value="재학" selected="selected">재학</option>
-														<option value="휴학">휴학</option>
-														<option value="수료">수료</option>
-														<option value="졸업">졸업</option>
+													<select name="state" class="custom-select select-big mb-3" >
+														<option value="재학" selected="selected" >${userVO.state}</option>
 													</select>
 												</div></td>
 										</tr>
 									</table>
 									
 									<div align="right">
-										<button type="submit" class="btn btn-primary">등록하기</button>
+										<button type="submit" class="btn btn-warning">MODIFY</button>
+										<button type="submit" class="btn btn-danger">REMOVE</button>
+										<button type="submit" class="btn btn-primary">GO LIST</button>
 									</div>
 									
 								</div>
@@ -87,6 +95,33 @@
 		<%@ include file="/WEB-INF/views/include/footer.jsp" %>
 	</footer>
 	<!-- ======================= footer  -->
+	
+	<script>
+	$(document).ready(function() {
+
+		var formObj = $("form[role='form']");
+
+		console.log(formObj);
+
+		$(".btn-warning").on("click", function() {
+			formObj.attr("action", "/user/userModify");
+			formObj.attr("method", "get");
+			formObj.submit();
+		});
+
+		$(".btn-danger").on("click", function() {
+			formObj.attr("action", "/user/userRemove");
+			formObj.submit();
+		});
+
+		$(".btn-primary").on("click", function() {
+			formObj.attr("method", "get");
+			formObj.attr("action", "/user/userList");
+			formObj.submit();
+		});
+
+	});
+	</script>
 	
 
 </body>

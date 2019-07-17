@@ -39,7 +39,7 @@ public class UserDAOImpl implements UserDAO {
 
 		boolean result = false;
 		Map<String, String> map = new HashMap<String, String>();
-		map.put("userNo", userNo);
+		map.put(userNo, userNo);
 		map.put("userPw", userPw);
 		int count = session.selectOne(namespace + ".checkPw", map);
 		if (count == 1)
