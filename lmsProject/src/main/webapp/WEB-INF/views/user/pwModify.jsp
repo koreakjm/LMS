@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Wizixo | Creative Multipurpose Bootstrap Template</title>
+<title>로그인 비밀번호 변경</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -51,7 +51,7 @@
 							</svg>
 							<!-- SVG Logo End -->
 						</div>
-						<h3 class="font-weight-light">비밀번호 변경</h3>
+						<h3 class="font-weight-light">We connect you with the world largest community</h3>
 						<ul class="list-group list-group-borderless mt-4">
 							<li class="list-group-item text-white"><i class="fa fa-check"></i>Connect with your community via Wizixo</li>
 							<li class="list-group-item text-white"><i class="fa fa-check"></i>Discover the best experience with fellowship</li>
@@ -64,26 +64,40 @@
 					<div class="row h-100">
 						<div class="col-12 col-md-10 col-lg-5 text-left mx-auto d-flex align-items-center">
 							<div class="w-100">
-							<form action="/user/loginPost" method="post">
-								<h2 class="">Sign into your account!</h2>
-								<h5 class="font-weight-light">Nice to see you! Please log in with your account.</h5>
+							<form role="form" action="pwModify" method="post">
+							<input type='hidden' name='userNo' value="${login.userNo}">
+								<h2 class="">비밀번호 변경하기!</h2>
 								<div class="form mt-4 ">
-									<div>
-										<p class="text-left mb-2">Student Number</p>
-										<span class="form-group">
-										<input type="text" name="userNo" class="form-control" placeholder="Student Number"></span>
-									</div>
+									
 									<div>
 										<div class="d-flex justify-content-between align-items-center">
-											<p class="text-left mb-2">Password</p>
-											<a class="text-muted small mb-2" href="password-recovery.html">Lost password? Click Here.</a>
 										</div>
-										<span class="form-group"><input type="password" name="userPw" class="form-control" placeholder="*********"></span>
+										<span class="form-group"><input type="password" name="userPw" class="form-control" placeholder="현재 비밀번호"></span>
 									</div>
+									
+									<div>
+										<div class="d-flex justify-content-between align-items-center">
+										</div>
+										<span class="form-group">
+										<input type="password" name="new_pw" id="new_pw" class="form-control" placeholder="새 비밀번호"></span>
+									</div>
+									
+									<div>
+										<div class="d-flex justify-content-between align-items-center">
+										</div>
+										<span class="form-group">
+										<input type="password" name="comf_pw" id="comf_pw" class="form-control" placeholder="새 비밀번호 확인"></span>
+									</div>
+									
+									<div class="alert alert-success" id="alert-success">새 비밀번호가 일치합니다.</div>
+									<div class="alert alert-danger" id="alert-danger">새 비밀번호가 일치하지 않습니다.</div>
+
+
 									<div class="row align-items-center no-gutters m-0">
 										<div class="col-6 col-md-8"></div>
 										<div class="col-6 col-md-4 text-right">
-											<button type="submit" class="btn btn-dark ">Let's Rock</button></div>
+											<button type="submit" class="btn btn-primary ">확인</button>
+											<button type="submit" class="btn btn-primary ">취소</button></div>
 									</div>
 								</div>
 								</form>
@@ -117,5 +131,35 @@
 			});
 		});
 	</script>
+	
+	<script type="text/javascript">
+    $(function(){
+        $("#alert-success").hide();
+        $("#alert-danger").hide();
+        $("input").keyup(function(){
+            var new_pw=$("#new_pw").val();
+            var comf_pw=$("#comf_pw").val();
+            if(new_pw != "" || comf_pw != ""){
+                if(new_pw == comf_pw){
+                    $("#alert-success").show();
+                    $("#alert-danger").hide();
+                    $("#submit").removeAttr("disabled");
+                }else{
+                    $("#alert-success").hide();
+                    $("#alert-danger").show();
+                    $("#submit").attr("disabled", "disabled");
+                }    
+            }
+        });
+    });
+	</script>
+	<script>
+	var result = '${msg}';
+
+	if (result == 'FAIL') {
+		alert("비밀번호를 정확하게 입력해 주세요.");
+	}
+	</script>
+
 </body>
 </html>

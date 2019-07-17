@@ -9,11 +9,115 @@
 			USER_NO, USER_PW, USER_NAME, STATE, AUTHORITY, REG_NUM
 		from 
 			TBL_USER 
-		where 
+		WHERE 
 			USER_NO = #{userNo} and USER_PW = #{userPw}
 	
 	</select>
 	
+	<!-- 회원 상세보기 -->
+	<select id="read" resultType="com.lms.domain.UserVO">
+		SELECT 
+			USER_NO, USER_PW, USER_NAME
+		FROM
+			TBL_USER
+		WHERE
+			USER_NO = #{userNo}
+	</select>
 	
+	<!-- 비밀번호 체크 -->
+	<select id="checkPw" resultType="int">
+		SELECT
+			COUNT(*)
+		FROM 
+			TBL_USER
+		WHERE
+			USER_NO = #{userNo} AND USER_PW = #{userPw}
+	</select>
+	
+	<!-- 비밀번호 번경 -->
+	<update id="updatePw">
+		UPDATE 
+			TBL_USER
+		SET
+			USER_PW = #{userPw}
+		WHERE
+			USER_NO = #{userNo}
+	</update>
+	
+	<!-- 회원 등록 -->
+	<insert id="insert">
+		INSERT INTO 
+			TBL_USER (USER_NO, STATE, USER_NAME, REG_NUM)
+		VALUES 
+			(#{userNo}, #{state}, #{userName}, seq_user.nextval);
+	</insert>
+	
+	<!-- 회원 정보 검색 -->
+	<sql id="search">
+		<if test="searchType != null">
+			<if test="searchType == 't'.toString()">
+					and USER_NO like '%' || #{keyword} || '%'
+			</if>
+			<if test="searchType == 'c'.toString()">
+				and USER_NAME like '%' || #{keyword} || '%'
+			</if>
+			<if test="searchType == 'w'.toString()">
+				and STATE like '%' || #{keyword} || '%'
+			</if>
+			<if test="searchType == 'tc'.toString()">
+				and ( USER_NO like '%' || #{keyword} || '%' OR USER_NAME like
+				'%' ||
+				#{keyword} || '%')
+			</if>
+			<if test="searchType == 'cw'.toString()">
+				and ( USER_NAME like '%' || #{keyword} || '%' OR STATE
+				like '%' ||
+				#{keyword} || '%')
+			</if>
+			<if test="searchType == 'tcw'.toString()">
+				and ( USER_NO like '%' || #{keyword} || '%'
+				OR
+				USER_NAME like
+				'%' || #{keyword} || '%'
+				OR
+				STATE like '%' || #{keyword} || '%')
+			</if>
+		</if>
+	</sql>
+	
+	<!-- 목록, 검색, 페이징 -->
+	<select id="listSearch" resultType="com.lms.domain.UserVO">
+		<![CDATA[  
+		select * from(
+		  select rownum rnum, REG_NUM, USER_NO, USER_NAME, STATE from (
+		  select 
+		   REG_NUM, USER_NO, USER_NAME, STATE
+		  from 
+		  TBL_USER where REG_NUM > 0 
+		]]>
+		
+		<include refid="search"></include>
+			
+		order by REG_NUM desc, USER_NO desc
+	  
+		<![CDATA[    
+		 )) where (rnum >= #{pageStart} AND rnum <= #{pageEnd}) 
+		order by REG_NUM desc, USER_NO desc
+		]]>
+	</select>
+	
+	<!-- 목록 카운트 -->
+	<select id="listSearchCount" resultType="int">
+		<![CDATA[  
+		SELECT 
+		 	COUNT(REG_NUM) 
+		FROM 
+			TBL_USER 
+		WHERE 
+			REG_NUM > 0 
+		]]>
+		<include refid="search"></include>
+	</select>
+		
 
 </mapper>

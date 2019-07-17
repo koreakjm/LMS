@@ -84,23 +84,48 @@
 
 					<!-- navbar top Right-->
 					<div class="d-flex align-items-center">
-						<!-- Top Account -->
+						
+						<!-- 비로그인 -->
+						<c:if test="${login eq null}">
+						<ul class="nav">
+			              <li class="nav-item">
+			                  <a class="nav-link" href="/login">로그인</a>
+			              </li>
+			            </ul>
+						</c:if>
+						
+						<!-- 학생 -->
+						<c:if test="${login.authority eq 0}">
 						<div class="dropdown">
 						  <a class="dropdown-toggle" href="#" role="button" id="dropdownAccount" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						  	<i class="ti-user mr-2"></i>${login.userName}님 반갑습니다.</a>
 						   <div class="dropdown-menu mt-2 shadow" aria-labelledby="dropdownAccount">
-						    <a class="dropdown-item" href="user/pwModify">비밀번호 변경</a>
-						    <a class="dropdown-item" href="sign-up.html">Register</a>
-						    <a class="dropdown-item" href="#">Settings</a>
+						    <a class="dropdown-item" href="user/mypage">내 정보</a>
 						  </div>
-						
 						</div>
-						<!-- top link -->
 						<ul class="nav">
 			              <li class="nav-item">
-			                  <a class="nav-link" href="/user/mypage">내 정보</a>
+			                  <a class="nav-link" href="/logout">로그아웃</a>
 			              </li>
 			            </ul>
+						</c:if>
+						
+						<!-- 관리자 -->
+						<c:if test="${login.authority eq 1}">
+						<div class="dropdown">
+						  <a class="dropdown-toggle" href="#" role="button" id="dropdownAccount" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						  	<i class="ti-user mr-2"></i>${login.userName}님 반갑습니다.</a>
+						   <div class="dropdown-menu mt-2 shadow" aria-labelledby="dropdownAccount">
+						    <a class="dropdown-item" href="user/userList">학생 정보</a>
+						  </div>
+						</div>
+						<ul class="nav">
+			              <li class="nav-item">
+			                  <a class="nav-link" href="/logout">로그아웃</a>
+			              </li>
+			            </ul>
+						</c:if>
+						
 						<!-- top social -->
 						<ul class="social-icons">
 							<li class="social-icons-item social-facebook m-0">
@@ -251,7 +276,7 @@
 						<!-- Menu item 5 Elements-->
 						<li class="nav-item dropdown megamenu">
 							<a class="nav-link dropdown-toggle" href="#" id="elementsMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Elements</a>
-							<div class="dropdown-menu" aria-labelledby="elementsMenu" style="background-image:url(resources/images/menu-bg.jpg); background-position: right bottom; background-repeat: no-repeat;">
+							<div class="dropdown-menu" aria-labelledby="elementsMenu" style="background-image:url(/resources/images/menu-bg.jpg); background-position: right bottom; background-repeat: no-repeat;">
 								<div class="container">
 									<div class="row">
 										<div class="col-sm-6 col-lg-3">

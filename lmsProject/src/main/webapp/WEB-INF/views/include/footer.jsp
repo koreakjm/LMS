@@ -34,7 +34,7 @@
 					</div>
 					<!-- Footer widget 2 -->
 					<div class="col-md-3 col-sm-6">
-						<div class="widget address" style="background-image: url('resources/images/world-map.png'); background-position: 50% 20px; background-repeat: no-repeat; background-size: contain;">
+						<div class="widget address" style="background-image: url('/resources/images/world-map.png'); background-position: 50% 20px; background-repeat: no-repeat; background-size: contain;">
 							<ul class="list-unstyled">
 								<li class="media mb-3"><i class="mr-3 display-8 ti-map-alt"></i>1421 Coburn Hollow Road Metamora, Near Center Point, IL 61548. </li>
 								<li class="media mb-3"><i class="mr-3 display-8 ti-headphone-alt"></i> (251) 854-6308 </li>
