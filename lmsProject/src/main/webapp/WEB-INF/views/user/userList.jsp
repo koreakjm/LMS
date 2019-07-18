@@ -140,12 +140,6 @@
 
 				});
 				
-				$('#logout').on("click", function(evt) {
-
-					self.location = "/user/logout";
-					alert("로그아웃 되었습니다.");
-
-				});
 
 			});
 	</script>

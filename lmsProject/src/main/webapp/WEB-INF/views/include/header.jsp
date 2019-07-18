@@ -100,7 +100,7 @@
 						  <a class="dropdown-toggle" href="#" role="button" id="dropdownAccount" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						  	<i class="ti-user mr-2"></i>${login.userName}님 반갑습니다.</a>
 						   <div class="dropdown-menu mt-2 shadow" aria-labelledby="dropdownAccount">
-						    <a class="dropdown-item" href="user/mypage">내 정보</a>
+						    <a class="dropdown-item" href="/user/mypage">내 정보</a>
 						  </div>
 						</div>
 						<ul class="nav">
@@ -116,7 +116,7 @@
 						  <a class="dropdown-toggle" href="#" role="button" id="dropdownAccount" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						  	<i class="ti-user mr-2"></i>${login.userName}님 반갑습니다.</a>
 						   <div class="dropdown-menu mt-2 shadow" aria-labelledby="dropdownAccount">
-						    <a class="dropdown-item" href="user/userList">학생 정보</a>
+						    <a class="dropdown-item" href="/user/userList">학생 정보</a>
 						  </div>
 						</div>
 						<ul class="nav">
