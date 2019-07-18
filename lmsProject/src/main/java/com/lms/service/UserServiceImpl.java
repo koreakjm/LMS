@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.lms.domain.SearchCriteria;
 import com.lms.domain.UserVO;
+import com.lms.dto.AuthDTO;
 import com.lms.dto.LoginDTO;
 import com.lms.persistence.UserDAO;
 
@@ -75,10 +76,8 @@ public class UserServiceImpl implements UserService {
 		
 	}
 
-	
-
-	
-	
-	
-
+	@Override
+	public AuthDTO checkAuth(String userNo) throws Exception {
+		return dao.checkAuth(userNo);
+	}
 }

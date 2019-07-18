@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lms.mapper.BoardMapper">
+
+
+	<!-- 등록 -->
+	<insert id="regist">
+		insert into
+		tbl_board
+		(board_no, board_title,
+		board_content, regdate, viewCnt, category, user_no)
+		values
+		(seq_board.nextval, #{boardTitle}, #{boardContent},
+		sysdate,
+		#{viewCnt},
+		#{category},
+		#{userNo})
+	</insert>
+	<!-- 상세보기 -->
+	<select id="read" resultType="com.lms.domain.BoardVO">
+		select
+		board_title, board_content,
+		regdate, category, viewCnt, user_no, board_file
+		from
+		tbl_board
+		where
+		board_no = #{board_no}
+	</select>
+
+	<!-- 조회수 증가 -->
+	<update id="updateViewCnt">
+		update tbl_board
+		set viewcnt = viewcnt + 1
+		where
+		board_no = #{board_no}
+	</update>
+
+	<!-- 수정 -->
+	<update id="modify">
+		update tbl_board set board_title = #{boardTitle} ,
+		board_content =
+		#{boardContent} , category =#{category},
+		board_file=#{boardFile}
+		where board_no = #{boardNo}
+	</update>
+	
+	<!-- 삭제 -->
+	<delete id="remove">
+		delete from tbl_board where board_no = #{boardNo}
+	</delete>
+
+
+	<!-- 검색조건 -->
+	<sql id="search">
+		<if test="searchType != null">
+			<if test="searchType == 't'.toString()">
+				and board_title like '%' || #{keyword} || '%'
+			</if>
+			
+			<if test="searchType == 'w'.toString()">
+				and user_no like '%' || #{keyword} || '%'
+			</if>
+			<if test="searchType == 'r'.toString()">
+				and regdate like '%' || #{keyword} || '%'
+			</if>
+		</if>
+	</sql>
+
+	<!-- 검색 -->
+	<select id="listSearch" resultType="com.lms.domain.BoardVO">
+		<![CDATA[  
+		select * from(
+		  select 
+		 	 ROWNUM RNUM,  board_no, board_title, board_content, regdate, viewcnt, category, board_file, user_no FROM (
+		  select 
+		   board_no, board_title, board_content, regdate, viewcnt, category, board_file, user_no 
+		  from 
+		  tbl_board where board_no > 0 
+		]]>
+		<include refid="search"></include>
+
+		order by board_no DESC, regdate DESC
+		  
+		<![CDATA[    
+		 )) where (RNUM >= #{pageStart} AND RNUM <= #{pageEnd}) 
+		order by board_no desc, regdate desc
+		]]>
+
+	</select>
+
+	<!-- 리스트 카운트 -->
+	<select id="listSearchCount" resultType="int">
+		<![CDATA[  
+		  select count(board_no) 
+		  from tbl_board 
+		  where board_no > 0 
+		]]>
+		<include refid="search"></include>
+
+	</select>
+</mapper>

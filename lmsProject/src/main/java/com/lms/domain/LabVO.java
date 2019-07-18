@@ -10,9 +10,10 @@ package com.lms.domain;
 
 public class LabVO {
 	
-	public int labNo;
-	public String location;
-	public String equipment;
+	private int labNo;
+	private String location;
+	private String equipment;
+	
 	public int getLabNo() {
 		return labNo;
 	}
@@ -37,5 +38,4 @@ public class LabVO {
 	}
 	
 	
-
 }

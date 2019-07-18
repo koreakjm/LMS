@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.lms.domain.SearchCriteria;
 import com.lms.domain.UserVO;
+import com.lms.dto.AuthDTO;
 import com.lms.dto.LoginDTO;
 
 public interface UserDAO {
@@ -34,5 +35,8 @@ public interface UserDAO {
 	
 	//관리자 회원 삭제
 	public void delete(String userNo) throws Exception;
+	
+	//권한 확인
+	public AuthDTO checkAuth(String userNo) throws Exception;
 
 }

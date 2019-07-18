@@ -42,4 +42,16 @@ public class LabListDAOImpl implements LabListDAO{
 		session.insert(namespace+".labApply", labList);
 	}
 
+	@Override
+	public void labReturn(LabListVO labList) throws Exception {
+	
+		session.update(namespace+".labReturn", labList);
+	}
+
+	@Override
+	public LabListVO readlabList(int labListNo) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 }

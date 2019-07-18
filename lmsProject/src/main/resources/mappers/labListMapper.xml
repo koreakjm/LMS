@@ -7,17 +7,34 @@
 		select sysdate from dual
 	</select>
 
-	<insert id="labJoin">
+	<!-- <insert id="labJoin">
 		insert into tbl_lab_list(lab_list_no,authority,starttime,lab_no,user_no) 
 		values(SEQ_LAB_LIST.nextval,1,sysdate,1234,#{userNo})
-	</insert>
+	</insert> -->
 	
 	<select id="labListAll" resultType="com.lms.domain.LabListVO">
-		select l.user_no,u.user_name,l.starttime from tbl_lab_list l, tbl_user u where l.user_no = u.user_no
+		select l.user_no,u.user_name,l.starttime from tbl_lab_list l , tbl_user u where l.user_no = u.user_no and l.authority = 1
 	</select>
 	
 	<insert id="labApply">
 		insert into tbl_lab_list(lab_list_no,authority,starttime,lab_no,user_no) 
-		values(SEQ_LAB_LIST.nextval,0,sysdate,1234,#{userNo})
+		values(SEQ_LAB_LIST.nextval,1,sysdate,1234,#{userNo})
 	</insert>
+	
+	
+	<!-- labReturn -->
+	<update id="labReturn">
+		update tbl_lab_list set endtime = sysdate , authority = 0 where lab_list_no = #{labListNo};
+	</update>
+	
+	
+	<!-- <select id="labRead" resultType="com.lms.domain.LabListVO">
+		select *from tbl_lab_list l , tbl_user u where l.user_no = u.user_no and l.lab_list_no = #{labListNo};
+	</select> -->
+	
+	
+	<!-- <update id = "labReturn">
+		update from tbl_lab_list where lab_no=1234;
+	</update> -->
+	
 </mapper>

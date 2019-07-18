@@ -135,5 +135,15 @@
 		<include refid="search"></include>
 	</select>
 		
+		<!-- 권한 확인 -->
+		<select id="authCheck" resultType="com.lms.dto.AuthDTO">
+		
+		select authority as myAuthority , lab_list_no as myLabListNo
+		from 
+			tbl_lab_list 
+		WHERE 
+			USER_NO =#{userNo} and  authority = 1
+	
+	</select>
 
 </mapper>

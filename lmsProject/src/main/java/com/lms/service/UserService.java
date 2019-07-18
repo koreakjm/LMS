@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.lms.domain.SearchCriteria;
 import com.lms.domain.UserVO;
+import com.lms.dto.AuthDTO;
 import com.lms.dto.LoginDTO;
 
 public interface UserService {
@@ -30,5 +31,7 @@ public interface UserService {
 
 	// 관리자 학생 삭제
 	public void delete(String userNo) throws Exception;
+	
+	public AuthDTO checkAuth(String userNo) throws Exception;
 
-}
+}	

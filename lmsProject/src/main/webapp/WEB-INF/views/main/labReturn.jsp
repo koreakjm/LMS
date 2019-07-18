@@ -4,7 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!Doctype html>
 <head>
-<title>신청</title>
+<title>참여</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -73,12 +73,13 @@
 		<div class="col-md-5 align-self-center" style="margin-top:7%;">
 		<form role="form" method="post">
 		<input type='hidden' name='userNo' value="${login.userNo}">
+		<input type='hidden' name='labNo' value="${lab.labNo}">
 		<table class="table table-hover">
 
 		
 								<tr>
 									<th>현재시간</th>
-									<td><fmt:formatDate pattern="YYYY-MM-dd HH:mm" value="${joinTime}"/></td>
+									<td><fmt:formatDate pattern="YYYY-MM-dd HH:mm" value="${returnTime}"/></td>
 								</tr>
 								
 								
@@ -86,7 +87,7 @@
 			<div class="text-center text-md-center mt-md-0 align-self-center" style="margin-top:7%;">
 			
 					<!-- <button type="button" name="ajax" id="send" onclick="sendMessage()" class="btn btn-grad">신청</button> -->
-					<button type="submit" class="btn btn-grad">신청</button>
+					<button type="submit" class="btn btn-grad">반납</button>
 					<button type="button" onclick="goBack()" class="btn btn-grad">취소</button>
 			</div>
 			</form>
@@ -94,28 +95,6 @@
 		</div>
 		</div>
 	 <script>
-	/* function sendMessage(){
-		var memNum = $("#memNum").val();
-		var metNum = $("#metNum").val();
-		var memName = $("#memName").val();
-		var memId = $("#memId").val();
-	
-		$.ajax({
-			url : '/meeting?command=joinMeetingAction',
-			type : 'post',
-			data : {memNum : memNum,
-					metNum : metNum,
-					memName : memName,
-					memId : memId},
-			success : function(data){
-				alert("신청되었습니다.");
-				 self.close();
-				opener.parent.location.reload();
-				
-			}
-		});
-	} */
-	
 	function goBack(){
 	self.close();
 	}
@@ -124,13 +103,7 @@
 	if (result != '') {
 	alert(result);
 	}
-	
-/* 
-	if (result == 'success') {
-		alert("참여되었습니다.");
-	} */
-	
-</script>
+	</script>
 	
 	
 	

@@ -72,6 +72,7 @@
 		<div class="container">
 		<div class="col-md-5 align-self-center" style="margin-top:7%;">
 		<form role="form" method="post">
+		<input type='hidden' name='userNo' value="${login.userNo}">
 		<table class="table table-hover">
 
 		
@@ -84,7 +85,6 @@
 		</table>
 			<div class="text-center text-md-center mt-md-0 align-self-center" style="margin-top:7%;">
 			
-					<!-- <button type="button" name="ajax" id="send" onclick="sendMessage()" class="btn btn-grad">신청</button> -->
 					<button type="submit" class="btn btn-grad">참여</button>
 					<button type="button" onclick="goBack()" class="btn btn-grad">취소</button>
 			</div>

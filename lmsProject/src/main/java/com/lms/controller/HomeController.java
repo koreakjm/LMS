@@ -40,17 +40,6 @@ public class HomeController {
 		return "home";
 	}
 	
-	/*@Inject
-	private LabListService labservice;
-
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public void listAll(Model model) throws Exception {
-
-		logger.info("show post ...............");
-		// list.jsp에서 list를 쓰면됨.
-		model.addAttribute("list", labservice.labListAll());
-	}*/
-	
 	@Inject
 	private UserService service;
 

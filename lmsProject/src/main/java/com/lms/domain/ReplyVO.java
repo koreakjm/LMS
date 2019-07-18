@@ -13,11 +13,11 @@ import java.util.Date;
 
 public class ReplyVO {
 
-	public int replyNo;
-	public int regdate;
-	public Date updatedate;
-	public int boardNo;
-	public int userNo;
+	private int replyNo;
+	private int regdate;
+	private Date updatedate;
+	private int boardNo;
+	private int userNo;
 	public int getReplyNo() {
 		return replyNo;
 	}
@@ -53,6 +53,8 @@ public class ReplyVO {
 		return "ReplyVO [replyNo=" + replyNo + ", regdate=" + regdate + ", updatedate=" + updatedate + ", boardNo="
 				+ boardNo + ", userNo=" + userNo + "]";
 	}
+	
+	
 	
 	
 }

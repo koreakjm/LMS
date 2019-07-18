@@ -7,22 +7,25 @@ import com.lms.domain.SearchCriteria;
 
 public interface BoardDAO {
 	
-	// ¿î¿µ°Ô½ÃÆÇ °Ô½Ã±Û µî·Ï//
+	// ìš´ì˜ê²Œì‹œíŒ ê²Œì‹œê¸€ ë“±ë¡//
 	public void regist(BoardVO board) throws Exception;
 	
-	// ¿î¿µ°Ô½ÃÆÇ °Ô½Ã±Û »ó¼¼º¸±â//
+	// ìš´ì˜ê²Œì‹œíŒ ê²Œì‹œê¸€ ìƒì„¸ë³´ê¸°//
 	public BoardVO read(int boardNo) throws Exception;
 	
-	// ¿î¿µ°Ô½ÃÆÇ °Ô½Ã±Û ¼öÁ¤//
+	// ìš´ì˜ê²Œì‹œíŒ ê²Œì‹œê¸€ ìˆ˜ì •//
 	public void modify(BoardVO board) throws Exception;
 	
-	// ¿î¿µ°Ô½ÃÆÇ °Ô½Ã±Û »èÁ¦//
-	public void remove(int boardNo) throws Exception;
+	// ìš´ì˜ê²Œì‹œíŒ ê²Œì‹œê¸€ ì‚­ì œ//
+//	public void remove(int boardNo) throws Exception;
+	   public void remove(Integer boardNo) throws Exception;
 	
-	// ¿î¿µ°Ô½ÃÆÇ °Ô½Ã±Û °Ë»ö, ÆäÀÌÂ¡//
+	// ìš´ì˜ê²Œì‹œíŒ ê²Œì‹œê¸€ ê²€ìƒ‰, í˜ì´ì§•//
 	public List<BoardVO> listSearchCriteria(SearchCriteria cri) throws Exception;
 	
-	// ¿î¿µ°Ô½ÃÆÇ °Ô½Ã±Û °Ë»ö, ÆäÀÌÂ¡, °¹¼ö//
+	// ìš´ì˜ê²Œì‹œíŒ ê²Œì‹œê¸€ ê²€ìƒ‰, í˜ì´ì§•, ê°¯ìˆ˜//
 	public int SearchCountCiteria(SearchCriteria cri) throws Exception;
-
+	
+	//ìš´ì˜ê²Œì‹œíŒ ê²Œì‹œê¸€ ì¡°íšŒìˆ˜ ì¦ê°€
+	void updateViewCnt(int boardNo) throws Exception;
 }

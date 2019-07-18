@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import com.lms.domain.SearchCriteria;
 import com.lms.domain.UserVO;
+import com.lms.dto.AuthDTO;
 import com.lms.dto.LoginDTO;
 
 @Repository
@@ -91,5 +92,13 @@ public class UserDAOImpl implements UserDAO {
 		session.delete(namespace + ".delete", userNo);
 		
 	}
+	
+	// 학생 실습실 권한 확인
+	@Override
+	public AuthDTO checkAuth(String userNo) throws Exception {
+		
+		return session.selectOne(namespace + ".authCheck", userNo);
+	}
+
 
 }
