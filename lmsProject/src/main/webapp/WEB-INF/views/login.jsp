@@ -51,11 +51,11 @@
 							</svg>
 							<!-- SVG Logo End -->
 						</div>
-						<h3 class="font-weight-light">We connect you with the world largest community</h3>
+						<h3 class="font-weight-light">로그인에 필요한 학번과 비밀번호는 <br>학과 사무실에 문의바랍니다. </h3>
 						<ul class="list-group list-group-borderless mt-4">
-							<li class="list-group-item text-white"><i class="fa fa-check"></i>Connect with your community via Wizixo</li>
-							<li class="list-group-item text-white"><i class="fa fa-check"></i>Discover the best experience with fellowship</li>
-							<li class="list-group-item text-white"><i class="fa fa-check"></i>Create your wishlist and enjoy to best experience</li>
+							<li class="list-group-item text-white"><i class="fa fa-check"></i>실습실 열쇠는 경상대학 경비실에 반납해주세요.</li>
+							<li class="list-group-item text-white"><i class="fa fa-check"></i>비밀번호 분실 시 학과 사무실 문의</li>
+							<li class="list-group-item text-white"><i class="fa fa-check"></i>학과 사무실 전화번호 : 042)629-</li>
 						</ul>
 					</div>
 				</div>
@@ -65,8 +65,8 @@
 						<div class="col-12 col-md-10 col-lg-5 text-left mx-auto d-flex align-items-center">
 							<div class="w-100">
 							<form action="/loginPost" method="post">
-								<h2 class="">Sign into your account!</h2>
-								<h5 class="font-weight-light">Nice to see you! Please log in with your account.</h5>
+								<h2 class="">Global IT Business</h2>
+								<h5 class="font-weight-light">- 실습실 관리 시스템 -</h5>
 								<div class="form mt-4 ">
 									<div>
 										<p class="text-left mb-2">Student Number</p>
@@ -76,7 +76,6 @@
 									<div>
 										<div class="d-flex justify-content-between align-items-center">
 											<p class="text-left mb-2">Password</p>
-											<a class="text-muted small mb-2" href="password-recovery.html">Lost password? Click Here.</a>
 										</div>
 										<span class="form-group"><input type="password" name="userPw" class="form-control" placeholder="*********"></span>
 									</div>

@@ -1,4 +1,4 @@
-package com.lms.domain;
+ package com.lms.domain;
 
 /*CREATE TABLE TBL_USER (
 	    USER_NO NUMBER NOT NULL,

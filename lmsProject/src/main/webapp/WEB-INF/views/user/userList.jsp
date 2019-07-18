@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,7 +45,36 @@
 						<div class="row">
 							<div class="col-sm-12 mb-5">
 								<h5 class="text-center mb-4">Student List</h5>
+								
 								<div class="table-responsive-sm">
+												<div class='box-body'>
+									<select name="searchType">
+										<option value="n"
+											<c:out value="${cri.searchType == null?'selected':''}"/>>
+											---</option>
+										<option value="t"
+											<c:out value="${cri.searchType eq 't'?'selected':''}"/>>
+											학번</option>
+										<option value="c"
+											<c:out value="${cri.searchType eq 'c'?'selected':''}"/>>
+											이름</option>
+										<option value="w"
+											<c:out value="${cri.searchType eq 'w'?'selected':''}"/>>
+											재학상태</option>
+										<option value="tc"
+											<c:out value="${cri.searchType eq 'tc'?'selected':''}"/>>
+											학번 OR 이름</option>
+										<option value="cw"
+											<c:out value="${cri.searchType eq 'cw'?'selected':''}"/>>
+											이름 OR 재학상태</option>
+										<option value="tcw"
+											<c:out value="${cri.searchType eq 'tcw'?'selected':''}"/>>
+											학번 OR 이름 OR 재학상태</option>
+									</select> <input type="text" name='keyword' id="keywordInput"
+										value='${cri.keyword }'>
+									<button id='searchBtn'>Search</button>
+								</div>
+								
 									<table class="table table-hover">
 										<thead>
 											<tr>
@@ -86,20 +117,20 @@
 									<ul class="pagination justify-content-center">
 			
 										<c:if test="${pageMaker.prev}">
-											<li class="page-item disabled">
-											<a class ="page-link" href="list${pageMaker.makeSearch(pageMaker.startPage - 1) }">&laquo;</a></li>
+											<li class="page-item">
+											<a class="page-link" href="userList${pageMaker.makeSearch(pageMaker.startPage - 1) }">&laquo;</a></li>
 										</c:if>
 			
 										<c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }" var="idx">
 											<li class="page-item active"
 												<c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
-												<a class="page-link bg-grad" href="list${pageMaker.makeSearch(idx)}">${idx}</a>
+												<a class="page-link bg-grad" href="userList${pageMaker.makeSearch(idx)}">${idx}</a>
 											</li>
 										</c:forEach>
 			
 										<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
 											<li class="page-item">
-											<a class="page-link" href="list${pageMaker.makeSearch(pageMaker.endPage +1) }">&raquo;</a></li>
+											<a class="page-link" href="userList${pageMaker.makeSearch(pageMaker.endPage +1) }">&raquo;</a></li>
 										</c:if>
 			
 									</ul>
@@ -126,7 +157,7 @@
 						"click",
 						function(event) {
 
-							self.location = "list"
+							self.location = "userList"
 									+ '${pageMaker.makeQuery(1)}'
 									+ "&searchType="
 									+ $("select option:selected").val()

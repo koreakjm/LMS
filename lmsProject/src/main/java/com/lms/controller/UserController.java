@@ -155,7 +155,8 @@ public class UserController {
 
 	// 삭제 후 검색 페이지 유지//
 	@RequestMapping(value = "/userRemove", method = RequestMethod.POST)
-	public String remove(@RequestParam("userNo") String userNo, SearchCriteria cri, RedirectAttributes rttr) throws Exception {
+	public String remove(@RequestParam("userNo") String userNo, SearchCriteria cri, RedirectAttributes rttr)
+			throws Exception {
 
 		service.delete(userNo);
 
