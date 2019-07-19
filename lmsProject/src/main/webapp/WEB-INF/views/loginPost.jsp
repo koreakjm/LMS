@@ -9,7 +9,7 @@
 </head>
 <body>
   <script type="text/javascript">
-    self.location = "/login";
+    self.location = "/";
   </script>
 </body>
 </html>

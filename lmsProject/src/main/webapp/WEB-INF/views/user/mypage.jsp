@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>글로벌IT경영전공 : 내정보</title>
+<title>LMS : 내정보</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -28,6 +29,12 @@
 
 	<!-- Theme CSS -->
 	<link rel="stylesheet" type="text/css" href="/resources/css/style.css" />
+	
+	<style type="text/css">
+	.list-group {
+		font-color:black;
+	}
+	</style>
 	
 	<script>
 	var result = '${msg}';
@@ -56,31 +63,35 @@
 	</header>
 	<!-- ======================= header End-->
 	
-	<!-- ======================= feature box -->
+			<!-- =======================
+	List styles -->
 	<section>
 		<div class="container">
+			<div class="row justify-content-md-center">
 
-			<!-- style 3 -->
-			<div class="row">
-				<div class="col-sm-12 text-center mt-5 mb-4">
-					<h2>내 정보</h2>
-				</div>
-				<div class="col-lg-4 mt-4">
-					<div class="feature-box f-style-3 h-100 icon-grad">
-						<div class="feature-box-icon"><i class="ti-panel"></i></div>
-						<h3 class="feature-box-title">이름 : ${login.userName}</h3>
-						<h3 class="feature-box-title">학번 : ${login.userNo}</h3>
-						<h3 class="feature-box-title">재학상태 : ${login.state}</h3>
-					</div>
-				</div>
-				<div class="col-lg-4 mt-4">
-					<div class="feature-box f-style-3 h-100 icon-grad">
-						<div class="feature-box-icon"><i class="ti-palette"></i></div>
-						<h3 class="feature-box-title">비밀번호 변경 <br><a href="/user/pwModify?userNo=${login.userNo}">변경하기</a></h3>
-					</div>
+				<div class="col-md-8">
+					<h5 class="text-center">내 정보<br><br></h5>
+					<ul class="list-group">
+						<li class="list-group-item">이름&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${login.userName}</li>
+						
+						<li class="list-group-item">학번&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${login.userNo}</li>
+						
+						<li class="list-group-item">재학상태&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${login.state}</li>
+						
+						<li class="list-group-item">비밀번호&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**********
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<a href="/user/pwModify?userNo=${login.userNo}">비밀번호 변경</a></li>
+					</ul>
 				</div>
 			</div>
-			<!-- style 3 end-->
 		</div>
 	</section>
 			

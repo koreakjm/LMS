@@ -54,6 +54,8 @@ public class UserController {
 		boolean result = service.checkPw(vo.getUserNo(), vo.getUserPw());
 
 		if (result) { // 비밀번호가 일치하면 수정 처리 후, 홈
+			
+			logger.info("newPw! ............." + newPw);
 
 			// 새 비밀번호를 userPw에 담는다.
 			vo.setUserPw(newPw);

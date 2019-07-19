@@ -64,7 +64,7 @@
 					<div class="row h-100">
 						<div class="col-12 col-md-10 col-lg-5 text-left mx-auto d-flex align-items-center">
 							<div class="w-100">
-							<form role="form" action="pwModify" method="post">
+							<form role="form" action="pwModify" method="post" onsubmit="return pwCheck()">
 							<input type='hidden' name='userNo' value="${login.userNo}">
 								<h2 class="">비밀번호 변경하기!</h2>
 								<div class="form mt-4 ">
@@ -72,7 +72,7 @@
 									<div>
 										<div class="d-flex justify-content-between align-items-center">
 										</div>
-										<span class="form-group"><input type="password" name="userPw" class="form-control" placeholder="현재 비밀번호"></span>
+										<span class="form-group"><input type="password" name="userPw" id="userPw" class="form-control" placeholder="현재 비밀번호"></span>
 									</div>
 									
 									<div>
@@ -97,7 +97,7 @@
 										<div class="col-6 col-md-8"></div>
 										<div class="col-6 col-md-4 text-right">
 											<button type="submit" class="btn btn-primary ">확인</button>
-											<button type="submit" class="btn btn-primary ">취소</button></div>
+											<input type="button" class="btn btn-warning " value="취소" onclick="location.href='/user/mypage'"></div>
 									</div>
 								</div>
 								</form>
@@ -108,6 +108,8 @@
 			</div>
 		</div>
 	</section>
+	
+
 	<!-- =======================
 	Sign in -->
 	
@@ -130,6 +132,8 @@
 				increaseArea : '20%' // optional
 			});
 		});
+		
+		
 	</script>
 	
 	<script type="text/javascript">
@@ -152,6 +156,30 @@
             }
         });
     });
+    
+	function pwCheck(){
+		   var userPw = $("#userPw").val();
+           var new_pw=$("#new_pw").val();
+           var comf_pw=$("#comf_pw").val();
+           
+		   if(userPw == ""){
+		      alert("현재 비밀번호를 입력해주세요.");
+		      document.getElementById("userPw").focus();
+		      return false;
+		   }
+ 		   if(new_pw == ""){
+  		      alert("새 비밀번호를 입력해주세요.");
+  		      document.getElementById("new_pw").focus();
+  		      return false;
+  		   }
+  		   if(comf_pw == ""){
+  			  alert("새 비밀번호 확인을 입력해주세요.");
+  			  document.getElementById("comf_pw").focus();
+  			  return false;
+  			}
+		   
+		}
+	
 	</script>
 	<script>
 	var result = '${msg}';
@@ -159,6 +187,8 @@
 	if (result == 'FAIL') {
 		alert("비밀번호를 정확하게 입력해 주세요.");
 	}
+	
+
 	</script>
 
 </body>

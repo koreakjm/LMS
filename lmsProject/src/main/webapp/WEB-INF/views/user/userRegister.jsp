@@ -76,7 +76,7 @@
 									
 									<div align="right">
 										<button type="submit" class="btn btn-primary">SUBMIT</button>
-										<button type="submit" class="btn btn-warning">CANCEL</button>
+										<input type="button" class="btn btn-warning " value="취소" onclick="location.href='/user/userList'">
 									</div>
 									
 								</div>
@@ -100,11 +100,7 @@
 
 		console.log(formObj);
 
-		$(".btn-warning")
-		.on("click",function() {
-			self.location = "/user/userList?page=${cri.page}&perPageNum=${cri.perPageNum}"
-				+ "&searchType=${cri.searchType}&keyword=${cri.keyword}";
-			});
+
 		
 		$(".btn-primary").on("click",
 				function() {

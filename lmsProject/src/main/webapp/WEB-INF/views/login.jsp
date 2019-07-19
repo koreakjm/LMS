@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Wizixo | Creative Multipurpose Bootstrap Template</title>
+<title>LMS : 로그인</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -64,20 +64,20 @@
 					<div class="row h-100">
 						<div class="col-12 col-md-10 col-lg-5 text-left mx-auto d-flex align-items-center">
 							<div class="w-100">
-							<form action="/loginPost" method="post">
+							<form action="/loginPost" method="post" onsubmit="return loginCheck()">
 								<h2 class="">Global IT Business</h2>
 								<h5 class="font-weight-light">- 실습실 관리 시스템 -</h5>
 								<div class="form mt-4 ">
 									<div>
 										<p class="text-left mb-2">Student Number</p>
 										<span class="form-group">
-										<input type="text" name="userNo" class="form-control" placeholder="Student Number"></span>
+										<input type="text" name="userNo" id="userNo" class="form-control" placeholder="Student Number"></span>
 									</div>
 									<div>
 										<div class="d-flex justify-content-between align-items-center">
 											<p class="text-left mb-2">Password</p>
 										</div>
-										<span class="form-group"><input type="password" name="userPw" class="form-control" placeholder="*********"></span>
+										<span class="form-group"><input type="password" name="userPw" id="userPw" class="form-control" placeholder="*********"></span>
 									</div>
 									<div class="row align-items-center no-gutters m-0">
 										<div class="col-6 col-md-8"></div>
@@ -115,6 +115,29 @@
 				increaseArea : '20%' // optional
 			});
 		});
+		
+		var result = '${msg}';
+
+		if(result == "FAIL"){
+		   alert("학번 또는 비밀번호가 일치하지 않습니다.");
+		}
+		
+		function loginCheck(){
+			   var userNo = $("#userNo").val();
+			   var userPw = $("#userPw").val();
+			   
+			   if(userNo == ""){
+			      alert("학번을 입력해주세요.");
+			      document.getElementById("userNo").focus();
+			      return false;
+			   }
+			   if(userPw == ""){
+			      alert("비밀번호를 입력해주세요.");
+			      document.getElementById("userPw").focus();
+			      return false;
+			   }
+			   
+			}
 	</script>
 </body>
 </html>

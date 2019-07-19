@@ -23,8 +23,7 @@ public class BoardVO {
 	private int viewCnt;
 	private String category;
 	private String boardFile;
-	private int userNo;
-	
+	private String userNo;
 	public int getBoardNo() {
 		return boardNo;
 	}
@@ -67,10 +66,10 @@ public class BoardVO {
 	public void setBoardFile(String boardFile) {
 		this.boardFile = boardFile;
 	}
-	public int getUserNo() {
+	public String getUserNo() {
 		return userNo;
 	}
-	public void setUserNo(int userNo) {
+	public void setUserNo(String userNo) {
 		this.userNo = userNo;
 	}
 	@Override
@@ -79,7 +78,6 @@ public class BoardVO {
 				+ ", regdate=" + regdate + ", viewCnt=" + viewCnt + ", category=" + category + ", boardFile="
 				+ boardFile + ", userNo=" + userNo + "]";
 	}
-	
 	
 	
 

@@ -17,44 +17,52 @@ public class ReplyVO {
 	private int regdate;
 	private Date updatedate;
 	private int boardNo;
-	private int userNo;
+	private String userNo;
+
 	public int getReplyNo() {
 		return replyNo;
 	}
+
 	public void setReplyNo(int replyNo) {
 		this.replyNo = replyNo;
 	}
+
 	public int getRegdate() {
 		return regdate;
 	}
+
 	public void setRegdate(int regdate) {
 		this.regdate = regdate;
 	}
+
 	public Date getUpdatedate() {
 		return updatedate;
 	}
+
 	public void setUpdatedate(Date updatedate) {
 		this.updatedate = updatedate;
 	}
+
 	public int getBoardNo() {
 		return boardNo;
 	}
+
 	public void setBoardNo(int boardNo) {
 		this.boardNo = boardNo;
 	}
-	public int getUserNo() {
+
+	public String getUserNo() {
 		return userNo;
 	}
-	public void setUserNo(int userNo) {
+
+	public void setUserNo(String userNo) {
 		this.userNo = userNo;
 	}
+
 	@Override
 	public String toString() {
 		return "ReplyVO [replyNo=" + replyNo + ", regdate=" + regdate + ", updatedate=" + updatedate + ", boardNo="
 				+ boardNo + ", userNo=" + userNo + "]";
 	}
-	
-	
-	
-	
+
 }

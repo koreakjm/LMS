@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+ <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -45,10 +45,8 @@
 						<div class="row">
 							<div class="col-sm-12 mb-5">
 								<h5 class="text-center mb-4">Student List</h5>
-								
-								<div class="table-responsive-sm">
-												<div class='box-body'>
-									<select name="searchType">
+									<div class="col-md-2">
+									<select class="custom-select select-big mb-2" name="searchType">
 										<option value="n"
 											<c:out value="${cri.searchType == null?'selected':''}"/>>
 											---</option>
@@ -70,10 +68,13 @@
 										<option value="tcw"
 											<c:out value="${cri.searchType eq 'tcw'?'selected':''}"/>>
 											학번 OR 이름 OR 재학상태</option>
-									</select> <input type="text" name='keyword' id="keywordInput"
-										value='${cri.keyword }'>
+									</select>
+										<input type="text" class="form-control" name='keyword' id="keywordInput" value='${cri.keyword }'>
 									<button id='searchBtn'>Search</button>
 								</div>
+								
+								<div class="table-responsive-sm">
+											
 								
 									<table class="table table-hover">
 										<thead>
