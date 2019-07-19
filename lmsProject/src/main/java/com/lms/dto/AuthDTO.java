@@ -4,6 +4,7 @@ public class AuthDTO {
 
 	private String myAuthority;
 	private String myLabListNo;
+	private String myLabNo;
 
 	public String getMyAuthority() {
 		return myAuthority;
@@ -21,9 +22,17 @@ public class AuthDTO {
 		this.myLabListNo = myLabListNo;
 	}
 
+	public String getMyLabNo() {
+		return myLabNo;
+	}
+
+	public void setMyLabNo(String myLabNo) {
+		this.myLabNo = myLabNo;
+	}
+
 	@Override
 	public String toString() {
-		return "AuthDTO [myAuthority=" + myAuthority + ", myLabListNo=" + myLabListNo + "]";
+		return "AuthDTO [myAuthority=" + myAuthority + ", myLabListNo=" + myLabListNo + ", myLabNo=" + myLabNo + "]";
 	}
 
 }

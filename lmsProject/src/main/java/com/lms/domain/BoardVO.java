@@ -15,7 +15,7 @@ import java.util.Date;
 	);*/
 
 public class BoardVO {
-	
+
 	private int boardNo;
 	private String boardTitle;
 	private String boardContent;
@@ -24,61 +24,85 @@ public class BoardVO {
 	private String category;
 	private String boardFile;
 	private String userNo;
+	private String userName;
+
 	public int getBoardNo() {
 		return boardNo;
 	}
+
 	public void setBoardNo(int boardNo) {
 		this.boardNo = boardNo;
 	}
+
 	public String getBoardTitle() {
 		return boardTitle;
 	}
+
 	public void setBoardTitle(String boardTitle) {
 		this.boardTitle = boardTitle;
 	}
+
 	public String getBoardContent() {
 		return boardContent;
 	}
+
 	public void setBoardContent(String boardContent) {
 		this.boardContent = boardContent;
 	}
+
 	public Date getRegdate() {
 		return regdate;
 	}
+
 	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
 	}
+
 	public int getViewCnt() {
 		return viewCnt;
 	}
+
 	public void setViewCnt(int viewCnt) {
 		this.viewCnt = viewCnt;
 	}
+
 	public String getCategory() {
 		return category;
 	}
+
 	public void setCategory(String category) {
 		this.category = category;
 	}
+
 	public String getBoardFile() {
 		return boardFile;
 	}
+
 	public void setBoardFile(String boardFile) {
 		this.boardFile = boardFile;
 	}
+
 	public String getUserNo() {
 		return userNo;
 	}
+
 	public void setUserNo(String userNo) {
 		this.userNo = userNo;
 	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
 	@Override
 	public String toString() {
 		return "BoardVO [boardNo=" + boardNo + ", boardTitle=" + boardTitle + ", boardContent=" + boardContent
 				+ ", regdate=" + regdate + ", viewCnt=" + viewCnt + ", category=" + category + ", boardFile="
-				+ boardFile + ", userNo=" + userNo + "]";
+				+ boardFile + ", userNo=" + userNo + ", userName=" + userName + "]";
 	}
-	
-	
 
 }
