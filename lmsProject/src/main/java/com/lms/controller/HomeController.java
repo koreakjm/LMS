@@ -16,6 +16,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.lms.domain.UserVO;
 import com.lms.dto.LoginDTO;
+import com.lms.service.BoardService;
 import com.lms.service.LabListService;
 import com.lms.service.UserService;
 
@@ -30,13 +31,18 @@ public class HomeController {
 	@Inject
 	private LabListService labservice;
 
+	@Inject
+	private BoardService boardservice;
+
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model) throws Exception {
 
 		logger.info("Welcome home!");
 		logger.info("show post ...............");
+		
 		// list.jsp에서 list를 쓰면됨.
 		model.addAttribute("list", labservice.labListAll());
+		model.addAttribute("boardList", boardservice.selectThreeBoard());
 		return "home";
 	}
 

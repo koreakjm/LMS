@@ -2,6 +2,7 @@ package com.lms.service;
 
 import java.util.List;
 
+import com.lms.domain.BoardVO;
 import com.lms.domain.SearchCriteria;
 import com.lms.domain.UserVO;
 import com.lms.dto.AuthDTO;
@@ -33,5 +34,7 @@ public interface UserService {
 	public void delete(String userNo) throws Exception;
 	
 	public AuthDTO checkAuth(String userNo) throws Exception;
+	
+
 
 }	

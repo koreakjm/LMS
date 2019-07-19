@@ -66,7 +66,7 @@ public class BoardController {
 		model.addAttribute("pageMaker", pageMaker);
 	}
 
-	// °Ô½Ã¹° µî·Ï
+	// ê²Œì‹œë¬¼ ë“±ë¡
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public void registerGet(BoardVO board, Model model) throws Exception {
 
@@ -87,7 +87,7 @@ public class BoardController {
 
 	}
 
-	// »ó¼¼º¸±â
+	// ìƒì„¸ë³´ê¸°
 	@RequestMapping(value = "/readPage", method = RequestMethod.GET)
 	public void read(@RequestParam("boardNo") int boardNo, @ModelAttribute("cri") Criteria cri, Model model)
 			throws Exception {
@@ -96,10 +96,11 @@ public class BoardController {
 	}
 
 	@RequestMapping(value = "/modify", method = RequestMethod.GET)
-	public void modifyPageGET(@RequestParam("boardNo") int boardNo, @ModelAttribute("cri") SearchCriteria cri,
+	public void modifyPageGET(@RequestParam("boardNo") int boardNo, @ModelAttribute("cri") Criteria cri,
 			Model model) throws Exception {
 
-		// readÀÇ ¸®ÅÏ Å¸ÀÔÀÌ BoardVOÀÌ±â ¶§¹®¿¡ boardVO¸¦ modifyPage.jsp¿¡¼­ ¾µ ¼ö ÀÖÀ½.
+		// readì˜ ë¦¬í„´ íƒ€ì…ì´ BoardVOì´ê¸° ë•Œë¬¸ì— boardVOë¥¼ modifyPage.jspì—ì„œ ì“¸ ìˆ˜ ìˆìŒ.
+		System.out.println("boardNo================ " + boardNo);
 		model.addAttribute(service.read(boardNo));
 
 	}
@@ -118,13 +119,15 @@ public class BoardController {
        return "redirect:/board/list";
     }
 
-	// ¼öÁ¤ÇÒ¶§´Â ÀÌ¸§, ³»¿ë ... BoardVO¸¦ °¡Á®¿Â´Ù. »èÁ¦ÇÒ¶§´Â ÀÌ¸§,³»¿ëÀº ÇÊ¿ä°¡ ¾øÀ¸¹Ç·Î bno¸¸ °¡Á®¿Â´Ù. ¸¶Âù°¡Áö·Î µî·ÏÇÒ¶§´Â
-	// BoardVO°¡Á®¿È.
-	@RequestMapping(value = "/modify", method = RequestMethod.POST)
+	// ìˆ˜ì •í• ë•ŒëŠ” ì´ë¦„, ë‚´ìš© ... BoardVOë¥¼ ê°€ì ¸ì˜¨ë‹¤. ì‚­ì œí• ë•ŒëŠ” ì´ë¦„,ë‚´ìš©ì€ í•„ìš”ê°€ ì—†ìœ¼ë¯€ë¡œ bnoë§Œ ê°€ì ¸ì˜¨ë‹¤. ë§ˆì°¬ê°€ì§€ë¡œ ë“±ë¡í• ë•ŒëŠ”
+	// BoardVOê°€ì ¸ì˜´.
+	@RequestMapping(value ="/modify", method = RequestMethod.POST)
 	public String modifyPagePOST(BoardVO board, RedirectAttributes rttr, SearchCriteria cri) throws Exception {
 
 		service.modify(board);
 
+		logger.info("modify post........... : " + board);
+		
 		rttr.addAttribute("page", cri.getPage());
 		rttr.addAttribute("perPageNum", cri.getPerPageNum());
 		rttr.addAttribute("searchType", cri.getSearchType());

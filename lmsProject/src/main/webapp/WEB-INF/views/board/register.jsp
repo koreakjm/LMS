@@ -61,7 +61,6 @@
 	<section>
 		<div class="container">
 			<form role="form" method="post">
-			<input type="hidden" name="userNo" value="${login.userNo}">
 				<div class="row mt-5">
 					<div class="col-md-12">
 						<h2 class="mb-2">운영게시글 등록</h2>
@@ -71,6 +70,7 @@
 					<div class="col-md-2">
 						<select class="custom-select select-big mb-3"
 							name="category">
+							<option value="null">--전체--</option>
 							<option value="공지사항">공지사항</option>
 							<option value="건의">건의</option>
 							<option value="분실물">분실물</option>

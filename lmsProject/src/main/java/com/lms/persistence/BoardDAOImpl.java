@@ -36,17 +36,17 @@ public class BoardDAOImpl implements BoardDAO {
 
 	}
 
-//	@Override
-//	public void remove(int boardNo) throws Exception {
-//
-//		session.delete(namespace + ".remove", boardNo);
-//	}
-	
-	   @Override
-	   public void remove(Integer boardNo) throws Exception {
+	// @Override
+	// public void remove(int boardNo) throws Exception {
+	//
+	// session.delete(namespace + ".remove", boardNo);
+	// }
 
-	      session.delete(namespace+".remove", boardNo);
-	   }
+	@Override
+	public void remove(Integer boardNo) throws Exception {
+
+		session.delete(namespace + ".remove", boardNo);
+	}
 
 	@Override
 	public List<BoardVO> listSearchCriteria(SearchCriteria cri) throws Exception {
@@ -57,11 +57,18 @@ public class BoardDAOImpl implements BoardDAO {
 	public int SearchCountCiteria(SearchCriteria cri) throws Exception {
 		return session.selectOne(namespace + ".listSearchCount", cri);
 	}
-
+	
+	@Override
 	public void updateViewCnt(int boardNo) throws Exception {
 
 		session.update(namespace + ".updateViewCnt", boardNo);
 
+	}
+
+	@Override
+	public List<BoardVO> selectThreeBoard() throws Exception {
+		// TODO Auto-generated method stub
+		return session.selectList(namespace + ".selectThreeBoard");
 	}
 
 }

@@ -80,4 +80,6 @@ public class UserServiceImpl implements UserService {
 	public AuthDTO checkAuth(String userNo) throws Exception {
 		return dao.checkAuth(userNo);
 	}
+	
+	
 }

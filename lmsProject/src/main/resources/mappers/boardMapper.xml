@@ -41,8 +41,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 수정 -->
 	<update id="modify">
 		update tbl_board set board_title = #{boardTitle} ,
-		board_content =
-		#{boardContent} , category =#{category},
+		board_content = #{boardContent} , category =#{category},
 		board_file=#{boardFile}
 		where board_no = #{boardNo}
 	</update>
@@ -101,4 +100,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<include refid="search"></include>
 
 	</select>
+	
+	<!-- 3개 보여주기 메인화면 -->
+	<select id="selectThreeBoard" resultType="com.lms.domain.BoardVO">
+   <![CDATA[
+   select * from (select b.category, b.board_title,u.user_name from tbl_board b, tbl_user u where b.user_no = u.user_no order by b.regdate desc) where rownum <= 3
+   ]]>
+   </select>
 </mapper>

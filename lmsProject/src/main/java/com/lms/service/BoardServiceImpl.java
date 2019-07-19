@@ -50,4 +50,9 @@ public class BoardServiceImpl implements BoardService {
 		return dao.SearchCountCiteria(cri);
 	}
 
+	@Override
+	public List<BoardVO> selectThreeBoard() throws Exception {
+		return dao.selectThreeBoard();
+	}
+
 }

@@ -4,7 +4,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 
-
 <!DOCTYPE html>
 <html>
 
@@ -63,14 +62,6 @@
 <link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
 </head>
 <body>
-	<form role="form" action="modifyPage" method="post">
-		<input type='hidden' name='reviewNo' value="${boardVO.boardNo}">
-		<input type='hidden' name='page' value="${cri.page}"> <input
-			type='hidden' name='perPageNum' value="${cri.perPageNum}"> <input
-			type='hidden' name='searchType' value="${cri.searchType}"> <input
-			type='hidden' name='keyword' value="${cri.keyword}">
-
-	</form>
 	<header>
 		<%@ include file="../include/header.jsp"%>
 	</header>
@@ -95,7 +86,6 @@
 	</div>
 	<!-- =======================
    Banner innerpage -->
-
 	<section>
 
 		<div class="container">
@@ -113,101 +103,113 @@
 
 							<div class='box-body'>
 
-								<select name="searchType">
-									<option value="n"
-										<c:out value="${cri.searchType == null?'selected':''}"/>>
-										---</option>
-									<option value="t"
-										<c:out value="${cri.searchType eq 't'?'selected':''}"/>>
-										제목</option>
-									<option value="w"
-										<c:out value="${cri.searchType eq 'w'?'selected':''}"/>>
-										작성자</option>
-									<option value="r"
-										<c:out value="${cri.searchType eq 'r'?'selected':''}"/>>
-										작성일</option>
+					<select name="searchType">
+						<option value="n"
+							<c:out value="${cri.searchType == null?'selected':''}"/>>
+							---</option>
+						<option value="t"
+							<c:out value="${cri.searchType eq 't'?'selected':''}"/>>
+							제목</option>
+						<option value="w"
+							<c:out value="${cri.searchType eq 'w'?'selected':''}"/>>
+							작성자</option>
+						<option value="r"
+							<c:out value="${cri.searchType eq 'r'?'selected':''}"/>>
+							작성일</option>
+						
+					</select> <input type="text" name='keyword' id="keywordInput"
+						value='${cri.keyword}'>
+				<button id='searchBtn'>Search</button>
 
-								</select> <input type="text" name='keyword' id="keywordInput"
-									value='${cri.keyword}'>
-								<button id='searchBtn'>Search</button>
-
-							</div>
-						</div>
+				</div>
+			</div>
 
 
-						<div class="table-responsive-sm">
-							<table class="table table-hover">
+							<div class="table-responsive-sm">
+								<table class="table table-hover">
 
-								<thead>
+									<thead>
 
-									<tr>
-										<th scope="col">게시번호</th>
-										<th scope="col">유형</th>
-										<th scope="col">제목</th>
-										<th scope="col">작성자</th>
-										<th scope="col">작성일</th>
-										<th scope="col">조회수</th>
-
-									</tr>
-								</thead>
-
-								<tbody>
-									<c:forEach var="boardVO" items="${list}">
 										<tr>
-
-											<td>${boardVO.boardNo}</td>
-											<td>${boardVO.category}</td>
-											<td><a
-												href='/board/readPage${pageMaker.makeSearch(pageMaker.cri.page) }&boardNo=${boardVO.boardNo}'>
-													${boardVO.boardTitle} </a></td>
-											<td>${boardVO.userNo}</td>
-											<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm"
-													value="${boardVO.regdate}" /></td>
-											<td>${boardVO.viewCnt}</td>
+											<th scope="col">게시번호</th>
+											<th scope="col">유형</th>
+											<th scope="col">제목</th>
+											<th scope="col">작성자</th>
+											<th scope="col">작성일</th>
+											<th scope="col">조회수</th>
 
 										</tr>
-									</c:forEach>
+									</thead>
 
-								</tbody>
+									<tbody>
+										<c:forEach var="boardVO" items="${list}">
+											<tr>
 
-							</table>
-							<div align="right">
-								<a class="btn btn-grad" id='newBtn' href="register">글쓰기</a>
+												<td>${boardVO.boardNo}</td>
+												<td>${boardVO.category}</td>
+												<td><a
+													href='/board/readPage${pageMaker.makeSearch(pageMaker.cri.page) }&boardNo=${boardVO.boardNo}'>
+														${boardVO.boardTitle} </a></td>
+												<td>${boardVO.userNo}</td>
+												<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm"
+														value="${boardVO.regdate}" /></td>
+												<td>${boardVO.viewCnt}</td>
 
+											</tr>
+										</c:forEach>
+
+									</tbody>
+
+								</table>
+								<div align="right">
+									<a class="btn btn-grad" id='newBtn' href="register">글쓰기</a>
+
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
 	</section>
+   <section class="pt-0">
+      <div class="container">
+         <div class="row justify-content-center">
+            <div class="col-md-8">
+               <nav>
+                  <ul class="pagination justify-content-center">
+                     <c:if test="${criteria.pageNum > 1}">
+                        <li class="page-item"><a class="page-link"
+                           href="list${pageMaker.makeSearch(pageMaker.startPage - 1) }">&laquo;</a></li>
+                     </c:if>
 
-	<div class="box-footer">
 
-		<div class="text-center">
-			<ul class="pagination">
+                     <c:forEach begin="${pageMaker.startPage }"
+                        end="${pageMaker.endPage }" var="idx">
+                        <c:choose>
+                           <c:when test="${idx == Criteria.page}">
+                              <li class="page-item active">
+                              <span
+                                 class="page-link bg-grad">${idx}</span></li>
+                           </c:when>
 
-				<c:if test="${pageMaker.prev}">
-					<li><a
-						href="list${pageMaker.makeSearch(pageMaker.startPage - 1) }">&laquo;</a></li>
-				</c:if>
+                           <c:otherwise>
+                           
+                              <li class="page-item"><a class="page-link"
+                                 href="list${pageMaker.makeSearch(idx)}">${idx}${Criteria.page}</a></li>
+                           </c:otherwise>
+                        </c:choose>
+                     </c:forEach>
 
-				<c:forEach begin="${pageMaker.startPage }"
-					end="${pageMaker.endPage }" var="idx">
-					<li
-						<c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
-						<a href="list${pageMaker.makeSearch(idx)}">${idx}</a>
-					</li>
-				</c:forEach>
-
-				<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-					<li><a
-						href="list${pageMaker.makeSearch(pageMaker.endPage +1) }">&raquo;</a></li>
-				</c:if>
-
-			</ul>
-		</div>
-
-	</div>
+                     <c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+                        <li class="page-item"><a class="page-link"
+                           href="list${pageMaker.makeSearch(pageMaker.endPage +1) }">&raquo;</a></li>
+                     </c:if>
+                  </ul>
+               </nav>
+            </div>
+         </div>
+      </div>
+   </section>
+	
 	<script>
 		var result = '${msg}';
 
@@ -215,30 +217,29 @@
 			alert("처리가 완료되었습니다.");
 		}
 	</script>
-	<script language="JavaScript">
-		$(document).ready(
-				function() {
+<script language="JavaScript"> 
+	$(document).ready(
+			function() {
 
-					$('#searchBtn').on(
-							"click",
-							function(event) {
+				$('#searchBtn').on(
+						"click",
+						function(event) {
 
-								self.location = "list"
-										+ '${pageMaker.makeQuery(1)}'
-										+ "&searchType="
-										+ $("select option:selected").val()
-										+ "&keyword="
-										+ $('#keywordInput').val();
-							});
+							self.location = "list"
+									+ '${pageMaker.makeQuery(1)}'
+									+ "&searchType="
+									+ $("select option:selected").val()
+									+ "&keyword=" + $('#keywordInput').val();
+						});
 
-					$('#newBtn').on("click", function(evt) {
+				$('#newBtn').on("click", function(evt) {
 
-						self.location = "register";
-
-					});
+					self.location = "register";
 
 				});
-	</script>
+
+			});
+</script>
 
 	<%@ include file="../include/footer.jsp"%>
 </body>
