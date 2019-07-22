@@ -1,47 +1,46 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-   pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+ <%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<!Doctype html>
+<!DOCTYPE html>
+<html>
 <head>
-<title>글로벌IT경영학과 실습실 예약</title>
-   <meta charset="utf-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-   <meta name="viewport" content="width=device-width, initial-scale=1">
-   <meta name="author" content="Webestica.com">
-   <meta name="description" content="Creative Multipurpose Bootstrap Template">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Wizixo | Creative Multipurpose Bootstrap Template</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="author" content="Webestica.com">
+	<meta name="description" content="Creative Multipurpose Bootstrap Template">
 
-   <!-- Favicon -->
-   <link rel="shortcut icon" href="/resources/images/favicon.ico">
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="/resources/images/favicon.ico">
 
-   <!-- Google Font -->
-   <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900%7CPlayfair+Display:400,400i,700,700i%7CRoboto:400,400i,500,700" rel="stylesheet">
+	<!-- Google Font -->
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900%7CPlayfair+Display:400,400i,700,700i%7CRoboto:400,400i,500,700" rel="stylesheet">
 
-   <!-- Plugins CSS -->
-   <link rel="stylesheet" type="text/css" href="/resources/vendor/font-awesome/css/font-awesome.min.css" />
-   <link rel="stylesheet" type="text/css" href="/resources/vendor/themify-icons/css/themify-icons.css" />
-   <link rel="stylesheet" type="text/css" href="/resources/vendor/animate/animate.min.css" />
-   <link rel="stylesheet" type="text/css" href="/resources/vendor/fancybox/css/jquery.fancybox.min.css" />
-   <link rel="stylesheet" type="text/css" href="/resources/vendor/owlcarousel/css/owl.carousel.min.css" />
-   <link rel="stylesheet" type="text/css" href="/resources/vendor/swiper/css/swiper.min.css" />
+	<!-- Plugins CSS -->
+	<link rel="stylesheet" type="text/css" href="/resources/vendor/font-awesome/css/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css" href="/resources/vendor/themify-icons/css/themify-icons.css" />
+	<link rel="stylesheet" type="text/css" href="/resources/vendor/animate/animate.min.css" />
+	<link rel="stylesheet" type="text/css" href="/resources/vendor/fancybox/css/jquery.fancybox.min.css" />
+	<link rel="stylesheet" type="text/css" href="/resources/vendor/owlcarousel/css/owl.carousel.min.css" />
+	<link rel="stylesheet" type="text/css" href="/resources/vendor/swiper/css/swiper.min.css" />
 
-   <!-- Theme CSS -->
-   <link rel="stylesheet" type="text/css" href="/resources/css/style.css" />
-
-   <%@ include file="/WEB-INF/views/include/header.jsp"%>
+	<!-- Theme CSS -->
+	<link rel="stylesheet" type="text/css" href="/resources/css/style.css" />
 
 </head>
-
 <body>
-   <div class="preloader">
-      <img src="/resources/images/preloader.svg" alt="Pre-loader">
-   </div>
-
-
-
-   <!-- =======================
-   portfolio -->
-   <div class="container">
+	<!-- ======================= header Start-->
+	<header>
+		<%@ include file="/WEB-INF/views/include/header.jsp"%>
+	</header>
+	<!-- ======================= header End-->
+	
+	
+				<!-- ======================= Table -->
+				<div class="container">
       <div class="row mb-4">
 
          <input type='hidden' name='userNo' value="${login.userNo}">
@@ -94,7 +93,7 @@
 
       <div>
          <div style="margin-top: 15%;">
-            <span style="font-size: 25px;">실습실 현황(${login.userName}),(${lab.myLabNo})</span>
+            <span style="font-size: 25px;">실습실 현황</span>
          </div>
 
          <table class="table table-hover">
@@ -154,32 +153,16 @@
          <div class="row post-navigation mt-5"></div>
       </div>
    </div>
-
-
-   <!-- =======================
-   footer  -->
-      <%@ include file="/WEB-INF/views/include/footer.jsp"%>
-   <!-- =======================
-   footer  -->
-
-   <div>
-      <a href="#" class="back-top btn btn-grad"><i class="ti-angle-up"></i></a>
-   </div>
-
-   <!--Global JS-->
-   <script src="/resources/vendor/jquery/jquery.min.js"></script>
-   <script src="/resources/vendor/popper.js/umd/popper.min.js"></script>
-   <script src="/resources/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-   <script src="/resources/vendor/jquery-easing/jquery.easing.min.js"></script>
-
-   <!--Vendors-->
-   <script src="/resources/vendor/fancybox/js/jquery.fancybox.min.js"></script>
-   <script src="/resources/vendor/owlcarousel/js/owl.carousel.min.js"></script>
-   <script src="/resources/vendor/swiper/js/swiper.js"></script>
-   <script src="/resources/vendor/wow/wow.min.js"></script>
-
-   <!--Template Functions-->
-   <script src="/resources/js/functions.js"></script>
-
+	
+	
+	
+	
+	<!-- ======================= footer  -->
+	<footer>
+		<%@ include file="/WEB-INF/views/include/footer.jsp" %>
+	</footer>
+	<!-- ======================= footer  -->
+	
 </body>
+
 </html>
