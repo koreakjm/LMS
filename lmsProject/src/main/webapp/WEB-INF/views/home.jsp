@@ -102,7 +102,7 @@
                <tr>
                   <th colspan="4" style="text-align: center;">
                   
-                  <c:if test="${lab.myAuthority eq 0}">
+                  <c:if test="${lab.myAuthority eq 0 and login.authority ne 1}">
                         <a class="btn btn-info" href="/main/labApply">참여</a>
                      </c:if>
 
