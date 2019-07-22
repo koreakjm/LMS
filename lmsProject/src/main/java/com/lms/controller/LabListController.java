@@ -1,8 +1,11 @@
 
 package com.lms.controller;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -16,6 +19,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.lms.domain.LabListVO;
 import com.lms.dto.AuthDTO;
+import com.lms.service.AdminService;
+import com.lms.service.AdminServiceImpl;
 import com.lms.service.LabListService;
 import com.lms.service.UserService;
 
@@ -31,31 +36,6 @@ public class LabListController {
 
    @Inject
    private LabListService service;
-
-   /*// 메인에서 신청팝업창
-   @RequestMapping(value = "/labJoin", method = RequestMethod.GET)
-   public void labJoinGET(LabListVO labList, Model model) throws Exception {
-      model.addAttribute("joinTime", service.getTime());
-      logger.info("labJoin get..............");
-
-   }
-
-   // 신청팝업창에서 값입력
-   @RequestMapping(value = "/labJoin", method = RequestMethod.POST)
-   public String labJoinPOST(LabListVO labList, Model model, RedirectAttributes rttr) throws Exception {
-
-      logger.info("labJoin..............신청");
-      logger.info(labList.toString());
-
-      service.labJoin(labList);
-
-      // addFlashAttribute ==> 휘발성
-      rttr.addFlashAttribute("result", "신청되었습니다.");
-      // redirect:/ /는 homeController에서 @RequestMapping(value = "/") 과 같다.
-      return "redirect:/";
-
-   }*/
-   
       // 메인에서 참여팝업창
       @RequestMapping(value = "/labApply", method = RequestMethod.GET)
       public void labApplyGET(LabListVO labList, Model model) throws Exception {
@@ -107,5 +87,4 @@ public class LabListController {
          
          return "redirect:/";
       }
-   
 }
