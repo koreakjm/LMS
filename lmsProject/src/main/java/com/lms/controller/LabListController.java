@@ -76,13 +76,21 @@ public class LabListController {
       public void labReturnGET(@RequestParam("myLabListNo") String myLabListNo, @RequestParam("myLabNo") String myLabNo , LabListVO labList, Model model) throws Exception {
       model.addAttribute("returnTime", service.getTime());
          logger.info("labJoin get..............");
+         
+         //이걸 통해서 labRurn.jsp의 히든 value를 연결해줌.
+         model.addAttribute("myLabListNo",myLabListNo);
+         
+         
+         
       }
       
       // 반납팝업창에서 반납하기(종료시간 확인 후)
       @RequestMapping(value = "/labReturn", method = RequestMethod.POST)
-      public String labReturnPOST(LabListVO labList, RedirectAttributes rttr) throws Exception{
-         
+      public String labReturnPOST(LabListVO labList, RedirectAttributes rttr,  HttpServletRequest request) throws Exception{
+    	  
+    	 logger.info(labList.toString());
          service.labReturn(labList);
+         logger.info("반납 : " + labList);         
          rttr.addFlashAttribute("result", "반납되었습니다.");
          
          return "redirect:/";

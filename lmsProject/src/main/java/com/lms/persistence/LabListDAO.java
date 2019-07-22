@@ -19,10 +19,6 @@ public interface LabListDAO {
 	//실습실 현황에서 참여버튼을 클릭할 시
 	public void labApply(LabListVO labList) throws Exception;
 	
-	
 	//실습실 현황에서 반납버튼을 클릭할 시
 	public void labReturn(LabListVO labList) throws Exception;
-	
-	public LabListVO readlabList(int labListNo) throws Exception;
-	
 }

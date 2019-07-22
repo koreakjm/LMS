@@ -18,6 +18,4 @@ public interface LabListService {
 	
 	public void labReturn(LabListVO labList) throws Exception;
 	
-	public LabListVO readlabList(int labListNo) throws Exception;
-	
 }

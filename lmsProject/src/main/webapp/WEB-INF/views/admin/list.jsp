@@ -75,9 +75,6 @@
 
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
-							<!-- 
-                     <li class="breadcrumb-item active"><a href="/main?command=loginForm"><i class="ti-home"></i>Home</a></li>
-                      -->
 						</ol>
 					</nav>
 				</div>
@@ -91,11 +88,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12 mb-5">
-
-					<!--             <h2 class="section-title">운영게시판</h2> -->
-
 					<div class="col-md-12">
-						<!-- general form elements -->
 						<div class='box'>
 							<div class="box-header with-border">
 								<h3 class="box-title">실습실 사용내역</h3>
@@ -103,105 +96,120 @@
 
 							<div class='box-body'>
 
-					<select name="searchType">
-						<option value="n"
-							<c:out value="${cri.searchType == null?'selected':''}"/>>
-							---</option>
-						<option value="t"
-							<c:out value="${cri.searchType eq 't'?'selected':''}"/>>
-							학번</option>
-						<option value="w"
-							<c:out value="${cri.searchType eq 'w'?'selected':''}"/>>
-							시작시간</option>
-						<option value="r"
-							<c:out value="${cri.searchType eq 'r'?'selected':''}"/>>
-							종료시간</option>
-						
-					</select> <input type="text" name='keyword' id="keywordInput"
-						value='${cri.keyword}'>
-				<button id='searchBtn'>Search</button>
-				<form name="excelForm" id="excelForm" method="POST" action="./excelDown.do">
+								<select name="searchType">
+									<option value="n"
+										<c:out value="${cri.searchType == null?'selected':''}"/>>
+										---</option>
+									<option value="t"
+										<c:out value="${cri.searchType eq 't'?'selected':''}"/>>
+										이름</option>
+									<option value="w"
+										<c:out value="${cri.searchType eq 'w'?'selected':''}"/>>
+										학번</option>
+									<option value="r"
+										<c:out value="${cri.searchType eq 'r'?'selected':''}"/>>
+										날짜</option>
+
+								</select> <input type="text" name='keyword' id="keywordInput"
+									value='${cri.keyword}'>
+								<button id='searchBtn'>Search</button>
+
+								<!-- <form name="excelForm" id="excelForm" method="POST" action="/excelDownload">
   				  <input type="submit" id="excelDown" value="EXCEL 다운"/>
-				</form>
-				
-				</div>
-			</div>
-							<div class="table-responsive-sm">
-								<table class="table table-hover">
+				</form> -->
 
-									<thead>
-
-										<tr>
-											<th scope="col">번호</th>
-											<th scope="col">학번</th>
-											<!-- <th scope="col">이름</th> -->
-											<th scope="col">시작시간</th>
-											<th scope="col">종료시간</th>
-
-										</tr>
-									</thead>
-
-									<tbody>
-										<c:forEach var="adminList" items="${list}" varStatus="var">
-               <tr>
-                  <th scope="row">${adminList.labListNo}</th>
-                  <td>${adminList.userNo}</td>
-                  <%-- <td>${adminList.userName}</td> --%>
-                  <td><fmt:formatDate pattern="YYYY-MM-dd HH:mm"
-                        value="${adminList.startTime}" /></td>
-               	<td><fmt:formatDate pattern="YYYY-MM-dd HH:mm"
-                        value="${adminList.endTime}" /></td>
-               	</tr>
-            </c:forEach>
-
-									</tbody>
-
-								</table>
-								
 							</div>
+						</div>
+						<div class="table-responsive-sm">
+							<table class="table table-hover">
+
+								<thead>
+
+									<tr>
+										<th scope="col">번호</th>
+										<th scope="col">학번</th>
+										<th scope="col">이름</th>
+										<th scope="col">시작시간</th>
+										<th scope="col">종료시간</th>
+
+									</tr>
+								</thead>
+
+								<tbody>
+									<c:forEach var="adminList" items="${list}">
+										<tr>
+											<th scope="row">${adminList.labListNo}</th>
+											<td>${adminList.userNo}</td>
+											<td>${adminList.userName}</td>
+											<td><fmt:formatDate pattern="YYYY-MM-dd HH:mm"
+													value="${adminList.startTime}" /></td>
+											<td><fmt:formatDate pattern="YYYY-MM-dd HH:mm"
+													value="${adminList.endTime}" /></td>
+										</tr>
+									</c:forEach>
+								</tbody>
+							</table>
+
 						</div>
 					</div>
 				</div>
+			</div>
 	</section>
-   <section class="pt-0">
-      <div class="container">
-         <div class="row justify-content-center">
-            <div class="col-md-8">
-               <nav>
-                  <ul class="pagination justify-content-center">
-                     <c:if test="${criteria.pageNum > 1}">
-                        <li class="page-item"><a class="page-link"
-                           href="list${pageMaker.makeSearch(pageMaker.startPage - 1) }">&laquo;</a></li>
-                     </c:if>
+	<section class="pt-0">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-8">
+					<nav>
+						<ul class="pagination justify-content-center">
+							<c:if test="${criteria.pageNum > 1}">
+								<li class="page-item"><a class="page-link"
+									href="list${pageMaker.makeSearch(pageMaker.startPage - 1) }">&laquo;</a></li>
+							</c:if>
 
 
-                     <c:forEach begin="${pageMaker.startPage }"
-                        end="${pageMaker.endPage }" var="idx">
-                        <c:choose>
-                           <c:when test="${idx == Criteria.page}">
-                              <li class="page-item active">
-                              <span
-                                 class="page-link bg-grad">${idx}</span></li>
-                           </c:when>
+							<c:forEach begin="${pageMaker.startPage }"
+								end="${pageMaker.endPage }" var="idx">
+								<c:choose>
+									<c:when test="${idx == Criteria.page}">
+										<li class="page-item active"><span
+											class="page-link bg-grad">${idx}</span></li>
+									</c:when>
 
-                           <c:otherwise>
-                           
-                              <li class="page-item"><a class="page-link"
-                                 href="list${pageMaker.makeSearch(idx)}">${idx}${Criteria.page}</a></li>
-                           </c:otherwise>
-                        </c:choose>
-                     </c:forEach>
+									<c:otherwise>
 
-                     <c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-                        <li class="page-item"><a class="page-link"
-                           href="list${pageMaker.makeSearch(pageMaker.endPage +1) }">&raquo;</a></li>
-                     </c:if>
-                  </ul>
-               </nav>
-            </div>
-         </div>
-      </div>
-   </section>
+										<li class="page-item"><a class="page-link"
+											href="list${pageMaker.makeSearch(idx)}">${idx}${Criteria.page}</a></li>
+									</c:otherwise>
+								</c:choose>
+							</c:forEach>
+
+							<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+								<li class="page-item"><a class="page-link"
+									href="list${pageMaker.makeSearch(pageMaker.endPage +1) }">&raquo;</a></li>
+							</c:if>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</section>
+	<script>
+		$(document).ready(
+				function() {
+					$('#searchBtn').on(
+							"click",
+							function(event) {
+
+								self.location = "list"
+										+ '${pageMaker.makeQuery(1)}'
+										+ "&searchType="
+										+ $("select option:selected").val()
+										+ "&keyword="
+										+ $('#keywordInput').val();
+							});
+				});
+	</script>
+
 	<%@ include file="../include/footer.jsp"%>
 </body>
 </html>

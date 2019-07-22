@@ -48,10 +48,5 @@ public class LabListDAOImpl implements LabListDAO{
 		session.update(namespace+".labReturn", labList);
 	}
 
-	@Override
-	public LabListVO readlabList(int labListNo) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
-	}
 	
 }

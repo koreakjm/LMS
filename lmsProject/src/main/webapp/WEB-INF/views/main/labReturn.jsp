@@ -57,7 +57,7 @@
             </span>
          <form role="form" method="post">
          <input type='hidden' name='userNo' value="${login.userNo}">
-         <input type='hidden' name='labNo' value="${lab.labNo}">
+         <input type='hidden' name='labListNo' value="${myLabListNo}">
          <table class="table table-hover">
             <thead>
             
@@ -67,7 +67,7 @@
             현재시간 <fmt:formatDate pattern="YYYY-MM-dd HH:mm" value="${returnTime}"/>
             </span>
             <button type="submit" class="btn btn-grad">퇴실</button>
-                  <button type="button" onclick="goBack()" class="btn btn-grad">반납</button>
+                  <button type="button" onclick="goBack()" class="btn btn-grad">취소</button>
                   </th>
 
                </tr>

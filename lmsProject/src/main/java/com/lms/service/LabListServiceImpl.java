@@ -40,10 +40,4 @@ public class LabListServiceImpl implements LabListService{
 		dao.labReturn(labList);
 		
 	}
-
-	@Override
-	public LabListVO readlabList(int labListNo) throws Exception {
-		return dao.readlabList(labListNo);
-	}
-	
 }
