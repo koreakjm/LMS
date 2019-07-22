@@ -19,8 +19,11 @@ public class BoardDAOImpl implements BoardDAO {
 	private static String namespace = "com.lms.mapper.BoardMapper";
 
 	@Override
-	public void regist(BoardVO board) throws Exception {
+	public int regist(BoardVO board) throws Exception {
+		
 		session.insert(namespace + ".regist", board);
+		
+		return board.getBoardNo();
 
 	}
 

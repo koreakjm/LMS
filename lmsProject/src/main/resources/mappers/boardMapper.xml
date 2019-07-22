@@ -8,11 +8,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<!-- 등록 -->
 	<insert id="regist">
+	
+		<selectKey keyProperty="boardNo" resultType="int" order="BEFORE">
+	       SELECT SEQ_BOARD.NEXTVAL FROM DUAL
+	    </selectKey>
+    
 		insert into
 			tbl_board (board_no, board_title, board_content, regdate, viewCnt, category, user_no)
 		values
-			(seq_board.nextval, #{boardTitle}, #{boardContent}, sysdate, #{viewCnt}, #{category}, #{userNo})
+			(#{boardNo}, #{boardTitle}, #{boardContent}, sysdate, #{viewCnt}, #{category}, #{userNo})
 	</insert>
+	
 	<!-- 상세보기 -->
 	<select id="read" resultType="com.lms.domain.BoardVO">
 		select
@@ -108,6 +114,28 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		(#{fullName}, seq_board.currval)
 
    </insert>
+   
+   <!-- 학생 :: 다중 파일 등록 -->
+	<insert id="insertFiles">
+	
+		INSERT INTO TBL_FILE(FILE_NO
+						   , FILE_NAME
+						   , BOARD_NO)
+		VALUES(SEQ_FILE.NEXTVAL
+			, #{fileName}
+			, #{boardNo})
+		
+	</insert>
+	
+	<!-- 파일 목록 -->
+	<select id="fileList" resultType="com.lms.domain.FileVO">
+	SELECT FILE_NO
+		 , SUBSTR(FILE_NAME, 50) AS FILE_NAME
+		 , FILE_NAME AS FILE_LOCATION
+		 , BOARD_NO
+	  FROM TBL_FILE
+	 WHERE BOARD_NO = #{boardNo}
+	</select>
    
    
 </mapper>

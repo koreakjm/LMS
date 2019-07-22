@@ -8,7 +8,7 @@ import com.lms.domain.SearchCriteria;
 public interface BoardDAO {
 
 	// 운영게시판 게시글 등록//
-	public void regist(BoardVO board) throws Exception;
+	public int regist(BoardVO board) throws Exception;
 
 	// 운영게시판 게시글 상세보기//
 	public BoardVO read(int boardNo) throws Exception;
