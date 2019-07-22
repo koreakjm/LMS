@@ -5,6 +5,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.lms.domain.BoardVO;
 import com.lms.domain.SearchCriteria;
@@ -16,9 +17,21 @@ public class BoardServiceImpl implements BoardService {
 	@Inject
 	private BoardDAO dao;
 
+	@Transactional
 	@Override
 	public void register(BoardVO board) throws Exception {
+	
 		dao.regist(board);
+		
+		String[] files = board.getFiles();
+		
+		if(files == null) { return; }
+		
+		for (String fileName : files) {
+			
+			dao.addAttach(fileName);
+		}
+		
 	}
 
 	@Override

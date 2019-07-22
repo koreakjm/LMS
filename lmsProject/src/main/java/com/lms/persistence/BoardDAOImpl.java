@@ -71,4 +71,11 @@ public class BoardDAOImpl implements BoardDAO {
 		return session.selectList(namespace + ".selectThreeBoard");
 	}
 
+	@Override
+	public void addAttach(String fullName) throws Exception {
+		
+		session.insert(namespace + ".addAttach", fullName);
+		
+	}
+
 }

@@ -1,5 +1,6 @@
 package com.lms.domain;
 
+import java.util.Arrays;
 import java.util.Date;
 
 /*CREATE TABLE TBL_BOARD (
@@ -22,9 +23,9 @@ public class BoardVO {
 	private Date regdate;
 	private int viewCnt;
 	private String category;
-	private String boardFile;
 	private String userNo;
 	private String userName;
+	private String[] files;
 
 	public int getBoardNo() {
 		return boardNo;
@@ -74,14 +75,6 @@ public class BoardVO {
 		this.category = category;
 	}
 
-	public String getBoardFile() {
-		return boardFile;
-	}
-
-	public void setBoardFile(String boardFile) {
-		this.boardFile = boardFile;
-	}
-
 	public String getUserNo() {
 		return userNo;
 	}
@@ -98,11 +91,19 @@ public class BoardVO {
 		this.userName = userName;
 	}
 
+	public String[] getFiles() {
+		return files;
+	}
+
+	public void setFiles(String[] files) {
+		this.files = files;
+	}
+
 	@Override
 	public String toString() {
 		return "BoardVO [boardNo=" + boardNo + ", boardTitle=" + boardTitle + ", boardContent=" + boardContent
-				+ ", regdate=" + regdate + ", viewCnt=" + viewCnt + ", category=" + category + ", boardFile="
-				+ boardFile + ", userNo=" + userNo + ", userName=" + userName + "]";
+				+ ", regdate=" + regdate + ", viewCnt=" + viewCnt + ", category=" + category + ", userNo=" + userNo
+				+ ", userName=" + userName + ", files=" + Arrays.toString(files) + "]";
 	}
 
 }

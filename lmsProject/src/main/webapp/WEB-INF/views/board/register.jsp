@@ -28,7 +28,20 @@
 
 	<!-- Theme CSS -->
 	<link rel="stylesheet" type="text/css" href="../resources/css/style.css" />
+	
+	<style type="text/css">
+	.fileDrop{
+	width: 80%;
+	height: 100px;
+	border:1px dotted gray;
+	background-color: lightslategrey;
+	margin: auto;
+	
+	}
+	</style>
 
+	<script scr="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
+	
 
 </head>
 <body>
@@ -61,6 +74,7 @@
 	<section>
 		<div class="container">
 			<form role="form" method="post">
+			<input type="hidden" name="userNo" value="${login.userNo }">
 				<div class="row mt-5">
 					<div class="col-md-12">
 						<h2 class="mb-2">운영게시글 등록</h2>
@@ -68,8 +82,7 @@
 					</div>
 
 					<div class="col-md-2">
-						<select class="custom-select select-big mb-3"
-							name="category">
+						<select class="custom-select select-big mb-3" name="category">
 							<option value="null">--전체--</option>
 							<option value="공지사항">공지사항</option>
 							<option value="건의">건의</option>
@@ -98,7 +111,6 @@
 				<div align="right">
 					<input type="submit" value="등록" class="btn btn-grad"/>
 					 <input type="button" value="취소 " class="btn btn-grad"/>
-						<%-- onclick="location.href='/meeting?command=metBoardListFormAction&metNum=${meetingVo.metNum}'"  --%>
 				</div>
 			</form>
 		</div>

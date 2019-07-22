@@ -31,4 +31,7 @@ public interface BoardDAO {
 
 	// 최신글 3개 보여주기
 	public List<BoardVO> selectThreeBoard() throws Exception;
+
+	// 첨부파일 정보 저장
+	public void addAttach(String fullName) throws Exception;
 }

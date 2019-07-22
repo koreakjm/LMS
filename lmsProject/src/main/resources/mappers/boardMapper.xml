@@ -9,25 +9,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 등록 -->
 	<insert id="regist">
 		insert into
-		tbl_board
-		(board_no, board_title,
-		board_content, regdate, viewCnt, category, user_no)
+			tbl_board (board_no, board_title, board_content, regdate, viewCnt, category, user_no)
 		values
-		(seq_board.nextval, #{boardTitle}, #{boardContent},
-		sysdate,
-		#{viewCnt},
-		#{category},
-		#{userNo})
+			(seq_board.nextval, #{boardTitle}, #{boardContent}, sysdate, #{viewCnt}, #{category}, #{userNo})
 	</insert>
 	<!-- 상세보기 -->
 	<select id="read" resultType="com.lms.domain.BoardVO">
 		select
-		board_title, board_content,
-		regdate, category, viewCnt, user_no, board_file
+			board_no, board_title, board_content, regdate, category, viewCnt, user_no
 		from
-		tbl_board
+			tbl_board
 		where
-		board_no = #{board_no}
+			board_no = #{board_no}
 	</select>
 
 	<!-- 조회수 증가 -->
@@ -41,8 +34,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 수정 -->
 	<update id="modify">
 		update tbl_board set board_title = #{boardTitle} ,
-		board_content = #{boardContent} , category =#{category},
-		board_file=#{boardFile}
+		board_content = #{boardContent} , category =#{category}
 		where board_no = #{boardNo}
 	</update>
 	
@@ -73,9 +65,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<![CDATA[  
 		select * from(
 		  select 
-		 	 ROWNUM RNUM,  board_no, board_title, board_content, regdate, viewcnt, category, board_file, user_no FROM (
+		 	 ROWNUM RNUM,  board_no, board_title, board_content, regdate, viewcnt, category, user_no FROM (
 		  select 
-		   board_no, board_title, board_content, regdate, viewcnt, category, board_file, user_no 
+		   board_no, board_title, board_content, regdate, viewcnt, category, user_no 
 		  from 
 		  tbl_board where board_no > 0 
 		]]>
@@ -107,4 +99,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    select * from (select b.category, b.board_title,u.user_name from tbl_board b, tbl_user u where b.user_no = u.user_no order by b.regdate desc) where rownum <= 3
    ]]>
    </select>
+   
+   <!-- 첨부파일 정보 저장 -->
+   <insert id="addAttach">
+   INSERT INTO 
+   		TBL_ATTACH(FULLNAME, BOARD_NO) 
+   values
+		(#{fullName}, seq_board.currval)
+
+   </insert>
+   
+   
 </mapper>
