@@ -169,9 +169,9 @@
 				  <span class="navbar-toggler-icon"> </span>
 			  </button>
 				<!-- Main Menu Start -->
-				<div class="collapse navbar-collapse" id="navbarCollapse">
+				<!-- <div class="collapse navbar-collapse" id="navbarCollapse">
 					<ul class="navbar-nav ml-auto">
-						<!-- Menu item 1 Demos-->
+						Menu item 1 Demos
 						<li class="nav-item dropdown active">
 							<a class="nav-link dropdown-toggle" href="#" id="demosMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Demos</a>
 							<div class="dropdown-menu pb-3 pb-lg-0" aria-labelledby="demosMenu" >
@@ -193,7 +193,7 @@
 										<li> <a class="dropdown-item" href="index-10.html">Personal Portfolio</a> </li>
 									</ul>
 								</div>
-								<!-- mega menu Bottom -->
+								mega menu Bottom
 								<div class="w-100 bg-grad pattern-overlay-2 p-4 mt-3 all-text-white d-none d-lg-flex">
 									<div class="align-self-center mr-4">
 										<h4 class="mb-0">Checkout the doc!</h4>
@@ -203,7 +203,7 @@
 								</div>
 							</div>
 						</li>
-						<!-- Menu item 2 Blog-->
+						Menu item 2 Blog
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="blogMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Blog</a>
 							<ul class="dropdown-menu" aria-labelledby="blogMenu">
@@ -234,7 +234,7 @@
 								</li>
 							</ul>
 						</li>
-						<!-- Menu item 3 Pages-->
+						Menu item 3 Pages
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="pagesMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
 							<ul class="dropdown-menu" aria-labelledby="pagesMenu">
@@ -260,7 +260,7 @@
 								<li> <a class="dropdown-item" href="error-404.html">Error 404</a> </li>
 							</ul>
 						</li>
-						<!-- Menu item 4 Portfolio-->
+						Menu item 4 Portfolio
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="portfolioMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Portfolio</a>
 							<ul class="dropdown-menu" aria-labelledby="portfolioMenu">
@@ -273,7 +273,7 @@
 								<li> <a class="dropdown-item" href="portfolio-case-studies.html">Portfolio case studies <span class="badge badge-success ml-2">Hot</span></a> </li>
 							</ul>
 						</li>
-						<!-- Menu item 5 Elements-->
+						Menu item 5 Elements
 						<li class="nav-item dropdown megamenu">
 							<a class="nav-link dropdown-toggle" href="#" id="elementsMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Elements</a>
 							<div class="dropdown-menu" aria-labelledby="elementsMenu" style="background-image:url(/resources/images/menu-bg.jpg); background-position: right bottom; background-repeat: no-repeat;">
@@ -321,7 +321,7 @@
 								</div>
 							</div>
 						</li>
-						<!-- Menu item 6 Docs-->
+						Menu item 6 Docs
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="docMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Docs</a>
 							<ul class="dropdown-menu" aria-labelledby="docMenu">
@@ -335,19 +335,19 @@
 							</ul>
 						</li>
 					</ul>
-				</div>
+				</div> -->
 				<!-- Main Menu End -->
 				<!-- Header Extras Start-->
-				<div class="navbar-nav">
-					<!-- extra item Search-->
+<!-- 				<div class="navbar-nav">
+					extra item Search
 					<div class="nav-item search border-0 pl-3 pr-0 px-lg-2" id="search">
 						<a class="nav-link" data-toggle="collapse" href="#search-open"><i class="ti-search"> </i></a>
 					</div>
-					<!-- extra item Btn-->
+					extra item Btn
 					<div class="nav-item border-0 d-none d-lg-inline-block align-self-center">
 						<a href="#" class=" btn btn-sm btn-grad text-white mb-0">Buy Now!</a>
 					</div>
-				</div>
+				</div> -->
 				<!-- Header Extras End-->
 			</div>
 		</nav>

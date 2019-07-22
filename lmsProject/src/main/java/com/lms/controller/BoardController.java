@@ -92,7 +92,11 @@ public class BoardController {
 	public void read(@RequestParam("boardNo") int boardNo, @ModelAttribute("cri") Criteria cri, Model model)
 			throws Exception {
 
+		logger.info("readPage ...........");
 		model.addAttribute(service.read(boardNo));
+		logger.info("readPage fileVO : " + service.fileList(boardNo).size());
+		model.addAttribute("fileVO", service.fileList(boardNo));
+		
 	}
 
 	@RequestMapping(value = "/modify", method = RequestMethod.GET)

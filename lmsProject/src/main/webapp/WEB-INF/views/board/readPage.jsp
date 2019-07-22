@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!Doctype html>
+<html>
 <head>
 <title>글로벌IT경영학과 실습실 예약</title>
 <meta charset="utf-8">
@@ -100,6 +101,43 @@
 										readonly="readonly" name="boardContent" class="form-control">${boardVO.boardContent}</textarea>
 								</span>
 							</div>
+							
+							<div class="form-group">
+                                    <label for="exampleInputEmail1" class="col-form-label">첨부파일<span class="must-mark">*</span></label>
+                                  </div>
+                                     
+                                <ul class="dropzone-previews">
+                           
+                           <c:forEach items="${fileVO}" var="fileVO" varStatus="status">
+                           <li class="dropzone-previews mt-3">
+                              <div class="card mt-1 mb-0 shadow-none border dz-processing dz-image-preview dz-success dz-complete">
+                                 <div class="p-2">
+                                 
+                                    <div class="row align-items-center">
+                                             <c:choose>
+                                                <c:when test="checkImageType(${fileVO.fileLocation})">
+                                                    <div class="col-auto">
+                                                    <img data-dz-thumbnail="" class="avatar-sm rounded bg-light" src="${fileVO.fileName}">
+                                                 </div>
+                                                 </c:when>
+
+                                                <c:otherwise>
+                                                <div class="col-auto">
+                                                   <img data-dz-thumbnail="" class="avatar-sm rounded bg-light" src="/resources/dist/assets/images/file.svg">
+                                                </div>
+                                                 </c:otherwise>
+
+                                             </c:choose>
+
+                                       <div class="col pl-0">
+                                          <a href="/displayFile?fileName=${fileVO.fileLocation}" text-muted font-weight-bold data-dz-name="">${fileVO.fileName}</a>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </li>
+                           </c:forEach>
+                           </ul>     
 
 
 							<div align="right">
@@ -173,4 +211,13 @@
 	<!--Template Functions-->
 	<script src="../resources/js/functions.js"></script>
 </body>
+<script>
+function checkImageType(fileName) {
+   
+   var pattern = /jpg|gif|png|jpeg/i;
+
+   return fileName.match(pattern);
+
+}
+</script>
 </html>

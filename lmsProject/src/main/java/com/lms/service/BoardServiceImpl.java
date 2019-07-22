@@ -88,4 +88,10 @@ public class BoardServiceImpl implements BoardService {
 		return dao.selectThreeBoard();
 	}
 
+	@Override
+	public List<FileVO> fileList(int boardNo) throws Exception {
+		
+		return fDao.list(boardNo);
+	}
+
 }
