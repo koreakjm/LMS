@@ -36,8 +36,16 @@
 <!-- Theme CSS -->
 <link rel="stylesheet" type="text/css" href="../resources/css/style.css" />
 
-<script src="/resources/js/jQuery-2.1.4.min.js"></script> <%@ include
-	file="../include/header.jsp"%>
+<style>
+ul {
+	list-style: none;
+	padding-left: 0px;
+}
+</style> 
+
+<script src="/resources/js/jQuery-2.1.4.min.js"></script>
+
+<%@ include file="../include/header.jsp"%>
 </head>
 
 <body>

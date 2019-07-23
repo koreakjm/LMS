@@ -6,6 +6,7 @@ import java.io.InputStream;
 import java.util.UUID;
 
 import javax.annotation.Resource;
+import javax.inject.Inject;
 
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
@@ -23,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.lms.service.BoardService;
 import com.lms.util.MediaUtils;
 import com.lms.util.UploadFileUtils;
 
@@ -33,6 +35,9 @@ public class UploadController {
 
 	@Resource(name = "uploadPath")
 	private String uploadPath;
+	
+	@Inject
+	private BoardService boardService;
 
 	@RequestMapping(value = "/uploadForm", method = RequestMethod.GET)
 	public void uploadForm() {
@@ -91,6 +96,7 @@ public class UploadController {
 	@RequestMapping(value = "/uploadAjax", method = RequestMethod.POST, produces = "text/plain;charset=UTF-8")
 	public ResponseEntity<String> uploadAjax(MultipartFile file) throws Exception {
 
+		
 		logger.info("originalName: " + file.getOriginalFilename());
 
 		System.out.println("==========uploadAjax: " + file.getOriginalFilename());

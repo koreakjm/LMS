@@ -12,7 +12,7 @@ public interface BoardService {
 
 	public BoardVO read(int boardNo) throws Exception;
 
-	public void modify(BoardVO boardNo) throws Exception;
+	public void modify(BoardVO board) throws Exception;
 
 	public void remove(int boardNo) throws Exception;
 

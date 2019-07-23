@@ -129,14 +129,14 @@ public class BoardController {
 	// BoardVO가져옴.
 	@RequestMapping(value ="/modify", method = RequestMethod.POST)
 	public String modifyPagePOST(BoardVO board, @RequestParam("boardNo") int boardNo, RedirectAttributes rttr, SearchCriteria cri) throws Exception {
-
+		
 		
 		service.deleteFile(boardNo);
-		logger.info("deleteFile : " + boardNo);
-		
+		logger.info("deleteFile ===========> " + boardNo);
+
 		service.modify(board);
 
-		logger.info("modify post........... : " + board);
+		logger.info("modify post ===========> " + board);
 		
 		rttr.addAttribute("page", cri.getPage());
 		rttr.addAttribute("perPageNum", cri.getPerPageNum());

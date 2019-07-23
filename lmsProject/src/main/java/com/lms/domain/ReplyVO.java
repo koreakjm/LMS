@@ -15,6 +15,7 @@ public class ReplyVO {
 
 	private int replyNo;
 	private int regdate;
+	private String replyText;
 	private Date updatedate;
 	private int boardNo;
 	private String userNo;
@@ -33,6 +34,14 @@ public class ReplyVO {
 
 	public void setRegdate(int regdate) {
 		this.regdate = regdate;
+	}
+
+	public String getReplyText() {
+		return replyText;
+	}
+
+	public void setReplyText(String replyText) {
+		this.replyText = replyText;
 	}
 
 	public Date getUpdatedate() {
@@ -61,8 +70,8 @@ public class ReplyVO {
 
 	@Override
 	public String toString() {
-		return "ReplyVO [replyNo=" + replyNo + ", regdate=" + regdate + ", updatedate=" + updatedate + ", boardNo="
-				+ boardNo + ", userNo=" + userNo + "]";
+		return "ReplyVO [replyNo=" + replyNo + ", regdate=" + regdate + ", replyText=" + replyText + ", updatedate="
+				+ updatedate + ", boardNo=" + boardNo + ", userNo=" + userNo + "]";
 	}
 
 }

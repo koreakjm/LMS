@@ -53,7 +53,7 @@ ul {
 	<!-- =======================
    Banner innerpage -->
 	<div class="innerpage-banner center bg-overlay-dark-7 py-7"
-		style="background: url(../assets/images/bg/04.jpg) no-repeat; background-size: cover; background-position: center center;">
+		style="background: url(/resources/images/bg/04.jpg) no-repeat; background-size: cover; background-position: center center;">
 		<div class="container">
 			<div class="row all-text-white">
 				<div class="col-md-12 align-self-center">
@@ -76,8 +76,9 @@ ul {
 	<section>
 		<div class="container">
 			<div class="row">
-				<form name="frm" action="/board/modify" method="post">
+				<form name="frm" action="/board/modify" method="post" role="form">
 					<input type="hidden" name="boardNo" value="${boardVO.boardNo }">
+					<%-- <input type="hidden" name="files" value="${boardVO.files }"> --%>
 
 					<div class="col-sm-12 mb-5">
 						<h5 class="text-center mb-4">운영게시판 수정</h5>
@@ -152,50 +153,48 @@ ul {
 									<input type="hidden" id="uploadCount" value="${fn:length(fileVO)}" >
 									<ul class="dropzone-previews clearfix uploadedList">
 									<c:forEach items="${fileVO}" var="fileVO" varStatus="status">
-		                           <li class="dropzone-previews mt-3">
-		                              <div class="card mt-1 mb-0 shadow-none border dz-processing dz-image-preview dz-success dz-complete">
-		                                 <div class="p-2">
-		                                 
-		                                    <div class="row align-items-center">
-		                                             <c:choose>
-		                                                <c:when test="checkImageType(${fileVO.fileLocation})">
-		                                                    <div class="col-auto">
-		                                                    <img data-dz-thumbnail="" class="avatar-sm rounded bg-light" src="${fileVO.fileName}">
-		                                                 </div>
-		                                                 </c:when>
-		
-		                                                <c:otherwise>
-		                                                <div class="col-auto">
-		                                                   <img data-dz-thumbnail="" class="avatar-sm rounded bg-light" src="/resources/dist/assets/images/file.svg">
-		                                                </div>
-		                                                 </c:otherwise>
-		
-		                                             </c:choose>
-		
-		                                       <div class="col pl-0">
-		                                          <a href="/displayFile?fileName=${fileVO.fileLocation}" text-muted font-weight-bold data-dz-name="">${fileVO.fileName}</a>
-		                                       </div>
-		                                        <div class="col-auto">
-  														 <a href="${fileVO.fileLocation}" class="btn btn-default btn-xs pull-right delbtn"><i class="dripicons-cross"></i></a>
- 												</div>
-		                                    </div>
-		                                 </div>
-		                              </div>
-		                           </li>
+			                           <li class="dropzone-previews mt-3">
+			                              <div class="card mt-1 mb-0 shadow-none border dz-processing dz-image-preview dz-success dz-complete">
+			                                 <div class="p-2">
+			                                 
+			                                    <div class="row align-items-center">
+			                                             <c:choose>
+			                                                <c:when test="checkImageType(${fileVO.fileLocation})">
+			                                                    <div class="col-auto">
+			                                                    <img data-dz-thumbnail="" class="avatar-sm rounded bg-light" src="${fileVO.fileName}">
+			                                                 </div>
+			                                                 </c:when>
+			
+			                                                <c:otherwise>
+			                                                <div class="col-auto">
+			                                                   <img data-dz-thumbnail="" class="avatar-sm rounded bg-light" src="/resources/dist/assets/images/file.svg">
+			                                                </div>
+			                                                 </c:otherwise>
+			
+			                                             </c:choose>
+			
+			                           	           <div class="col pl-0">
+			                                          <a href="/displayFile?fileName=${fileVO.fileLocation}" text-muted font-weight-bold data-dz-name="">${fileVO.fileName}</a>
+			                                       </div>
+			                                        <div class="col-auto">
+	  														 <a href="${fileVO.fileLocation}" class="btn btn-default btn-xs pull-right delbtn"><i class="dripicons-cross"></i></a>
+	 												</div>
+			                                    </div>
+			                                 </div>
+			                              </div>
+			                           </li>
 		                           </c:forEach>
 								</ul>
 								
 								
 								<div>
-							<!-- 	<ul class="dropzone-previews clearfix uploadedList">
-								</ul> -->
 							</div>
 
                            
 							</div>
 							<div align="right">
-								<input type="submit" class="btn btn-grad" value="수정"> <input
-									type="button" value="취소" id="cancel" class="btn btn-grad">
+								<input type="submit" class="btn btn-grad" value="수정"> 
+								<input type="button" value="취소" id="cancel" class="btn btn-grad">
 
 							</div>
 						</div>
@@ -266,15 +265,17 @@ ul {
                   var formObj = $("form[role='form']");
 
                    formObj.submit(function(event) {
+                	   
+                	   
                            event.preventDefault();
 
                            var that = $(this);
 
                            var str = "";
                            
-                           $(".uploadedList .delbtn")
-                                 .each(
-                                        function(index) {
+                           $(".uploadedList .delbtn").each(function(index) {
+                        	   
+                        	   
                                              str += "<input type='hidden' name='files'"
                                                    + " value='"
                                                    + $(this).attr(
@@ -289,7 +290,6 @@ ul {
                            that.get(0).submit();
                         });
 
-                  
                   
 
                });
@@ -340,6 +340,7 @@ ul {
 				$(".uploadedList").append(html);
 
 				uploaded++;
+				
 				$("#uploadCount").attr("value", uploaded);
 
 				$(".uploadedList").append(str);

@@ -67,8 +67,10 @@ public class BoardServiceImpl implements BoardService {
 		board.setBoardContent(board.getBoardContent().replace("\\r\\n", "<br>"));
 
 		// 2. 기본 신청 내역 등록 (파일 등록 x) -> 등록된 신청내역의 PK 가져오기
-		int boardNo = dao.regist(board);
+		int boardNo = dao.modify(board);
+		
 		System.out.println("boardNo =====> " + boardNo);
+		
 
 		// 4. 추가 이미지 존재 여부 IF문
 		if (board.getFiles() != null) {
@@ -80,7 +82,7 @@ public class BoardServiceImpl implements BoardService {
 
 				FileVO fVo = new FileVO();
 				fVo.setBoardNo(boardNo);
-				fVo.setFileName(board.getFiles()[i]);
+				fVo.setFileName(board.getFiles()[i]); 
 
 				System.out.println("fVo : " + fVo.toString());
 
