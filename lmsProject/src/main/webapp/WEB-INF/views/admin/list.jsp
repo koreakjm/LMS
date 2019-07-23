@@ -3,7 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-
 <!DOCTYPE html>
 <html>
 
@@ -114,10 +113,11 @@
 									value='${cri.keyword}'>
 								<button id='searchBtn'>Search</button>
 
-								<!-- <form name="excelForm" id="excelForm" method="POST" action="/excelDownload">
+								<!-- <form name="excelForm" id="excelForm" method="post" action="/excelDown.do">
   				  <input type="submit" id="excelDown" value="EXCEL 다운"/>
-				</form> -->
-
+					</form> -->
+						[<a href="<c:url value='/admin/excelDown.do'/>">엑셀 다운로드</a>]
+						
 							</div>
 						</div>
 						<div class="table-responsive-sm">
