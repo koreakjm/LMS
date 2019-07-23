@@ -1,7 +1,6 @@
 package com.lms.persistence;
 
 import java.util.List;
-import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -10,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.lms.domain.LabListVO;
 import com.lms.domain.SearchCriteria;
+import com.lms.dto.ExcelDTO;
 
 @Repository
 public class AdminDAOImpl implements AdminDAO {
@@ -29,7 +29,8 @@ public class AdminDAOImpl implements AdminDAO {
 	}
 
 	@Override
-	public List<Object> getLabLists(Map<String, Object> searchMap) {
-		return session.selectList("getLabLists", searchMap);
+	public List<ExcelDTO> listExcelCriteria(SearchCriteria cri) throws Exception {
+		// TODO Auto-generated method stub
+		return session.selectList(namespace + ".listexcel", cri);
 	}
 }

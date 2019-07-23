@@ -1,13 +1,10 @@
 
 package com.lms.controller;
 
-import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -16,11 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 import com.lms.domain.LabListVO;
 import com.lms.dto.AuthDTO;
-import com.lms.service.AdminService;
-import com.lms.service.AdminServiceImpl;
 import com.lms.service.LabListService;
 import com.lms.service.UserService;
 
@@ -91,7 +85,21 @@ public class LabListController {
     	 logger.info(labList.toString());
          service.labReturn(labList);
          logger.info("반납 : " + labList);         
+         
+         AuthDTO dto =  new AuthDTO();
+         dto.setMyAuthority("0");
+         
+         logger.info("dto :  " + dto);
+         
+         //세션열기
+         HttpSession session = request.getSession();
+         session.setAttribute(LAB, dto);
+         
+         logger.info("LAB : " + session.getAttribute(LAB));
+         
          rttr.addFlashAttribute("result", "반납되었습니다.");
+         
+         
          
          return "redirect:/";
       }

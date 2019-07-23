@@ -39,6 +39,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	</select>
 
+
+	<!-- 검색 -->
+	<select id="listexcel" resultType="com.lms.dto.ExcelDTO">
+		<![CDATA[  
+		select 
+		 rownum as no, l.user_no, u.user_name, TO_CHAR(l.starttime,'YYYY-MM-DD hh24:mm:ss') as starttime, 
+       	 NVL2(l.endtime,TO_CHAR(l.endtime,'YYYY-MM-DD hh24:mm:ss'),'참여중') as endtime
+		  from 
+		  tbl_lab_list l, tbl_user u where l.user_No = u.user_No and l.lab_list_no > 0
+		]]>
+		<include refid="search"></include>
+		order by rownum DESC  
+		
+
+	</select>
 	<!-- 리스트 카운트 -->
 	<select id="listSearchCount" resultType="int">
 		<![CDATA[  
