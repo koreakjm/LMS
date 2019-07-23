@@ -38,6 +38,7 @@
 
 <!-- Theme CSS -->
 <link rel="stylesheet" type="text/css" href="/resources/css/style.css" />
+<script src="/resources/js/instafeed.min.js"></script>
 
 </head>
 <body>
@@ -51,59 +52,18 @@
 	<!-- ======================= Table -->
 	<div class="container">
 		<div class="row mb-4">
-
 			<input type='hidden' name='userNo' value="${login.userNo}">
 
-			<div class="container" style="margin-top: 3%;">
+			<!-- <div class="container" style="margin-top: 3%;">
 				<div
 					class="bg-white border-radius-3 py-5 all-text-dark pattern-overlay-2">
 				</div>
-			</div>
-
+			</div> -->
 		</div>
-
-		<div style="margin-top: 15%;">
-			<span style="font-size: 25px;">운영게시판</span> <a class ="btn btn-link" href="/board/list">more
-			</a>
-			<div class="divider divider-grad"></div>
-		</div>
-		<table class="table table-hover">
-			<c:if test="${empty boardList}">
-				<tr>
-					<th colspan="5" style="text-align: center; color: gray;">게시글이
-						없습니다.</th>
-				</tr>
-			</c:if>
-
-
-			<thead>
-				<tr>
-					<th scope="col">번호</th>
-					<th scope="col">유형</th>
-					<th scope="col">제목</th>
-					<th scope="col">작성자</th>
-				</tr>
-			</thead>
-
-			<c:forEach var="boardList" items="${boardList}" varStatus="var">
-
-				<c:if test="${not empty boardList}">
-
-					<tr>
-						<th scope="row">${var.count}</th>
-						<th>${boardList.category}</th>
-						<th>${boardList.boardTitle}</th>
-						<th>${boardList.userName}</th>
-					</tr>
-				</c:if>
-			</c:forEach>
-		</table>
-
-		<div class="table-responsive-sm"></div>
-		<div>
-			<div style="margin-top: 15%;">
+		
+		<div class="table-responsive-sm">
+			<div style="margin-top: 5%;">
 				<span style="font-size: 25px;">실습실 현황 </span>
-
 				<tr>
 					<th></th>
 					<th></th>
@@ -152,6 +112,68 @@
 					</tr>
 				</c:forEach>
 			</table>
+		</div>
+		
+		<div class="table-responsive-sm">			
+		<div style="margin-top: 5%;">
+			<span style="font-size: 25px;">운영게시판</span> <a class ="btn btn-link" href="/board/list">more
+			</a>
+			<div class="divider divider-grad"></div>
+		</div>
+		<table class="table table-hover">
+			<c:if test="${empty boardList}">
+				<tr>
+					<th colspan="5" style="text-align: center; color: gray;">게시글이
+						없습니다.</th>
+				</tr>
+			</c:if>
+
+
+			<thead>
+				<tr>
+					<th scope="col">번호</th>
+					<th scope="col">유형</th>
+					<th scope="col">제목</th>
+					<th scope="col">작성자</th>
+				</tr>
+			</thead>
+
+			<c:forEach var="boardList" items="${boardList}" varStatus="var">
+
+				<c:if test="${not empty boardList}">
+
+					<tr>
+						<th scope="row">${var.count}</th>
+						<th>${boardList.category}</th>
+						<th>${boardList.boardTitle}</th>
+						<th>${boardList.userName}</th>
+					</tr>
+				</c:if>
+			</c:forEach>
+		</table>
+		</div>
+		
+		<div class="table-responsive-sm"></div>
+		<div style="margin-top: 5%;" >
+		<div class="table-responsive-sm">
+					<img src="/resources/images/insta.jpg" width=150px, height=300px>
+					<div id="fb-root"></div>
+					<script type="text/javascript">
+						var userFeed = new Instafeed(
+								{
+									get : 'user',
+									userId : 8752161969,
+									sortBy : "most-recent",
+									limit : 12,
+									template : '<a href="{{link}}" target="_blank"><img src="{{image}}" /></a>',
+									accessToken : '8752161969.191a3e2.55408af509f840f28dda487b4bf41c95'
+								});
+
+						userFeed.run();
+					</script>
+					<div id="instafeed"></div>
+				</div>
+	
 		</div>
 
 	</div>
