@@ -22,4 +22,10 @@
 		update tbl_lab_list set endtime = sysdate , authority = 0 where lab_list_no = #{labListNo}
 	</update>
 	
+	<!-- labCount -->
+	<select id="labCount" resultType="int">
+	select COUNT(authority) AS CNT
+		from 
+			tbl_lab_list where authority=1
+	</select>
 </mapper>

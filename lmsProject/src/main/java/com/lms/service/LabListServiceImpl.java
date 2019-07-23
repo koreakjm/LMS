@@ -11,18 +11,14 @@ import com.lms.domain.LabListVO;
 import com.lms.persistence.LabListDAO;
 
 @Service
-public class LabListServiceImpl implements LabListService{
-	
-	@Inject LabListDAO dao;
-	
+public class LabListServiceImpl implements LabListService {
+
+	@Inject
+	LabListDAO dao;
+
 	@Override
 	public Date getTime() throws Exception {
 		return dao.getTime();
-	}
-
-	@Override
-	public void labJoin(LabListVO labList) throws Exception {
-		dao.labJoin(labList);
 	}
 
 	@Override
@@ -31,13 +27,26 @@ public class LabListServiceImpl implements LabListService{
 	}
 
 	@Override
-	public void labApply(LabListVO labList) throws Exception {
+	public int labApply(LabListVO labList) throws Exception {
+
+		// 1.학생 참여
 		dao.labApply(labList);
+
+		// 2.학생 참여 인원 확인
+		int cnt = dao.labCount();
+
+		return cnt;
 	}
 
 	@Override
-	public void labReturn(LabListVO labList) throws Exception {
+	public int labReturn(LabListVO labList) throws Exception {
+		// 1.학생 퇴실
 		dao.labReturn(labList);
-		
+
+		// 2.학생 참여 인원 확인
+		int cnt = dao.labCount();
+
+		return cnt;
+
 	}
 }

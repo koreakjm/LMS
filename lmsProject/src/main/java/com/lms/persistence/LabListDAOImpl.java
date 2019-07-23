@@ -48,5 +48,11 @@ public class LabListDAOImpl implements LabListDAO{
 		session.update(namespace+".labReturn", labList);
 	}
 
+	@Override
+	public int labCount() throws Exception {
+		
+		return session.selectOne(namespace+".labCount");
+	}
+
 	
 }

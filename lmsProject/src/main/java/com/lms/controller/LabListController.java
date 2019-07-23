@@ -45,7 +45,7 @@ public class LabListController {
          logger.info("labApply..............참여");
          logger.info(labList.toString());
          
-         service.labApply(labList);
+         int labCnt= service.labApply(labList);
          
          
          AuthDTO dto =  userService.checkAuth(labList.getUserNo());
@@ -55,9 +55,19 @@ public class LabListController {
          HttpSession session = request.getSession();
          session.setAttribute(LAB, dto);
          
-         logger.info("LAB : " + session.getAttribute(LAB));
+         logger.info("LAB : " + session.getAttribute(LAB)+" LabCount: "+labCnt);
          
-         rttr.addFlashAttribute("result", "참여되었습니다.");
+         if(labCnt == 1) {
+        	 //최초 참여 인원
+        	 rttr.addFlashAttribute("RESULT", "실습실 키를 찾아가세요.");
+
+        	 
+         }else {
+        	 
+        	 rttr.addFlashAttribute("RESULT", "참여되었습니다.");
+        	 
+         }
+         
          
          
          return "redirect:/";
@@ -83,7 +93,7 @@ public class LabListController {
       public String labReturnPOST(LabListVO labList, RedirectAttributes rttr,  HttpServletRequest request) throws Exception{
     	  
     	 logger.info(labList.toString());
-         service.labReturn(labList);
+         int labCnt = service.labReturn(labList);
          logger.info("반납 : " + labList);         
          
          AuthDTO dto =  new AuthDTO();
@@ -97,8 +107,17 @@ public class LabListController {
          
          logger.info("LAB : " + session.getAttribute(LAB));
          
-         rttr.addFlashAttribute("result", "반납되었습니다.");
          
+         if(labCnt == 0) {
+        	 //최초 참여 인원
+        	 rttr.addFlashAttribute("RESULT", "실습실 키를 반납하세요.");
+
+        	 
+         }else {
+        	 
+        	 rttr.addFlashAttribute("RESULT", "반납되었습니다.");
+        	 
+         }
          
          
          return "redirect:/";

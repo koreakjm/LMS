@@ -21,4 +21,6 @@ public interface LabListDAO {
 	
 	//실습실 현황에서 반납버튼을 클릭할 시
 	public void labReturn(LabListVO labList) throws Exception;
+	
+	public int labCount() throws Exception;
 }
