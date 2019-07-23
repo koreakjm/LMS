@@ -25,8 +25,10 @@ public class FileDAOImpl implements FileDAO {
 	}
 
 	@Override
-	public void delete(FileVO fVo) throws Exception {
-		// TODO Auto-generated method stub
+	public void delete(int  boardNo) throws Exception {
+		
+		
+		session.delete(namespace + ".deleteFile", boardNo);
 		
 	}
 

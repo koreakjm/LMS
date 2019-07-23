@@ -106,6 +106,8 @@ public class BoardController {
 		// read의 리턴 타입이 BoardVO이기 때문에 boardVO를 modifyPage.jsp에서 쓸 수 있음.
 		System.out.println("boardNo================ " + boardNo);
 		model.addAttribute(service.read(boardNo));
+		logger.info("readPage fileVO : " + service.fileList(boardNo).size());
+		model.addAttribute("fileVO", service.fileList(boardNo));
 
 	}
 	
@@ -126,8 +128,12 @@ public class BoardController {
 	// 수정할때는 이름, 내용 ... BoardVO를 가져온다. 삭제할때는 이름,내용은 필요가 없으므로 bno만 가져온다. 마찬가지로 등록할때는
 	// BoardVO가져옴.
 	@RequestMapping(value ="/modify", method = RequestMethod.POST)
-	public String modifyPagePOST(BoardVO board, RedirectAttributes rttr, SearchCriteria cri) throws Exception {
+	public String modifyPagePOST(BoardVO board, @RequestParam("boardNo") int boardNo, RedirectAttributes rttr, SearchCriteria cri) throws Exception {
 
+		
+		service.deleteFile(boardNo);
+		logger.info("deleteFile : " + boardNo);
+		
 		service.modify(board);
 
 		logger.info("modify post........... : " + board);

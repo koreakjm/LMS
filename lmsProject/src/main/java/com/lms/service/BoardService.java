@@ -24,5 +24,8 @@ public interface BoardService {
 
 	// 3. 파일 목록
 	public List<FileVO> fileList(int boardNo) throws Exception;
+	
+	// 2. 파일 삭제
+	public void deleteFile(int boardNo) throws Exception;
 
 }

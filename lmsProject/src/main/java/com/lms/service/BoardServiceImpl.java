@@ -63,7 +63,32 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public void modify(BoardVO board) throws Exception {
 
-		dao.modify(board);
+		// 1. 텍스트에어리어 줄바꿈 적용
+		board.setBoardContent(board.getBoardContent().replace("\\r\\n", "<br>"));
+
+		// 2. 기본 신청 내역 등록 (파일 등록 x) -> 등록된 신청내역의 PK 가져오기
+		int boardNo = dao.regist(board);
+		System.out.println("boardNo =====> " + boardNo);
+
+		// 4. 추가 이미지 존재 여부 IF문
+		if (board.getFiles() != null) {
+
+			// 4. 추가 이미지 저장 FOR문
+			for (int i = 0; i < board.getFiles().length; i++) {
+
+				// 4-1.추가 이미지 저장
+
+				FileVO fVo = new FileVO();
+				fVo.setBoardNo(boardNo);
+				fVo.setFileName(board.getFiles()[i]);
+
+				System.out.println("fVo : " + fVo.toString());
+
+				// 4-2.추가 이미지 저장
+				fDao.insert(fVo);
+
+			}
+		}
 
 	}
 
@@ -90,8 +115,15 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public List<FileVO> fileList(int boardNo) throws Exception {
-		
+
 		return fDao.list(boardNo);
+	}
+
+	@Override
+	public void deleteFile(int boardNo) throws Exception {
+
+		fDao.delete(boardNo);
+
 	}
 
 }

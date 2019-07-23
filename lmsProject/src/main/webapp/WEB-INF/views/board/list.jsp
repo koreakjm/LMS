@@ -43,7 +43,7 @@
 	content="Creative Multipurpose Bootstrap Template">
 
 <!-- Favicon -->
-<link rel="shortcut icon" href="../assets/images/favicon.ico">
+<link rel="shortcut icon" href="/resources/images/favicon.ico">
 
 <!-- Google Font -->
 <link
@@ -51,15 +51,12 @@
 	rel="stylesheet">
 
 <!-- Plugins CSS -->
-<link rel="stylesheet" type="text/css"
-	href="../assets/vendor/font-awesome/css/font-awesome.min.css" />
-<link rel="stylesheet" type="text/css"
-	href="../assets/vendor/themify-icons/css/themify-icons.css" />
-<link rel="stylesheet" type="text/css"
-	href="../assets/vendor/animate/animate.min.css" />
+<link rel="stylesheet" type="text/css" href="/resources/vendor/font-awesome/css/font-awesome.min.css" />
+<link rel="stylesheet" type="text/css" href="/resources/vendor/themify-icons/css/themify-icons.css" />
+<link rel="stylesheet" type="text/css" href="/resources/vendor/animate/animate.min.css" />
 
 <!-- Theme CSS -->
-<link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
+<link rel="stylesheet" type="text/css" href="/resources/css/style.css" />
 </head>
 <body>
 	<header>
@@ -68,7 +65,7 @@
 	<!-- =======================
    Banner innerpage -->
 	<div class="innerpage-banner center bg-overlay-dark-7 py-7"
-		style="background: url(../assets/images/bg/04.jpg) no-repeat; background-size: cover; background-position: center center;">
+		style="background: url(/resources/images/bg/04.jpg) no-repeat; background-size: cover; background-position: center center;">
 		<div class="container">
 			<div class="row all-text-white">
 				<div class="col-md-12 align-self-center">

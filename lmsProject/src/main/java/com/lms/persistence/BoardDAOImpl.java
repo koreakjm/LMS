@@ -33,9 +33,11 @@ public class BoardDAOImpl implements BoardDAO {
 	}
 
 	@Override
-	public void modify(BoardVO vo) throws Exception {
+	public int modify(BoardVO vo) throws Exception {
 
 		session.update(namespace + ".modify", vo);
+		
+		return vo.getBoardNo();
 
 	}
 
