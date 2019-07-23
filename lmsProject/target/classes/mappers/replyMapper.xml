@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="com.lms.mapper.ReplyMapper">
 
-	<select id="list" resultType="ReplyVO">
+	<select id="list" resultType="com.lms.domain.ReplyVO">
 		select
 		*
 		from
