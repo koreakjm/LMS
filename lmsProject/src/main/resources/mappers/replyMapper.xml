@@ -16,8 +16,35 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<insert id="create">
-		insert into tbl_reply (BOARD_NO, REPLY_TEXT, USER_NO)
-		values (#{boardNo},#{replyText},#{userNo})
+		insert into tbl_reply (REPLY_NO ,BOARD_NO, REPLY_TEXT, USER_NO)
+		values (SEQ_REPLY.NEXTVAL, #{boardNo},#{replyText},#{userNo})
 	</insert>
+	
+		<update id="update">
+		update tbl_reply set reply_text = #{replyText},
+		updatedate = sysdate
+		where reply_no = #{replyNo}
+	</update>
+
+	<delete id="delete">
+		delete from tbl_reply where reply_no =#{replyNo}
+	</delete>
+
+
+	<select id="listPage" resultType="com.lms.domain.ReplyVO">
+		select
+		*
+		from
+		tbl_reply
+		where
+		board_no = #{boardNo}
+		order by reply_no desc
+		limit #{cri.pageStart}, #{cri.perPageNum}
+	</select>
+
+	<select id="count" resultType="int">
+		select count(board_no) from tbl_reply where board_no =#{boardNo}
+	</select>
+	
 
 </mapper>

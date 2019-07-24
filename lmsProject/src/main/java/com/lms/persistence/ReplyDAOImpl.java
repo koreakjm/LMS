@@ -1,6 +1,8 @@
 package com.lms.persistence;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -33,26 +35,33 @@ public class ReplyDAOImpl implements ReplyDAO {
 
 	@Override
 	public void update(ReplyVO vo) throws Exception {
-		// TODO Auto-generated method stub
+		
+		session.update(namespace + ".update", vo);
 		
 	}
 
 	@Override
 	public void delete(int replyNo) throws Exception {
-		// TODO Auto-generated method stub
+		
+		session.delete(namespace + ".delete", replyNo);
 		
 	}
 
 	@Override
 	public List<ReplyVO> listPage(int boardNo, Criteria cri) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		
+	    Map<String, Object> paramMap = new HashMap<>();
+
+	    paramMap.put("boardNo", boardNo);
+	    paramMap.put("cri", cri);
+
+	    return session.selectList(namespace + ".listPage", paramMap);
 	}
 
 	@Override
-	public int count(int replyNo) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+	public int count(int boardNo) throws Exception {
+
+		return session.selectOne(namespace + ".count", boardNo);
 	}
 
 }

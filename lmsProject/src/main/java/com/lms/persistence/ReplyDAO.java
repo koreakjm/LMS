@@ -17,6 +17,6 @@ public interface ReplyDAO {
 
 	public List<ReplyVO> listPage(int boardNo, Criteria cri) throws Exception;
 
-	public int count(int replyNo) throws Exception;
+	public int count(int boardNo) throws Exception;
 
 }
