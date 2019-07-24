@@ -51,12 +51,11 @@
 							</svg>
 							<!-- SVG Logo End -->
 						</div>
-						<h3 class="font-weight-light">We connect you with the world largest community</h3>
 						<ul class="list-group list-group-borderless mt-4">
-							<li class="list-group-item text-white"><i class="fa fa-check"></i>Connect with your community via Wizixo</li>
-							<li class="list-group-item text-white"><i class="fa fa-check"></i>Discover the best experience with fellowship</li>
-							<li class="list-group-item text-white"><i class="fa fa-check"></i>Create your wishlist and enjoy to best experience</li>
-						</ul>
+							<li class="list-group-item text-white"><i class="fa fa-check"></i></li>
+							<li class="list-group-item text-white"><i class="fa fa-check"></i></li>
+							<li class="list-group-item text-white"><i class="fa fa-check"></i></li>
+						</ul> 
 					</div>
 				</div>
 				<!-- Right -->
@@ -66,7 +65,7 @@
 							<div class="w-100">
 							<form role="form" action="pwModify" method="post" onsubmit="return pwCheck()">
 							<input type='hidden' name='userNo' value="${login.userNo}">
-								<h2 class="">비밀번호 변경하기!</h2>
+								<h2 class="">비밀번호 변경</h2>
 								<div class="form mt-4 ">
 									
 									<div>
@@ -96,8 +95,8 @@
 									<div class="row align-items-center no-gutters m-0">
 										<div class="col-6 col-md-8"></div>
 										<div class="col-6 col-md-4 text-right">
-											<button type="submit" class="btn btn-primary ">확인</button>
-											<input type="button" class="btn btn-warning " value="취소" onclick="location.href='/user/mypage'"></div>
+											<button type="submit" class="btn btn-outline-grad ">확인</button>
+											<input type="button" class="btn btn-outline-light " value="취소" onclick="location.href='/user/mypage'"></div>
 									</div>
 								</div>
 								</form>

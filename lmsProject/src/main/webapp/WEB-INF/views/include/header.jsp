@@ -36,22 +36,6 @@
 	header Start-->
 	<header class="header-static navbar-sticky navbar-light">
 		<!-- Search -->
-		<div class="top-search collapse bg-light" id="search-open" data-parent="#search">
-			<div class="container">
-				<div class="row position-relative">
-					<div class="col-md-8 mx-auto py-5">
-						<form>
-							<div class="input-group">
-								<input class="form-control border-radius-right-0 border-right-0" type="text" name="search" autofocus placeholder="What are you looking for?">
-								<button type="button" class="btn btn-grad border-radius-left-0 mb-0">Search</button>
-							</div>
-						</form>
-						<p class="small mt-2 mb-0"><strong>e.g.</strong>Template, Wizixo, WordPress theme </p>
-					</div>
-					<a class="position-absolute top-0 right-0 mt-3 mr-3" data-toggle="collapse" href="#search-open"><i class="fa fa-window-close"></i></a>
-				</div>
-			</div>
-		</div>
 		<!-- End Search -->
 
 		<!-- Navbar top start-->
@@ -60,11 +44,6 @@
 				<div class="d-flex justify-content-between align-items-center">
 					<!-- navbar top Left-->
 					<div class="d-flex align-items-center">
-						<!-- Language -->
-						<div class="dropdown">
-						  <a class="dropdown-toggle" href="#" role="button" id="dropdownLanguage" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <img class="dropdown-item-icon" src="../resources/images/flags/uk.svg" alt=""> English </a>
-						  
-						</div>
 						<!-- Top info -->
 						<ul class="nav list-unstyled ml-3">
 							<li class="nav-item mr-3">
@@ -123,14 +102,12 @@
 						<!-- top social -->
 						<ul class="social-icons">
 							<li class="social-icons-item social-facebook m-0">
-								<a class="social-icons-link w-auto px-2" href="#"><i class="fa fa-facebook"></i></a>
+								<a class="social-icons-link w-auto px-2" href="https://www.facebook.com/hannamMIS"><i class="fa fa-facebook"></i></a>
 							</li>
+							
 							<li class="social-icons-item social-instagram m-0">
 								<a class="social-icons-link w-auto px-2" href="https://www.instagram.com/hnu.gitb.hit/"><i class="fa fa-instagram"></i></a>
 							</li>
-							<!-- <li class="social-icons-item social-twitter m-0">
-								<a class="social-icons-link w-auto pl-2" href="#"><i class="fa fa-twitter"></i></a>
-							</li> -->
 						</ul>
 					</div>
 				</div>
@@ -142,7 +119,7 @@
 		<nav class="navbar navbar-expand-lg">
 			<div class="container">
 				<!-- Logo -->
-				<a class="navbar-brand" href="index.html">
+				<a class="navbar-brand" href="/">
 					<!-- SVG Logo Start -->
 					<svg class="navbar-brand-item" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMinYMid" width="325.656" height="100" viewBox="0 0 325.656 100">
 					  <defs>
@@ -158,12 +135,6 @@
 					</svg>
 					<!-- SVG Logo End -->
 				</a>
-				<!-- Menu opener button -->
-				<button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-				  <span class="navbar-toggler-icon"> </span>
-			  </button>
-				
-				<!-- Header Extras End-->
 			</div>
 		</nav>
 		<!-- Logo Nav End -->

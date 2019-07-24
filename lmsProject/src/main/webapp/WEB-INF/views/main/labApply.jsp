@@ -46,10 +46,22 @@
 	<header>
 		<%@ include file="/WEB-INF/views/include/header.jsp"%>
 	</header>
-	<!-- ======================= header End-->
-
-
-	<!-- ======================= Table -->
+ <!-- =======================
+   Banner innerpage -->
+	<div class="innerpage-banner center bg-overlay-dark-7 py-7" style="background:url(../assets/images/bg/04.jpg) no-repeat; background-size:cover; background-position: center center;">
+		<div class="container">
+			<div class="row all-text-white">
+				<div class="col-md-12 align-self-center">
+					<h1 class="innerpage-title">${login.userName}님의 실습실 참여</h1>
+					<nav aria-label="breadcrumb">
+					
+					</nav>
+				</div>	
+			</div>
+		</div>
+	</div>
+   <!-- =======================
+   Banner innerpage -->
 	<div class="container">
 		<div class="table-responsive-sm">
 			<div style="margin-top: 5%;">
@@ -58,40 +70,22 @@
 			<table class="table table-hover">
 			</table>
 		</div>
-		
-	<!-- 	<section class="py-4">
-      <div class="container">
-               <form role="form" method="post">
-         <div class="border border-dotted p-4 p-sm-5 border-radius-3">
-            <div class="text-center px-0 px-sm-5">
-              
-            </div>
-            <div class="mt-3 text-center">
-            </div>
-         </div>
-      </form>
-      
-      </div>
-   </section> -->
-   
-   
 		<section class="py-4">
       <div class="container">
          <form role="form" method="post">
          <input type='hidden' name='userNo' value="${login.userNo}">
          <div class="border border-dotted p-4 p-sm-5 border-radius-3">
             <div class="text-center px-0 px-sm-5">
-               <h1><b><a href="">실습실 참여하기</a></b></h1>
+             <h4><i class="mr-3 display-8 ti-time"></i>현재시간 <fmt:formatDate pattern="YYYY-MM-dd HH:mm" value="${applyTime}"/></h4>
+             <p class="text-grad"><b>실습실 사용수칙</b></p>
                <br>
-             <h4>현재시간 <fmt:formatDate pattern="YYYY-MM-dd HH:mm" value="${applyTime}"/></h4>
-            <br><br><br>
-            
-            <h3><b>실습실 사용수칙</b></h3>
-            <ul class="list-group list-group-borderless">
-                  <li class="list-group-item"><i class="fa fa-check text-primary"></i> 실습실을 항상 깨끗이</li>
-                  <li class="list-group-item"><i class="fa fa-check text-primary"></i> 키 분실에 유의!!</li>
-                  <li class="list-group-item"><i class="fa fa-check text-primary"></i> 퇴실시 경비실에 키 반납</li>
-               </ul>
+            <br>
+            <table border=0 align=center>
+                  <tr align="left"><td ><i class="fa fa-check text-primary"></i> 깨끗이 사용하기</td></tr>
+                 <tr align="left"><td ><i class="fa fa-check text-primary"></i> 키 분실에 유의</td></tr>
+                 <tr align="left"><td ><i class="fa fa-check text-primary"></i> 키 반납은 반드시 경비실에 !</td></tr>
+              </table>
+
             <div class="mt-4 text-center">
             
 		<button type="submit" class="btn btn-outline-grad">참여</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
