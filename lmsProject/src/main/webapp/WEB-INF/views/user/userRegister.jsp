@@ -76,7 +76,7 @@
 									
 									<div align="right">
 										<button type="submit" class="btn btn-primary">SUBMIT</button>
-										<input type="button" class="btn btn-warning " value="취소" onclick="location.href='/user/userList'">
+										<input type="button" class="btn btn-warning " value="CANCEL" onclick="location.href='/user/userList'">
 									</div>
 									
 								</div>

@@ -46,21 +46,18 @@
 	<header>
 		<%@ include file="/WEB-INF/views/include/header.jsp"%>
 	</header>
-<!-- =======================
-   Banner innerpage -->
-	<div class="innerpage-banner center bg-overlay-dark-7 py-7" style="background:url(../resources/images/bg/04.jpg) no-repeat; background-size:cover; background-position: center center;">
+	
+	<!-- ======================= Banner innerpage -->
+	<div class="left bg-grad pattern-overlay-4">
 		<div class="container">
 			<div class="row all-text-white">
 				<div class="col-md-12 align-self-center">
-					<h1 class="innerpage-title">${login.userName}님의 정보</h1>
-					<nav aria-label="breadcrumb">
-					
-					</nav>
-				</div>	
+					<h1 class="font-weight-bold display-4 display-md-1 mb-2 mb-md-n4 mt-9">내 정보</h1>
+				</div>
 			</div>
 		</div>
 	</div>
-   <!-- =======================
+	<!-- ======================= Banner innerpage -->
 
 	<!-- ======================= Table -->
 	<div class="container">
@@ -77,13 +74,13 @@
       <div class="row">
 				<div class="col-md-4 mt-4">
 					<div class="feature-box f-style-1 h-100 active icon-primary">
-						<h3 class="feature-box-title">학번</h3>
+						<h3 class="feature-box-title">학번 : </h3>
 						<div class="feature-box-icon"><h4>${login.userNo}</h4></div>
 					</div>
 				</div>
 				<div class="col-md-4 mt-4">
 					<div class="feature-box f-style-1 h-100 active icon-primary">
-						<h3 class="feature-box-title">재학상태</h3>
+						<h3 class="feature-box-title">재학상태 : </h3>
 						<div class="feature-box-icon"><h4>${login.state}</h4></div>
 					</div>
 				</div>

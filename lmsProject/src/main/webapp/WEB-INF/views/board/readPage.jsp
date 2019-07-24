@@ -50,33 +50,25 @@ ul {
 </head>
 
 <body>
-	<!-- =======================
-   Banner innerpage -->
-	<div class="innerpage-banner center bg-overlay-dark-7 py-7"
-		style="background: url(../assets/images/bg/04.jpg) no-repeat; background-size: cover; background-position: center center;">
-		<div class="container">
-			<div class="row all-text-white">
-				<div class="col-md-12 align-self-center">
-					<h1 class="innerpage-title">${boardVO.boardNo}</h1>
-					<nav aria-label="breadcrumb">
-						<ol class="breadcrumb">
-							<li class="breadcrumb-item active"><a
-								href="/main?command=loginForm"><i class="ti-home"></i>운영게시판</a></li>
-						</ol>
-					</nav>
+				<!-- ======================= Banner innerpage -->
+				<div class="left bg-grad pattern-overlay-4">
+					<div class="container">
+						<div class="row all-text-white">
+							<div class="col-md-12 align-self-center">
+								<h1 class="font-weight-bold display-4 display-md-1 mb-2 mb-md-n4 mt-9">운영 게시판</h1>
+							</div>
+						</div>
+					</div>
 				</div>
-			</div>
-		</div>
-	</div>
-	<!-- =======================
-   Banner innerpage -->
-	<!-- =======================
-   Banner innerpage -->
+				<!-- ======================= Banner innerpage -->
+	
+	
+	
 	<section>
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12 mb-5">
-					<h5 class="text-center mb-4">운영게시판</h5>
+					<h5 class="text-center mb-4">운영게시판 상세보기</h5>
 
 					<form role="form" action="modify" method="post">
 						<input type="hidden" name="boardNo" value="${boardVO.boardNo}">

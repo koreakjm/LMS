@@ -62,64 +62,60 @@
 	<header>
 		<%@ include file="../include/header.jsp"%>
 	</header>
-	<!-- =======================
-   Banner innerpage -->
-	<div class="innerpage-banner center bg-overlay-dark-7 py-7"
-		style="background: url(/resources/images/bg/04.jpg) no-repeat; background-size: cover; background-position: center center;">
-		<div class="container">
-			<div class="row all-text-white">
-				<div class="col-md-12 align-self-center">
-
-					<nav aria-label="breadcrumb">
-						<ol class="breadcrumb">
-							<!-- 
-                     <li class="breadcrumb-item active"><a href="/main?command=loginForm"><i class="ti-home"></i>Home</a></li>
-                      -->
-						</ol>
-					</nav>
+				<!-- ======================= Banner innerpage -->
+				<div class="left bg-grad pattern-overlay-4">
+					<div class="container">
+						<div class="row all-text-white">
+							<div class="col-md-12 align-self-center">
+								<h1 class="font-weight-bold display-4 display-md-1 mb-2 mb-md-n4 mt-9">운영 게시판</h1>
+							</div>
+						</div>
+					</div>
 				</div>
-			</div>
-		</div>
-	</div>
-	<!-- =======================
-   Banner innerpage -->
+				<!-- ======================= Banner innerpage -->
 	<section>
 
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12 mb-5">
 
-					<!--             <h2 class="section-title">운영게시판</h2> -->
-
 					<div class="col-md-12">
-						<!-- general form elements -->
-						<div class='box'>
-							<div class="box-header with-border">
-								<h3 class="box-title">운영게시판</h3>
-							</div>
-
-							<div class='box-body'>
-
-					<select name="searchType">
-						<option value="n"
-							<c:out value="${cri.searchType == null?'selected':''}"/>>
-							---</option>
-						<option value="t"
-							<c:out value="${cri.searchType eq 't'?'selected':''}"/>>
-							제목</option>
-						<option value="w"
-							<c:out value="${cri.searchType eq 'w'?'selected':''}"/>>
-							작성자</option>
-						<option value="r"
-							<c:out value="${cri.searchType eq 'r'?'selected':''}"/>>
-							작성일</option>
-						
-					</select> <input type="text" name='keyword' id="keywordInput"
-						value='${cri.keyword}'>
-				<button id='searchBtn'>Search</button>
-
-				</div>
-			</div>
+											<div class="col-md-6" style="float: right;">
+									<div class="h-100">
+										
+										<div class="row">
+										
+										<div class="col-md-3">
+											<select class="custom-select select-big mb-2" name="searchType">
+												<option value="n"
+													<c:out value="${cri.searchType == null?'selected':''}"/>>
+													---</option>
+												<option value="t"
+													<c:out value="${cri.searchType eq 't'?'selected':''}"/>>
+													제목</option>
+												<option value="w"
+													<c:out value="${cri.searchType eq 'w'?'selected':''}"/>>
+													작성자</option>
+												<option value="r"
+													<c:out value="${cri.searchType eq 'r'?'selected':''}"/>>
+													작성일</option>
+											</select>
+										</div>
+										
+										<div class="col-md-4">
+												<input type="text" class="form-control" name='keyword' id="keywordInput" value='${cri.keyword }'>
+										</div>		
+										
+										<div class="col-md-2">	
+												<button class="btn btn-light" id='searchBtn'>Search</button>
+										
+										</div>
+										
+									
+									</div>
+									
+									</div>
+								</div>
 
 
 							<div class="table-responsive-sm">
@@ -166,6 +162,8 @@
 						</div>
 					</div>
 				</div>
+				</div>
+				
 	</section>
    <section class="pt-0">
       <div class="container">
