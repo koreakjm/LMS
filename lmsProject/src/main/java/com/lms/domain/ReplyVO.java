@@ -14,7 +14,7 @@ import java.util.Date;
 public class ReplyVO {
 
 	private int replyNo;
-	private int regdate;
+	private Date regdate;
 	private String replyText;
 	private Date updatedate;
 	private int boardNo;
@@ -28,11 +28,11 @@ public class ReplyVO {
 		this.replyNo = replyNo;
 	}
 
-	public int getRegdate() {
+	public Date getRegdate() {
 		return regdate;
 	}
 
-	public void setRegdate(int regdate) {
+	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
 	}
 

@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.lms.domain.UserVO;
@@ -39,7 +40,7 @@ public class HomeController {
 
 		logger.info("Welcome home!");
 		logger.info("show post ...............");
-		
+
 		// list.jsp에서 list를 쓰면됨.
 		model.addAttribute("list", labservice.labListAll());
 		model.addAttribute("boardList", boardservice.selectThreeBoard());
@@ -92,5 +93,9 @@ public class HomeController {
 
 		return "redirect:/login";
 
+	}
+
+	@RequestMapping(value = "/test", method = RequestMethod.GET)
+	public void ajaxTest() {
 	}
 }

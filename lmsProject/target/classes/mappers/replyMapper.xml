@@ -32,14 +32,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
 	<select id="listPage" resultType="com.lms.domain.ReplyVO">
-		select
-		*
-		from
-		tbl_reply
-		where
-		board_no = #{boardNo}
+	<![CDATA[
+		select * from 
+				( select ROWNUM as RNUM, reply_no, regdate, updatedate, board_no, user_no, reply_text 
+			from 
+				tbl_reply 
+			where 
+				board_no = #{boardNo})
+		where 
+			(RNUM >= #{cri.pageStart} AND RNUM <= #{cri.pageEnd})
 		order by reply_no desc
-		limit #{cri.pageStart}, #{cri.perPageNum}
+	]]>  
 	</select>
 
 	<select id="count" resultType="int">

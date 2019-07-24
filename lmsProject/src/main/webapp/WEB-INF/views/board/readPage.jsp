@@ -43,7 +43,8 @@ ul {
 }
 </style> 
 
-<script src="/resources/js/jQuery-2.1.4.min.js"></script>
+<script src="/resources/vendor/jquery/jQuery-2.1.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 
 <%@ include file="../include/header.jsp"%>
 </head>
