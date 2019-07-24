@@ -6,6 +6,8 @@ import java.util.Map;
 
 import javax.inject.Inject;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,6 +25,9 @@ import com.lms.service.ReplyService;
 @RequestMapping("/replies")
 public class ReplyController {
 
+	private static final Logger logger = LoggerFactory.getLogger(ReplyController.class);
+
+	
 	@Inject
 	private ReplyService service;
 
@@ -89,6 +94,8 @@ public class ReplyController {
 	public ResponseEntity<Map<String, Object>> listPage(@PathVariable("boardNo") int boardNo,
 			@PathVariable("page") Integer page) {
 
+		
+		logger.info("reply: boardNo : " + boardNo);
 		ResponseEntity<Map<String, Object>> entity = null;
 
 		try {
@@ -100,6 +107,7 @@ public class ReplyController {
 
 			Map<String, Object> map = new HashMap<String, Object>();
 			List<ReplyVO> list = service.listReplyPage(boardNo, cri);
+			
 
 			map.put("list", list);
 

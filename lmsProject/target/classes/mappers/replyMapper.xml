@@ -38,7 +38,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			from 
 				tbl_reply 
 			where 
-				board_no = #{boardNo})
+				board_no = #{boardNo} 
+				
+				order by reply_no desc
+				
+				)
 		where 
 			(RNUM >= #{cri.pageStart} AND RNUM <= #{cri.pageEnd})
 		order by reply_no desc

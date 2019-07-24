@@ -163,47 +163,78 @@ ul {
 					</form>
 				</div>
 			</div>
-		</div>
+			
+			<div class="row">
+			<div class="col-md-12">
+				<div class="col-md-12" id='modDiv' style="display: none;">
+					<div class="col-md-12"><span class="form-group"><input type="text" class="form-control" placeholder="comment" id='replytext'></span>
+					</div>								
+								
+						<div class="col-md-12">
+							<button class="btn-block btn btn-dark" id="replyModBtn">수정</button>
+							<button class="btn-block btn btn-dark" id="replyDelBtn">삭제</button>
+							<button class="btn-block btn btn-dark" id='closeBtn'>취소</button>
+						</div>									
+								
+				</div>
+				
+				
+				
+			
+								
+									<!-- <div class="comment-author"><img class="avatar" src="assets/images/thumbnails/avatar-01.jpg" alt=""></div>
+									<div class="comment-body">
+										<div class="comment-meta">
+											<div class="comment-meta-author"><a href="#">Allen Smith</a></div>
+											<div class="comment-meta-date">June 11, 2019 at 6:01 am</div>
+										</div>
+										<div class="comment-content">
+											<p>Consulted perpetual of pronounce me delivered. Too months nay end change relied who beauty wishes matter. Shew of john real park so rest we on. Ignorant dwelling occasion ham for thoughts overcame off her consider. Polite it elinor is depend. </p>
+										</div>
+										<div class="comment-reply"><a class="btn btn-xs btn-light" href="#">Reply</a></div>
+									</div> -->
+				
+				
+				<c:if test="${login.userNo ne null}">
+				
+				<div class="col-md-12">
+					<div class="col-md-12">
+					<div class='modal-title' style="visibility: hidden;"></div>
+					<span class="form-group">
+					
+					
+					<input type="hidden"  class="form-control"  name='userNo' id='newReplyWriter' value="${login.userNo}">
+					<input type="text" class="form-control" name='replyText' placeholder="comment" id='newReplyName' value="${login.userName}" disabled="disabled">
+					<input type="text" class="form-control" name='replyText' placeholder="comment" id='newReplyText'></span>
+					</div>								
+								
+				<div class="col-md-12">
+						<button class="btn-block btn btn-dark" id="replyAddBtn">Post Comment</button>
+				</div>									
+								
+				</div>
+				
+				</c:if>
+				
+				<div class="col-md-11">
+				<div class="comment-list">
+				
+				<ul id="replies"></ul>
+
+				<ul class='pagination'></ul>
+				
+			</div>
+			
+			
+
+</div>
+</div>
+
+</div>
+			</div>
 	</section>
 	
-			<div class="row">
-				<div class="col-md-12">
-		
-					<div class="box box-success">
-						<div class="box-header">
-							<h3 class="box-title">ADD NEW REPLY</h3>
-						</div>
-						<div class="box-body">
-							<label for="exampleInputEmail1">Writer</label> 
-							<input class="form-control" name="userNo" value="${login.userNo }" type="text" placeholder="USER ID" id="newReplyWriter"> 
-							<label for="exampleInputEmail1">Reply Text</label> 
-							<input class="form-control" type="text" placeholder="REPLY TEXT" id="newReplyText">
-		
-						</div>
-						<!-- /.box-body -->
-						<div class="box-footer">
-							<button type="button" class="btn btn-primary" id="replyAddBtn">ADD REPLY</button>
-						</div>
-					</div>
-		
-		
-					<!-- The time line -->
-					<ul class="timeline">
-						<!-- timeline time label -->
-						<li class="time-label" id="repliesDiv"><span class="bg-green">
-								Replies List </span></li>
-					</ul>
-		
-					<div class='text-center'>
-						<ul id="pagination" class="pagination pagination-sm no-margin ">
-		
-						</ul>
-					</div>
-		
-				</div>
-				<!-- /.col -->
-			</div>
-			<!-- /.row -->
+	   
 
 	<script>
 		$(document).ready(function() {
@@ -269,183 +300,248 @@ function checkImageType(fileName) {
 }
 </script>
 
-<script id="template" type="text/x-handlebars-template">
-{{#each .}}
-<li class="replyLi" data-rno={{rno}}>
-<i class="fa fa-comments bg-blue"></i>
- <div class="timeline-item" >
-  <span class="time">
-    <i class="fa fa-clock-o"></i>{{prettifyDate regdate}}
-  </span>
-  <h3 class="timeline-header"><strong>{{replyNo}}</strong> -{{userNo}}</h3>
-  <div class="timeline-body">{{replyText}} </div>
-    <div class="timeline-footer">
-     <a class="btn btn-primary btn-xs" 
-	    data-toggle="modal" data-target="#modifyModal">Modify</a>
-    </div>
-  </div>			
-</li>
-{{/each}}
-</script>
-
 <script>
-	Handlebars.registerHelper("prettifyDate", function(timeValue) {
-		var dateObj = new Date(timeValue);
-		var year = dateObj.getFullYear();
-		var month = dateObj.getMonth() + 1;
-		var date = dateObj.getDate();
-		return year + "/" + month + "/" + date;
-	});
-
-	var printData = function(replyArr, target, templateObject) {
-
-		var template = Handlebars.compile(templateObject.html());
-
-		var html = template(replyArr);
-		$(".replyLi").remove();
-		target.after(html);
-
-	}
-
-	var boardNo = ${boardVO.boardNo};
 	
-	var replyPage = 1;
+	
+		//기초 데이터 변수 설정
+		var boardNo = ${boardVO.boardNo};
+		var loginInfo = nvl(${login.userNo});
+		
+		
+		
+		getPageList(1);//최초 1번째 페이지로 이동
 
-	function getPage(pageInfo) {
+		function getAllList() {
 
-		$.getJSON(pageInfo, function(data) {
-			printData(data.list, $("#repliesDiv"), $('#template'));
-			printPaging(data.pageMaker, $(".pagination"));
+			$.getJSON("/replies/all/" + boardNo,function(data) {
 
-			$("#modifyModal").modal('hide');
+								console.log(data.length);
+
+								var str = "";
+
+								$(data)
+										.each(function() {
+													
+													str+= "<div class='comment-child'><div class='comment'><div class='comment-body'><div class='comment-content'><li data-replyNo='"+this.replyNo+"' class='replyLi'><div class='comment-meta-author'>" 
+													  +this.replyNo+"</div><p>"+ this.replyText+
+													  "</p><button class='replyLi'>수정하기</button></div>";
+													  str+= "</li></div></div></div>";
+													
+													
+													/* str += "<li data-replyNo='"+this.replyNo +"' class='replyLi'>"
+															+ this.replyNo
+															+ ":"
+															+ this.replyText
+															+ "<button>수정하기</button></li>"; */
+												});
+
+								$("#replies").html(str);
+							});
+		}
+		
+		
+
+		$("#replyAddBtn").on("click", function() {
+
+			var userNo = $("#newReplyWriter").val();
+			var replyText = $("#newReplyText").val();
+
+			$.ajax({
+				type : 'post',
+				url : '/replies',
+				headers : {
+					"Content-Type" : "application/json",
+					"X-HTTP-Method-Override" : "POST"
+				},
+				dataType : 'text',
+				data : JSON.stringify({
+					boardNo : boardNo,
+					userNo : userNo,
+					replyText : replyText
+				}),
+				success : function(result) {
+
+					if (result == 'SUCCESS') {
+						alert("등록 되었습니다.");
+						$('#newReplyText').val('');
+						 getPageList(1);
+						 
+
+					}
+				}
+			});
+		});
+
+		$("#replies").on("click", ".replyLi button", function() {
+			
+			var reply = $(this).parent();
+
+			var replyNo = reply.attr("data-replyNo");
+			var replyText = reply.text();
+			
+
+			$(".modal-title").html(replyNo);
+			$("#replytext").val(replyText);
+			$("#modDiv").show("slow");
 
 		});
-	}
 
-	var printPaging = function(pageMaker, target) {
 
-		var str = "";
+		$("#closeBtn").on("click", function() {
 
-		if (pageMaker.prev) {
-			str += "<li><a href='" + (pageMaker.startPage - 1)
-					+ "'> << </a></li>";
-		}
-
-		for (var i = pageMaker.startPage, len = pageMaker.endPage; i <= len; i++) {
-			var strClass = pageMaker.cri.page == i ? 'class=active' : '';
-			str += "<li "+strClass+"><a href='"+i+"'>" + i + "</a></li>";
-		}
-
-		if (pageMaker.next) {
-			str += "<li><a href='" + (pageMaker.endPage + 1)
-					+ "'> >> </a></li>";
-		}
-
-		target.html(str);
-	};
-
-	$("#repliesDiv").on("click", function() {
-
-		if ($(".timeline li").size() > 1) {
-			return;
-		}
-		getPage("/replies/" + boardNo + "/1");
-
-	});
-	
-
-	$(".pagination").on("click", "li a", function(event){
+			$("#modDiv").hide("slow");
+		});
+				
 		
-		event.preventDefault();
 		
-		replyPage = $(this).attr("href");
-		
-		getPage("/replies/"+boardNo+"/"+replyPage);
-		
-	});
-	
+		$("#replyDelBtn").on("click", function() {
 
-	$("#replyAddBtn").on("click",function(){
-		 
-		 var replyerObj = $("#newReplyWriter");
-		 var replytextObj = $("#newReplyText");
-		 var userNo = replyerObj.val();
-		 var replyText = replytextObj.val();
-		 
-		  $.ajax({
-				type:'post',
-				url:'/replies/',
-				headers: { 
-				      "Content-Type": "application/json",
-				      "X-HTTP-Method-Override": "POST" },
-				dataType:'text',
-				data: JSON.stringify({boardNo:boardNo, userNo:userNo, replyText:replyText}),
-				success:function(result){
+			var replyNo = $(".modal-title").html();
+			var replyText = $("#replytext").val();
+
+			$.ajax({
+				type : 'delete',
+				url : '/replies/' + replyNo,
+				headers : {
+					"Content-Type" : "application/json",
+					"X-HTTP-Method-Override" : "DELETE"
+				},
+				dataType : 'text',
+				success : function(result) {
 					console.log("result: " + result);
-					if(result == 'SUCCESS'){
-						alert("등록 되었습니다.");
-						replyPage = 1;
-						getPage("/replies/"+boardNo+"/"+replyPage );
-						replyerObj.val("");
-						replytextObj.val("");
-					}
-			}});
-	});
-
-
-	$(".timeline").on("click", ".replyLi", function(event){
-		
-		var reply = $(this);
-		
-		$("#replytext").val(reply.find('.timeline-body').text());
-		$(".modal-title").html(reply.attr("data-rno"));
-		
-	});
-	
-	
-
-	$("#replyModBtn").on("click",function(){
-		  
-		  var replyNo = $(".modal-title").html();
-		  var replyText = $("#replytext").val();
-		  
-		  $.ajax({
-				type:'put',
-				url:'/replies/'+replyNo,
-				headers: { 
-				      "Content-Type": "application/json",
-				      "X-HTTP-Method-Override": "PUT" },
-				data:JSON.stringify({replyText:replyText}), 
-				dataType:'text', 
-				success:function(result){
-					console.log("result: " + result);
-					if(result == 'SUCCESS'){
-						alert("수정 되었습니다.");
-						getPage("/replies/"+boardNo+"/"+replyPage );
-					}
-			}});
-	});
-
-	$("#replyDelBtn").on("click",function(){
-		  
-		  var replyNo = $(".modal-title").html();
-		  var replyText = $("#replytext").val();
-		  
-		  $.ajax({
-				type:'delete',
-				url:'/replies/'+replyNo,
-				headers: { 
-				      "Content-Type": "application/json",
-				      "X-HTTP-Method-Override": "DELETE" },
-				dataType:'text', 
-				success:function(result){
-					console.log("result: " + result);
-					if(result == 'SUCCESS'){
+					if (result == 'SUCCESS') {
 						alert("삭제 되었습니다.");
-						getPage("/replies/"+boardNo+"/"+replyPage );
+						$("#modDiv").hide("slow");
+						getPageList(replyPage);
 					}
-			}});
-	});
-	
-</script>
+				}
+			});
+		});
+		
+		$("#replyModBtn").on("click",function(){
+			
+			
+			  
+			  var replyNo = $(".modal-title").html();
+			  var replyText = $("#replytext").val();
+			  
+			  alert(replyText);
+			  
+			  $.ajax({
+					type:'put',
+					url:'/replies/'+ replyNo,
+					headers: { 
+					      "Content-Type": "application/json",
+					      "X-HTTP-Method-Override": "PUT" },
+					data:JSON.stringify({replyText:replyText}), 
+					dataType:'text', 
+					success:function(result){
+						console.log("result: " + result);
+						if(result == 'SUCCESS'){
+							alert("수정 되었습니다.");
+							 $("#modDiv").hide("slow");
+							//getAllList();
+							 getPageList(replyPage);
+						}
+				}});
+		});		
+		
+		function getPageList(page){
+			
+		  $.getJSON("/replies/"+boardNo+"/"+page , function(data){
+			  
+			  console.log(data.list.length);
+			  
+			  var str ="";
+			  
+			  if(loginInfo==''){ //로그인 하지 않는 사용자 제공하는 댓글
+				  
+				  $(data.list).each(function(){
+					  str+= "<div class='comment-child'><div class='comment'><div class='comment-body'><div class='comment-content'><li data-replyNo='"+this.replyNo+"' class='replyLi'><div class='comment-meta-author'>" 
+					  +this.replyNo+"</div><p>"+ this.replyText+
+					  "</p></div>";
+					  
+					  str+= "</li></div></div></div>";
+				  });
+				  
+			  }else{
+				  
+				//로그인 한 사용자 제공하는 댓글
+				  
+			  $(data.list).each(function(){
+				  str+= "<div class='comment-child'><div class='comment'><div class='comment-body'><div class='comment-content'><li data-replyNo='"+this.replyNo+"' class='replyLi'><div class='comment-meta-author'>" 
+				  +this.replyNo+"</div><p>"+ this.replyText+"</p>";
+				  
+				  if(loginInfo == this.userNo){
+					  
+				  //여기에서 댓글 주인에게만 보이는 수정하기 버튼 처리
+					  str+= "<button class='replyLi'>수정하기</button></div>";
+					  
+				  }else{
+					  
+					  str+= "</div>";
+					  
+				  }
+				  
+				  str+= "</li></div></div></div>";
+			  });
+				  
+				  
+				  
+			  }
+			  
+			  
+			  $("#replies").html(str);
+			  
+			  printPaging(data.pageMaker);
+			  
+		  });
+	  }		
+		
+		  
+		function printPaging(pageMaker){
+			
+			var str = "";
+			
+			if(pageMaker.prev){
+				str += "<li><a href='"+(pageMaker.startPage-1)+"'> << </a></li>";
+			}
+			
+			for(var i=pageMaker.startPage, len = pageMaker.endPage; i <= len; i++){				
+					var strClass= pageMaker.cri.page == i?'class=active':'';
+				  str += "<li "+strClass+"><a href='"+i+"'>"+i+"</a></li>";
+			}
+			
+			if(pageMaker.next){
+				str += "<li><a href='"+(pageMaker.endPage + 1)+"'> >> </a></li>";
+			}
+			$('.pagination').html(str);				
+		}
+		
+		var replyPage = 1;
+		
+		$(".pagination").on("click", "li a", function(event){
+			
+			event.preventDefault();
+			
+			replyPage = $(this).attr("href");
+			
+			getPageList(replyPage);
+			
+		});
+		
+		
+		
+		function nvl(str){
+	         
+	        if(typeof str == "undefined" || str == null || str == "")
+	            str = "";
+	         
+	        return str ;
+	    }
+
+
+	  		
+	  		
+	</script>
 </html>

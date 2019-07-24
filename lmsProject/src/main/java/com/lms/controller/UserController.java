@@ -1,18 +1,12 @@
 package com.lms.controller;
 
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.request;
-
 import javax.inject.Inject;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,7 +15,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.lms.domain.PageMaker;
 import com.lms.domain.SearchCriteria;
 import com.lms.domain.UserVO;
-import com.lms.dto.LoginDTO;
 import com.lms.service.UserService;
 
 @Controller
