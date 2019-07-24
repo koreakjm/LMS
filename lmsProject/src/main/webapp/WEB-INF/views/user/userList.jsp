@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Wizixo | Creative Multipurpose Bootstrap Template</title>
+<title>LMS : 학생 리스트</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -45,33 +45,53 @@
 						<div class="row">
 							<div class="col-sm-12 mb-5">
 								<h5 class="text-center mb-4">Student List</h5>
-									<div class="col-md-2">
-									<select class="custom-select select-big mb-2" name="searchType">
-										<option value="n"
-											<c:out value="${cri.searchType == null?'selected':''}"/>>
-											---</option>
-										<option value="t"
-											<c:out value="${cri.searchType eq 't'?'selected':''}"/>>
-											학번</option>
-										<option value="c"
-											<c:out value="${cri.searchType eq 'c'?'selected':''}"/>>
-											이름</option>
-										<option value="w"
-											<c:out value="${cri.searchType eq 'w'?'selected':''}"/>>
-											재학상태</option>
-										<option value="tc"
-											<c:out value="${cri.searchType eq 'tc'?'selected':''}"/>>
-											학번 OR 이름</option>
-										<option value="cw"
-											<c:out value="${cri.searchType eq 'cw'?'selected':''}"/>>
-											이름 OR 재학상태</option>
-										<option value="tcw"
-											<c:out value="${cri.searchType eq 'tcw'?'selected':''}"/>>
-											학번 OR 이름 OR 재학상태</option>
-									</select>
-										<input type="text" class="form-control" name='keyword' id="keywordInput" value='${cri.keyword }'>
-									<button id='searchBtn'>Search</button>
+								
+								<div class="col-md-6" style="float: right;">
+									<div class="h-100">
+										
+										<div class="row">
+										
+										<div class="col-md-3">
+											<select class="custom-select select-big mb-2" name="searchType">
+												<option value="n"
+													<c:out value="${cri.searchType == null?'selected':''}"/>>
+													------------</option>
+												<option value="t"
+													<c:out value="${cri.searchType eq 't'?'selected':''}"/>>
+													학번</option>
+												<option value="c"
+													<c:out value="${cri.searchType eq 'c'?'selected':''}"/>>
+													이름</option>
+												<option value="w"
+													<c:out value="${cri.searchType eq 'w'?'selected':''}"/>>
+													재학상태</option>
+												<option value="tc"
+													<c:out value="${cri.searchType eq 'tc'?'selected':''}"/>>
+													학번 OR 이름</option>
+												<option value="cw"
+													<c:out value="${cri.searchType eq 'cw'?'selected':''}"/>>
+													이름 OR 재학상태</option>
+												<option value="tcw"
+													<c:out value="${cri.searchType eq 'tcw'?'selected':''}"/>>
+													학번 OR 이름 OR 재학상태</option>
+											</select>
+										</div>
+										
+										<div class="col-md-4">
+												<input type="text" class="form-control" name='keyword' id="keywordInput" value='${cri.keyword }'>
+										</div>		
+										
+										<div class="col-md-2">	
+												<button class="btn btn-light" id='searchBtn'>Search</button>
+										
+										</div>
+										
+									
+									</div>
+									
+									</div>
 								</div>
+								
 								
 								<div class="table-responsive-sm">
 											
@@ -111,7 +131,7 @@
 				</section>
 	
 				<!-- 페이징 -->
-					<div class="container mb-6">
+<%-- 					<div class="container mb-6">
 						<div class="row justify-content-center">
 							<div class="col-md-8">
 								<nav>
@@ -138,8 +158,40 @@
 								</nav>
 							</div>
 						</div>
-					</div>
+					</div> --%>
 				<!-- 페이징 처리 마지막 -->
+				
+				<!--    하단페이징 -->
+				   <ul class="pagination justify-content-center">
+				
+				      <!-- PREV -->
+				      <c:if test="${pageMaker.prev}">
+				         <li class="page-item"><a class="page-link"
+				            href="list${pageMaker.makeSearch(pageMaker.startPage - 1) }">PREV</a></li>
+				      </c:if>
+				
+				      <!-- Pageing NO -->
+				      <c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}"
+				         var="idx">
+				         <c:choose>
+				            <c:when test="${pageMaker.cri.page == idx}">
+				               <li class="page-item disable active"><span
+				                  class="page-link bg-grad">${idx}</span></li>
+				            </c:when>
+				
+				            <c:otherwise>
+				               <li class="page-item"><a class="page-link"
+				                  href="list${pageMaker.makeSearch(idx)}">${idx}</a></li>
+				            </c:otherwise>
+				         </c:choose>
+				      </c:forEach>
+				
+				      <!-- NEXT -->
+				      <c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+				         <li class="page-item"><a class="page-link"
+				            href="list${pageMaker.makeSearch(pageMaker.endPage +1) }">NEXT</a></li>
+				      </c:if>
+				   </ul>
 	
 	
 	

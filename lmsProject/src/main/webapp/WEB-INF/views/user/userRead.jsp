@@ -68,7 +68,7 @@
 											<th scope="col">State</th>
 											<td><!-- Select -->
 												<div class="form-group">
-													<select name="state" class="custom-select select-big mb-3" >
+													<select name="state" class="custom-select select-big mb-3" disabled>
 														<option value="재학" selected="selected" >${userVO.state}</option>
 													</select>
 												</div></td>

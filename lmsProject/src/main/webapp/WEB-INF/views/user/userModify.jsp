@@ -39,7 +39,7 @@
 	
 				<!-- ======================= Table -->
 				<section>
-					<form role="form" action="userModify" method="post">
+					<form role="form" action="userModify" method="post" onsubmit="return modifyCheck()">
 					<input type='hidden' name='page' value="${cri.page}"> 
 					<input type='hidden' name='perPageNum' value="${cri.perPageNum}">
 					<input type='hidden' name='searchType' value="${cri.searchType}">
@@ -52,14 +52,14 @@
 									<table class="table table-hover">
 										<tr>
 											<th scope="col">Student Number</th>
-											<td><input type="text" name="userNo" value="${userVO.userNo}"  
+											<td><input type="text" name="userNo" id="userNo" value="${userVO.userNo}"  
 											class="form-control" placeholder="학번을 입력해주세요.">
 											</td>
 										</tr>
 										
 										<tr>
 											<th scope="col">Name</th>
-											<td><input type="text" name="userName" value="${userVO.userName}" 
+											<td><input type="text" name="userName" id="userName" value="${userVO.userName}" 
 											class="form-control" placeholder="이름을 입력해주세요.">
 											</td>
 										</tr>
@@ -123,6 +123,22 @@
 					formObj.submit();
 				});
 		});
+	
+	function modifyCheck(){
+		var userNo = $("#userNo").val();
+        var userName  =$("#userName").val();
+        
+		   if(userNo == ""){
+		      alert("학번을 입력해 주세요.");
+		      document.getElementById("userNo").focus();
+		      return false;
+		   }
+		   if(userName == ""){
+		      alert("학생 이름을 입력해 주세요.");
+		      document.getElementById("userName").focus();
+		      return false;
+		   }
+		}
 	</script>
 	
 

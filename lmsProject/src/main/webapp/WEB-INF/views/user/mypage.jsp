@@ -48,7 +48,7 @@
 	</header>
 <!-- =======================
    Banner innerpage -->
-	<div class="innerpage-banner center bg-overlay-dark-7 py-7" style="background:url(../assets/images/bg/04.jpg) no-repeat; background-size:cover; background-position: center center;">
+	<div class="innerpage-banner center bg-overlay-dark-7 py-7" style="background:url(../resources/images/bg/04.jpg) no-repeat; background-size:cover; background-position: center center;">
 		<div class="container">
 			<div class="row all-text-white">
 				<div class="col-md-12 align-self-center">
@@ -111,4 +111,20 @@
 	<footer>
 		<%@ include file="/WEB-INF/views/include/footer.jsp"%>
 	</footer>
+	
+	<script>
+		var result = '${msg}';
+
+		if (result == 'SUCCESS') {
+			alert("비밀번호가 성공적으로 변경되었습니다.");
+		}
+	</script>
+		<script>
+		var result = '${msg}';
+
+		if (result == 'FAIL') {
+			alert("현재 비밀번호를 정확하게 입력해 주세요.");
+		}
+	</script>
+	
 </html>

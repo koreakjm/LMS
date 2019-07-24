@@ -180,15 +180,6 @@
 		}
 	
 	</script>
-	<script>
-	var result = '${msg}';
-
-	if (result == 'FAIL') {
-		alert("비밀번호를 정확하게 입력해 주세요.");
-	}
-	
-
-	</script>
 
 </body>
 </html>
