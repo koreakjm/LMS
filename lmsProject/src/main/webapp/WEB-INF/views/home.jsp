@@ -63,24 +63,16 @@
 		
 		<div class="table-responsive-sm">
 			<div style="margin-top: 5%;">
-				<span style="font-size: 25px;">실습실 현황 </span>
-				<tr>
-					<th></th>
-					<th></th>
-					<th></th>
-					<th></th>
-					<th></th>
-					<th colspan="4" style="text-align: right;"><c:if
-							test="${lab.myAuthority eq 0 and login.authority ne 1}">
-							<a class="btn btn-link" href="/main/labApply">참여</a>
+				<span style="font-size: 25px;"><a href=""><b>실습실 현황</b></a></span> &nbsp; &nbsp;
+					<c:if test="${lab.myAuthority eq 0 and login.authority ne 1}">
+							<a class="btn btn-link" href="/main/labApply"><i class="fa fa-arrow-circle-right"></i><b>참여</b></a>
 						</c:if> <c:if test="${lab.myAuthority eq 1}">
 							<a class="btn btn-link"
-								href="/main/labReturn?myLabListNo=${lab.myLabListNo}&myLabNo=${lab.myLabNo}">퇴실</a>
+								href="/main/labReturn?myLabListNo=${lab.myLabListNo}&myLabNo=${lab.myLabNo}"><i class="fa fa-arrow-circle-right"></i><b>퇴실</b></a>
 						</c:if> <c:if test="${login.authority eq 1}">
-							<a class="btn btn-link" href="/admin/list">사용내역</a>
-						</c:if></th>
+							<a class="btn btn-link" href="/admin/list"><i class="fa fa-arrow-circle-right"></i><b>사용내역</b></a>
+						</c:if>
 
-				</tr>
 				<div class="divider divider-grad"></div>
 			</div>
 			<table class="table table-hover">
@@ -116,8 +108,8 @@
 		
 		<div class="table-responsive-sm">			
 		<div style="margin-top: 5%;">
-			<span style="font-size: 25px;">운영게시판</span> <a class ="btn btn-link" href="/board/list">more
-			</a>
+			<span style="font-size: 25px;"><a href=""><b>운영게시판</b></a></span> &nbsp; &nbsp;
+			<a class="btn btn-link" href="/board/list"><i class="fa fa-arrow-circle-right"></i><b>more</b></a>
 			<div class="divider divider-grad"></div>
 		</div>
 		<table class="table table-hover">
@@ -131,7 +123,7 @@
 
 			<thead>
 				<tr>
-					<th scope="col">번호</th>
+					<th scope="col">#</th>
 					<th scope="col">유형</th>
 					<th scope="col">제목</th>
 					<th scope="col">작성자</th>
@@ -155,8 +147,10 @@
 		
 		<div class="table-responsive-sm"></div>
 		<div style="margin-top: 5%;" >
+		<div id="table-responsive-sm">
+		<img src="/resources/images/insta.jpg" width=150px, height=300px>
+		</div>
 		<div class="table-responsive-sm">
-					<img src="/resources/images/insta.jpg" width=150px, height=300px>
 					<div id="fb-root"></div>
 					<script type="text/javascript">
 						var userFeed = new Instafeed(
@@ -164,15 +158,17 @@
 									get : 'user',
 									userId : 8752161969,
 									sortBy : "most-recent",
-									limit : 12,
-									template : '<a href="{{link}}" target="_blank"><img src="{{image}}" /></a>',
-									accessToken : '8752161969.191a3e2.55408af509f840f28dda487b4bf41c95'
+									limit : 11,
+									template : '<a href="{{link}}" target="_blank" style="margin-right:5px"><img src="{{image}}" width="100" height="100" /></a>',
+									accessToken : '8752161969.3d0b6d9.945e8d04c0c74f8aa10dd46e6be1b56e'
 								});
 
 						userFeed.run();
 					</script>
+					
 					<div id="instafeed"></div>
 				</div>
+				
 	
 		</div>
 
