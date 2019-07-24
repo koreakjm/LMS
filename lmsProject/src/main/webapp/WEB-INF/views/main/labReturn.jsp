@@ -1,99 +1,120 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-   pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<!Doctype html>
+<!DOCTYPE html>
 <html>
 <head>
-<title>글로벌IT경영학과 실습실 예약</title>
-   <meta charset="utf-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-   <meta name="viewport" content="width=device-width, initial-scale=1">
-   <meta name="author" content="Webestica.com">
-   <meta name="description" content="Creative Multipurpose Bootstrap Template">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Global IT Buseiness : LMS</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Webestica.com">
+<meta name="description"
+	content="Creative Multipurpose Bootstrap Template">
 
-   <!-- Favicon -->
-   <link rel="shortcut icon" href="/resources/images/favicon.ico">
+<!-- Favicon -->
+<link rel="shortcut icon" href="/resources/images/favicon.ico">
 
-   <!-- Google Font -->
-   <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900%7CPlayfair+Display:400,400i,700,700i%7CRoboto:400,400i,500,700" rel="stylesheet">
+<!-- Google Font -->
+<link
+	href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900%7CPlayfair+Display:400,400i,700,700i%7CRoboto:400,400i,500,700"
+	rel="stylesheet">
 
-   <!-- Plugins CSS -->
-   <link rel="stylesheet" type="text/css" href="/resources/vendor/font-awesome/css/font-awesome.min.css" />
-   <link rel="stylesheet" type="text/css" href="/resources/vendor/themify-icons/css/themify-icons.css" />
-   <link rel="stylesheet" type="text/css" href="/resources/vendor/animate/animate.min.css" />
-   <link rel="stylesheet" type="text/css" href="/resources/vendor/fancybox/css/jquery.fancybox.min.css" />
-   <link rel="stylesheet" type="text/css" href="/resources/vendor/owlcarousel/css/owl.carousel.min.css" />
-   <link rel="stylesheet" type="text/css" href="/resources/vendor/swiper/css/swiper.min.css" />
+<!-- Plugins CSS -->
+<link rel="stylesheet" type="text/css"
+	href="/resources/vendor/font-awesome/css/font-awesome.min.css" />
+<link rel="stylesheet" type="text/css"
+	href="/resources/vendor/themify-icons/css/themify-icons.css" />
+<link rel="stylesheet" type="text/css"
+	href="/resources/vendor/animate/animate.min.css" />
+<link rel="stylesheet" type="text/css"
+	href="/resources/vendor/fancybox/css/jquery.fancybox.min.css" />
+<link rel="stylesheet" type="text/css"
+	href="/resources/vendor/owlcarousel/css/owl.carousel.min.css" />
+<link rel="stylesheet" type="text/css"
+	href="/resources/vendor/swiper/css/swiper.min.css" />
 
-   <!-- Theme CSS -->
-   <link rel="stylesheet" type="text/css" href="/resources/css/style.css" />
-
-   <%@ include file="/WEB-INF/views/include/header.jsp"%>
+<!-- Theme CSS -->
+<link rel="stylesheet" type="text/css" href="/resources/css/style.css" />
+<script src="/resources/js/instafeed.min.js"></script>
 
 </head>
-
 <body>
-   <div class="preloader">
-      <img src="/resources/images/preloader.svg" alt="Pre-loader">
-   </div>
+	<!-- ======================= header Start-->
+	<header>
+		<%@ include file="/WEB-INF/views/include/header.jsp"%>
+	</header>
+	<!-- ======================= header End-->
 
 
-
-   <!-- =======================
-   portfolio -->
-   <div class="container">
-      <div class="row mb-4">
-         <div class="container" style="margin-top: 3%;">
-            <div
-               class="bg-white border-radius-3 py-5 all-text-dark pattern-overlay-2">
+	<!-- ======================= Table -->
+	<div class="container">
+		<div class="table-responsive-sm">
+			<div style="margin-top: 5%;">
+				
+			</div>
+			<table class="table table-hover">
+			</table>
+		</div>
+		<section class="py-4">
+      <div class="container">
+         <form role="form" method="post">
+        <input type='hidden' name='userNo' value="${login.userNo}">
+        <input type='hidden' name='labListNo' value="${myLabListNo}">
+        <div class="border border-dotted p-4 p-sm-5 border-radius-3">
+            <div class="text-center px-0 px-sm-5">
+               <h1><b><a href="">실습실 퇴실하기</a></b></h1>
+               <br>
+             <h4>현재시간 <fmt:formatDate pattern="YYYY-MM-dd HH:mm" value="${returnTime}"/></h4>
+            <br><br><br>
+            
+            <h3><b>실습실 사용수칙</b></h3>
+            <ul class="list-group list-group-borderless">
+                  <li class="list-group-item"><i class="fa fa-check text-primary"></i> 실습실을 항상 깨끗이</li>
+                  <li class="list-group-item"><i class="fa fa-check text-primary"></i> 키 분실에 유의!!</li>
+                  <li class="list-group-item"><i class="fa fa-check text-primary"></i> 퇴실시 경비실에 키 반납</li>
+               </ul>
+            <div class="mt-4 text-center">
+            
+		<button type="submit" class="btn btn-outline-grad">반납</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<button type="submit" class="btn btn-outline-light">취소</button>
+		
+            </div>
             </div>
          </div>
-
+     </form>
       </div>
-      <div>
-         <span style="font-size: 15px;">
-            마지막 퇴실자는 키를 경비실에 반납하세요!
-            </span>
-         <form role="form" method="post">
-         <input type='hidden' name='userNo' value="${login.userNo}">
-         <input type='hidden' name='labListNo' value="${myLabListNo}">
-         <table class="table table-hover">
-            <thead>
-            
-               <tr>
-                  <th colspan="4" style="text-align: center;">
-            <span style="font-size: 25px;">
-            현재시간 <fmt:formatDate pattern="YYYY-MM-dd HH:mm" value="${returnTime}"/>
-            </span>
-            <button id="button1" class="btn btn-grad" onclick="out();">퇴실</button>
-                  <button type="button" onclick="goBack()" class="btn btn-grad">취소</button>
-                  </th>
+   </section>
+		
+			
+	</div>
 
-               </tr>
-               
-            </thead>
-         </table>
-         </form>
-      </div>
-
-   </div>
-   <div class="row" style="margin-top: 10%;">
-      <div class="col-md-12">
-         <!-- tag and share -->
-         <div class="divider mb-4"></div>
-
-         <div class="row post-navigation mt-5"></div>
-      </div>
-   </div>
-	 <div>
-      <a href="#" class="back-top btn btn-grad"><i class="ti-angle-up"></i></a>
-   </div>
+<div class="row" style="margin-top: 10%;">
+		<div class="col-md-12">
+			<!-- tag and share -->
+			<div class="divider mb-4"></div>
+			<div class="row post-navigation mt-5"></div>
+		</div>
+	</div>
 </body>
-   <!-- =======================
-   footer  -->
-      <%@ include file="/WEB-INF/views/include/footer.jsp"%>
-   <!-- =======================
-   footer  -->
+	<footer>
+		<%@ include file="/WEB-INF/views/include/footer.jsp"%>
+	</footer>
+	
+	<script>
+	$(document).ready(function(){
+	
+	var formObj = $("form[role='form']");
+	
+	$(".btn-outline-light").on("click", function() {
+		formObj.attr("method", "get");
+		formObj.attr("action", "/");
+		formObj.submit();
+	});
+	
+});
 
+</script>
 </html>

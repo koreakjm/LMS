@@ -85,14 +85,18 @@
                <br>
              <h4>현재시간 <fmt:formatDate pattern="YYYY-MM-dd HH:mm" value="${applyTime}"/></h4>
             <br><br><br>
-             <!-- <h3>실습실 사용수칙</h3>
-                     1.깨끗이 사용하기<br>
-                     2.키 분실에 유의<br>
-                     3.키 반납은 반드시 경비실에 !<br> -->
-            <div class="mt-3 text-center">
             
-		<button type="submit" class="btn btn-grad mb-0 mr-3">참여</button>
-		<button type="button" class="btn btn-outline-light mb-0">취소</button>
+            <h3><b>실습실 사용수칙</b></h3>
+            <ul class="list-group list-group-borderless">
+                  <li class="list-group-item"><i class="fa fa-check text-primary"></i> 실습실을 항상 깨끗이</li>
+                  <li class="list-group-item"><i class="fa fa-check text-primary"></i> 키 분실에 유의!!</li>
+                  <li class="list-group-item"><i class="fa fa-check text-primary"></i> 퇴실시 경비실에 키 반납</li>
+               </ul>
+            <div class="mt-4 text-center">
+            
+		<button type="submit" class="btn btn-outline-grad">참여</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<button type="submit" class="btn btn-outline-light">취소</button>
+		
             </div>
             </div>
          </div>
@@ -114,5 +118,19 @@
 	<footer>
 		<%@ include file="/WEB-INF/views/include/footer.jsp"%>
 	</footer>
+	
+	<script>
+	$(document).ready(function(){
+	
+	var formObj = $("form[role='form']");
+	
+	$(".btn-outline-light").on("click", function() {
+		formObj.attr("method", "get");
+		formObj.attr("action", "/");
+		formObj.submit();
+	});
+	
+});
 
+</script>
 </html>
