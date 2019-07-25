@@ -34,7 +34,7 @@
 
 
 <head>
-<title>운영게시판</title>
+<title>LMS : 운영게시판</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -78,8 +78,6 @@
          <div class="row">
             <div class="col-sm-12 mb-5">
 
-               <!--                            <h2 class="section-title">운영게시판</h2> -->
-
                <div class="col-md-12">
                   <!-- general form elements -->
                   <div class='box'>
@@ -101,13 +99,11 @@
                                  작성일</option>
                            </select>&nbsp;<input name='keyword' id="keywordInput"
                               value='${cri.keyword}' type="text" class="form-control2"
-                              placeholder="search" size="10" width="40"> <span
-                              class="input-group-btn">
+                              placeholder="search" size="10" width="40"> &nbsp;
+                              <span class="input-group-btn">
                               <button id='searchBtn' type="submit" class="btn btn-dark ">
                                  &nbsp; <i class="ti-search"></i>
-                              </button> <!--                                   <a id='searchBtn' class="nav-link collapsed" data-toggle="collapse" -->
-                              <!--                                  href="#search-open" aria-expanded="false"><i -->
-                              <!--                                     class="ti-search"></i></a> -->
+                              </button>                                  
                            </span>
                         </div>
                      </div>

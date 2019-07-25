@@ -57,51 +57,52 @@
 						<div class="row">
 							<div class="col-sm-12 mb-5">
 								
-								<div class="col-md-6" style="float: right;">
-									<div class="h-100">
-										
-										<div class="row">
-										
-										<div class="col-md-3">
-											<select class="custom-select select-big mb-2" name="searchType">
-												<option value="n"
-													<c:out value="${cri.searchType == null?'selected':''}"/>>
-													------------</option>
-												<option value="t"
-													<c:out value="${cri.searchType eq 't'?'selected':''}"/>>
-													학번</option>
-												<option value="c"
-													<c:out value="${cri.searchType eq 'c'?'selected':''}"/>>
-													이름</option>
-												<option value="w"
-													<c:out value="${cri.searchType eq 'w'?'selected':''}"/>>
-													재학상태</option>
-												<option value="tc"
-													<c:out value="${cri.searchType eq 'tc'?'selected':''}"/>>
-													학번 OR 이름</option>
-												<option value="cw"
-													<c:out value="${cri.searchType eq 'cw'?'selected':''}"/>>
-													이름 OR 재학상태</option>
-												<option value="tcw"
-													<c:out value="${cri.searchType eq 'tcw'?'selected':''}"/>>
-													학번 OR 이름 OR 재학상태</option>
-											</select>
-										</div>
-										
-										<div class="col-md-4">
-												<input type="text" class="form-control" name='keyword' id="keywordInput" value='${cri.keyword }'>
-										</div>		
-										
-										<div class="col-md-2">	
-												<button class="btn btn-light" id='searchBtn'>Search</button>
-										
-										</div>
-										
-									
-									</div>
-									
-									</div>
-								</div>
+								    <div class="row">
+							            <div class="col-sm-12 mb-5">
+							
+							               <div class="col-md-12">
+							                  <!-- general form elements -->
+							                  <div class='box'>
+							
+							                     <div class="float-right">
+							                        <div class="input-group2">
+							                           <select class="custom-select2 select-big " name="searchType">
+							                              <option value="n"
+																<c:out value="${cri.searchType == null?'selected':''}"/>>
+																----------</option>
+															<option value="t"
+																<c:out value="${cri.searchType eq 't'?'selected':''}"/>>
+																학번</option>
+															<option value="c"
+																<c:out value="${cri.searchType eq 'c'?'selected':''}"/>>
+																이름</option>
+															<option value="w"
+																<c:out value="${cri.searchType eq 'w'?'selected':''}"/>>
+																재학상태</option>
+															<option value="tc"
+																<c:out value="${cri.searchType eq 'tc'?'selected':''}"/>>
+																학번 OR 이름</option>
+															<option value="cw"
+																<c:out value="${cri.searchType eq 'cw'?'selected':''}"/>>
+																이름 OR 재학상태</option>
+															<option value="tcw"
+																<c:out value="${cri.searchType eq 'tcw'?'selected':''}"/>>
+																학번 OR 이름 OR 재학상태</option>
+							                           </select>&nbsp;
+							                           <input name='keyword' id="keywordInput" value='${cri.keyword}' type="text" class="form-control2" placeholder="search" size="10" width="40"> 
+							                              <span class="input-group-btn">&nbsp;
+							                              
+							                              <button id='searchBtn' type="submit" class="btn btn-dark ">
+							                              	<i class="ti-search"></i>
+							                              
+							                              </button>                                  
+							                           </span>
+							                        </div>
+							                     </div>
+							                  </div>
+							               </div>
+							            </div>
+							         </div>
 								
 								
 								<div class="table-responsive-sm">
@@ -138,47 +139,13 @@
 								</div>
 							</div>
 						</div>
-					</div>
-				</section>
-	
-				<!-- 페이징 -->
-<%-- 					<div class="container mb-6">
-						<div class="row justify-content-center">
-							<div class="col-md-8">
-								<nav>
-									<ul class="pagination justify-content-center">
-			
-										<c:if test="${pageMaker.prev}">
-											<li class="page-item">
-											<a class="page-link" href="userList${pageMaker.makeSearch(pageMaker.startPage - 1) }">&laquo;</a></li>
-										</c:if>
-			
-										<c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }" var="idx">
-											<li class="page-item active"
-												<c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
-												<a class="page-link bg-grad" href="userList${pageMaker.makeSearch(idx)}">${idx}</a>
-											</li>
-										</c:forEach>
-			
-										<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-											<li class="page-item">
-											<a class="page-link" href="userList${pageMaker.makeSearch(pageMaker.endPage +1) }">&raquo;</a></li>
-										</c:if>
-			
-									</ul>
-								</nav>
-							</div>
-						</div>
-					</div> --%>
-				<!-- 페이징 처리 마지막 -->
-				
 				<!--    하단페이징 -->
 				   <ul class="pagination justify-content-center">
 				
 				      <!-- PREV -->
 				      <c:if test="${pageMaker.prev}">
 				         <li class="page-item"><a class="page-link"
-				            href="list${pageMaker.makeSearch(pageMaker.startPage - 1) }">PREV</a></li>
+				            href="userList${pageMaker.makeSearch(pageMaker.startPage - 1) }">PREV</a></li>
 				      </c:if>
 				
 				      <!-- Pageing NO -->
@@ -192,7 +159,7 @@
 				
 				            <c:otherwise>
 				               <li class="page-item"><a class="page-link"
-				                  href="list${pageMaker.makeSearch(idx)}">${idx}</a></li>
+				                  href="userList${pageMaker.makeSearch(idx)}">${idx}</a></li>
 				            </c:otherwise>
 				         </c:choose>
 				      </c:forEach>
@@ -200,9 +167,13 @@
 				      <!-- NEXT -->
 				      <c:if test="${pageMaker.next && pageMaker.endPage > 0}">
 				         <li class="page-item"><a class="page-link"
-				            href="list${pageMaker.makeSearch(pageMaker.endPage +1) }">NEXT</a></li>
+				            href="userList${pageMaker.makeSearch(pageMaker.endPage +1) }">NEXT</a></li>
 				      </c:if>
 				   </ul>
+					</div>
+				</section>
+	
+				
 	
 	
 	

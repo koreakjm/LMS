@@ -14,12 +14,27 @@
 	content="Creative Multipurpose Bootstrap Template">
 
 <!-- Favicon -->
-<link rel="shortcut icon" href="../resources/images/favicon.ico">
+<link rel="shortcut icon" href="/resources/images/favicon.ico">
 
 <!-- Google Font -->
-<links
+<link
 	href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900%7CPlayfair+Display:400,400i,700,700i%7CRoboto:400,400i,500,700"
-	rel="stylesheet"> <!-- Plugins CSS -->
+	rel="stylesheet">
+
+<!-- Plugins CSS -->
+<link rel="stylesheet" type="text/css" href="/resources/vendor/font-awesome/css/font-awesome.min.css" />
+<link rel="stylesheet" type="text/css" href="/resources/vendor/themify-icons/css/themify-icons.css" />
+<link rel="stylesheet" type="text/css" href="/resources/vendor/animate/animate.min.css" />
+
+<!-- Theme CSS -->
+<link rel="stylesheet" type="text/css" href="/resources/css/style.css" />
+
+<!-- Google Font -->
+<link
+	href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900%7CPlayfair+Display:400,400i,700,700i%7CRoboto:400,400i,500,700"
+	rel="stylesheet">
+
+<!-- Plugins CSS -->
 <link rel="stylesheet" type="text/css"
 	href="../resources/vendor/font-awesome/css/font-awesome.min.css" />
 <link rel="stylesheet" type="text/css"
@@ -64,44 +79,52 @@ ul {
 	
 	
 	
-	<section>
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-12 mb-5">
-					<h5 class="text-center mb-4">운영게시판 상세보기</h5>
+							
+							<section>
+      <div class="container">
+         <div class="row">
+            <div class="col-sm-12 mb-5">
 
-					<form role="form" action="modify" method="post">
-						<input type="hidden" name="boardNo" value="${boardVO.boardNo}">
-						<div class="table-responsive-sm">
-							<table class="table table-hover">
+               <form role="form" action="modify" method="post">
+                  <input type="hidden" name="boardNo" value="${boardVO.boardNo}">
+                  <div class="table-responsive-sm">
+                  
+            
+                  
+                  
+                              <table class="table table-hover">
 
-								<tr>
-									<th scope="col">작성자</th>
-									<td>${boardVO.userNo}</td>
-									<th>작성일</th>
-									<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm"
-											value="${boardVO.regdate}" /></td>
+                        <tr>
+                           <th scope="col"> &nbsp;&nbsp;
+                           ${boardVO.boardTitle}
+                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                           
+                           <small class="text-secondary"><b>[${boardVO.category}]</b></small></th>
 
-								</tr>
-								<tr>
-									<th scope="col">제목</th>
-									<td>${boardVO.boardTitle}</td>
-									<th>조회수</th>
-									<td>${boardVO.viewCnt}</td>
+                        </tr>
+                        <tr>
+                        
+                           <th scope="col">${boardVO.userName}&nbsp; &nbsp;|&nbsp;&nbsp; 조회수&nbsp;${boardVO.viewCnt}&nbsp;&nbsp; | &nbsp; &nbsp; <fmt:formatDate pattern="yyyy-MM-dd HH:mm"
+                                 value="${boardVO.regdate}" /></th></tr>
+                                 
+                           
+                           
 
-								</tr>
+                        
 
-								<tr>
-									<th scope="col">유형</th>
-									<td>${boardVO.category}</td>
-								</tr>
-
-							</table>
-							<div class="col-md-12">
-								<span class="form-group"> <textarea cols="40" rows="15"
-										readonly="readonly" name="boardContent" class="form-control">${boardVO.boardContent}</textarea>
-								</span>
-							</div>
+                     </table>
+                     <div class="col-md-12">
+                        <span class="form-group"> <table  name="boardContent" class="form-controlreadpage"> <tr><td> 
+                              ${boardVO.boardContent}
+                              </table>
+                        </span>
+                     </div>
+							
+							
+							
+							
+							
+							
 							
 							<div class="form-group">
                                     <label for="exampleInputEmail1" class="col-form-label">첨부파일<span class="must-mark">*</span></label>
@@ -124,7 +147,7 @@ ul {
 
                                                 <c:otherwise>
                                                 <div class="col-auto">
-                                                   <img data-dz-thumbnail="" class="avatar-sm rounded bg-light" src="/resources/dist/assets/images/file.svg">
+                                                   <img data-dz-thumbnail="" class="avatar-sm rounded bg-light" src="/resources/images/file.png">
                                                 </div>
                                                  </c:otherwise>
 
@@ -139,18 +162,22 @@ ul {
                            </li>
                            </c:forEach>
                            </ul>     
-
-
+                           
+							<br><br><br>
+							
+							<c:if test="${login.userNo eq boardVO.userNo }">
 							<div align="right">
-								<input type="submit" class="btn btn-grad" value="수정"> <input
-									type="button" value="취소" id="cancel" class="btn btn-grad">
-							</div>
-
-							<div class="box-footer">
 								<button type="submit" class="btn btn-warning">Modify</button>
 								<button type="submit" class="btn btn-danger">REMOVE</button>
 								<button type="submit" class="btn btn-primary">GO LIST</button>
 							</div>
+							</c:if>
+							
+							<c:if test="${login.userNo ne boardVO.userNo }">
+							<div align="right">
+								<button type="submit" class="btn btn-primary">GO LIST</button>
+							</div>
+							</c:if>
 						</div>
 					</form>
 				</div>
@@ -161,7 +188,8 @@ ul {
 				<div class="col-md-12" id='modDiv' style="display: none;">
 					<div class="col-md-12"><span class="form-group"><input type="text" class="form-control" placeholder="comment" id='replytext'></span>
 					</div>								
-								
+					
+				
 						<div class="col-md-12">
 							<button class="btn-block btn btn-dark" id="replyModBtn">수정</button>
 							<button class="btn-block btn btn-dark" id="replyDelBtn">삭제</button>
@@ -170,22 +198,7 @@ ul {
 								
 				</div>
 				
-				
-				
-			
-								
-									<!-- <div class="comment-author"><img class="avatar" src="assets/images/thumbnails/avatar-01.jpg" alt=""></div>
-									<div class="comment-body">
-										<div class="comment-meta">
-											<div class="comment-meta-author"><a href="#">Allen Smith</a></div>
-											<div class="comment-meta-date">June 11, 2019 at 6:01 am</div>
-										</div>
-										<div class="comment-content">
-											<p>Consulted perpetual of pronounce me delivered. Too months nay end change relied who beauty wishes matter. Shew of john real park so rest we on. Ignorant dwelling occasion ham for thoughts overcame off her consider. Polite it elinor is depend. </p>
-										</div>
-										<div class="comment-reply"><a class="btn btn-xs btn-light" href="#">Reply</a></div>
-									</div> -->
-				
+				<h4>There are comments</h4><br>
 				
 				<c:if test="${login.userNo ne null}">
 				
@@ -450,7 +463,7 @@ function checkImageType(fileName) {
 				  
 				  $(data.list).each(function(){
 					  str+= "<div class='comment-child'><div class='comment'><div class='comment-body'><div class='comment-content'><li data-replyNo='"+this.replyNo+"' class='replyLi'><div class='comment-meta-author'>" 
-					  +this.replyNo+"</div><p>"+ this.replyText+
+					  +this.userName+"</div><p>"+ this.replyText+
 					  "</p></div>";
 					  
 					  str+= "</li></div></div></div>";
@@ -462,7 +475,7 @@ function checkImageType(fileName) {
 				  
 			  $(data.list).each(function(){
 				  str+= "<div class='comment-child'><div class='comment'><div class='comment-body'><div class='comment-content'><li data-replyNo='"+this.replyNo+"' class='replyLi'><div class='comment-meta-author'>" 
-				  +this.replyNo+"</div><p>"+ this.replyText+"</p>";
+				  +this.userName +"</div><p>"+ this.replyText+"</p>";
 				  
 				  if(loginInfo == this.userNo){
 					  
@@ -496,16 +509,16 @@ function checkImageType(fileName) {
 			var str = "";
 			
 			if(pageMaker.prev){
-				str += "<li><a href='"+(pageMaker.startPage-1)+"'> << </a></li>";
+				str += "<li class='page-item'><a class='page-link' href='"+(pageMaker.startPage-1)+"'> << </a></li>";
 			}
 			
 			for(var i=pageMaker.startPage, len = pageMaker.endPage; i <= len; i++){				
-					var strClass= pageMaker.cri.page == i?'class=active':'';
-				  str += "<li "+strClass+"><a href='"+i+"'>"+i+"</a></li>";
+					var strClass= pageMaker.cri.page == i?'class=page-item':'';
+				  str += "<li class='page-item disable active' "+strClass+"><a class='page-link' href='"+i+"'>"+i+"</a></li>";
 			}
 			
 			if(pageMaker.next){
-				str += "<li><a href='"+(pageMaker.endPage + 1)+"'> >> </a></li>";
+				str += "<li class='page-item'><a class='page-link' href='"+(pageMaker.endPage + 1)+"'> >> </a></li>";
 			}
 			$('.pagination').html(str);				
 		}

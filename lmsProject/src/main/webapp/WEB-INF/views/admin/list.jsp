@@ -33,7 +33,7 @@
 
 
 <head>
-<title>실습실 사용내역</title>
+<title>LMS : 실습실 사용내역</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -64,24 +64,18 @@
 	<header>
 		<%@ include file="../include/header.jsp"%>
 	</header>
-	<!-- =======================
-   Banner innerpage -->
-	<div class="innerpage-banner center bg-overlay-dark-7 py-7"
-		style="background: url(../assets/images/bg/04.jpg) no-repeat; background-size: cover; background-position: center center;">
-		<div class="container">
-			<div class="row all-text-white">
-				<div class="col-md-12 align-self-center">
-
-					<nav aria-label="breadcrumb">
-						<ol class="breadcrumb">
-						</ol>
-					</nav>
+				<!-- ======================= Banner innerpage -->
+				<div class="left bg-grad pattern-overlay-4">
+					<div class="container">
+						<div class="row all-text-white">
+							<div class="col-md-12 align-self-center">
+								<h1 class="font-weight-bold display-4 display-md-1 mb-2 mb-md-n4 mt-9">실습실 사용내역</h1>
+							</div>
+						</div>
+					</div>
 				</div>
-			</div>
-		</div>
-	</div>
-	<!-- =======================
-   Banner innerpage -->
+				<!-- ======================= Banner innerpage -->
+				
 	<section>
 
 		<div class="container">
@@ -89,36 +83,33 @@
 				<div class="col-sm-12 mb-5">
 					<div class="col-md-12">
 						<div class='box'>
-							<div class="box-header with-border">
-								<h3 class="box-title">실습실 사용내역</h3>
-							</div>
-
-							<div class='box-body'>
-
-								<select name="searchType">
-									<option value="n"
-										<c:out value="${cri.searchType == null?'selected':''}"/>>
-										---</option>
-									<option value="t"
-										<c:out value="${cri.searchType eq 't'?'selected':''}"/>>
-										이름</option>
-									<option value="w"
-										<c:out value="${cri.searchType eq 'w'?'selected':''}"/>>
-										학번</option>
-									<option value="r"
-										<c:out value="${cri.searchType eq 'r'?'selected':''}"/>>
+							
+							 <div class="float-right">
+                        <div class="input-group2">
+                           <select class="custom-select2 select-big " name="searchType">
+                              <option value="n"
+									<c:out value="${cri.searchType == null?'selected':''}"/>>
+									---</option>
+								<option value="t"
+									<c:out value="${cri.searchType eq 't'?'selected':''}"/>>
+									이름</option>
+								<option value="w"
+									<c:out value="${cri.searchType eq 'w'?'selected':''}"/>>
+									학번</option>
+								<option value="r"
+									<c:out value="${cri.searchType eq 'r'?'selected':''}"/>>
 										날짜</option>
-
-								</select> <input type="text" name='keyword' id="keywordInput"
-									value='${cri.keyword}'>
-								<button id='searchBtn'>Search</button>
-
-								<!-- <form name="excelForm" id="excelForm" method="post" action="/excelDown.do">
-  				  <input type="submit" id="excelDown" value="EXCEL 다운"/>
-					</form> -->
-						[<a href="<c:url value='/admin/excelDown.do'/>">엑셀 다운로드</a>]
-						
-							</div>
+                           </select>&nbsp;<input name='keyword' id="keywordInput"
+                              value='${cri.keyword}' type="text" class="form-control2"
+                              placeholder="search" size="10" width="40"> &nbsp;
+                              <span class="input-group-btn">
+                              <button id='searchBtn' type="submit" class="btn btn-dark ">
+                                 &nbsp; <i class="ti-search"></i>
+                              </button>                                  
+                           </span>
+                        </div>
+                     </div>
+                     <a class="btn btn-outline-grad" href="<c:url value='/admin/excelDown.do'/>">엑셀 다운로드</a>
 						</div>
 						<div class="table-responsive-sm">
 							<table class="table table-hover">
@@ -154,43 +145,37 @@
 					</div>
 				</div>
 			</div>
-	</section>
-	<section class="pt-0">
-		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-md-8">
-					<nav>
-						<ul class="pagination justify-content-center">
-							<c:if test="${criteria.pageNum > 1}">
-								<li class="page-item"><a class="page-link"
-									href="list${pageMaker.makeSearch(pageMaker.startPage - 1) }">&laquo;</a></li>
-							</c:if>
-
-
-							<c:forEach begin="${pageMaker.startPage }"
-								end="${pageMaker.endPage }" var="idx">
-								<c:choose>
-									<c:when test="${idx == Criteria.page}">
-										<li class="page-item active"><span
-											class="page-link bg-grad">${idx}</span></li>
-									</c:when>
-
-									<c:otherwise>
-
-										<li class="page-item"><a class="page-link"
-											href="list${pageMaker.makeSearch(idx)}">${idx}${Criteria.page}</a></li>
-									</c:otherwise>
-								</c:choose>
-							</c:forEach>
-
-							<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-								<li class="page-item"><a class="page-link"
-									href="list${pageMaker.makeSearch(pageMaker.endPage +1) }">&raquo;</a></li>
-							</c:if>
-						</ul>
-					</nav>
-				</div>
-			</div>
+			<!--    하단페이징 -->
+		   <ul class="pagination justify-content-center">
+		
+		      <!-- PREV -->
+		      <c:if test="${pageMaker.prev}">
+		         <li class="page-item"><a class="page-link"
+		            href="list${pageMaker.makeSearch(pageMaker.startPage - 1) }">PREV</a></li>
+		      </c:if>
+		
+		      <!-- Pageing NO -->
+		      <c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}"
+		         var="idx">
+		         <c:choose>
+		            <c:when test="${pageMaker.cri.page == idx}">
+		               <li class="page-item disable active"><span
+		                  class="page-link bg-grad">${idx}</span></li>
+		            </c:when>
+		
+		            <c:otherwise>
+		               <li class="page-item"><a class="page-link"
+		                  href="list${pageMaker.makeSearch(idx)}">${idx}</a></li>
+		            </c:otherwise>
+		         </c:choose>
+		      </c:forEach>
+		
+		      <!-- NEXT -->
+		      <c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+		         <li class="page-item"><a class="page-link"
+		            href="list${pageMaker.makeSearch(pageMaker.endPage +1) }">NEXT</a></li>
+		      </c:if>
+		   </ul>
 		</div>
 	</section>
 	<script>

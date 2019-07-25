@@ -38,6 +38,10 @@
 <!-- Theme CSS -->
 <link rel="stylesheet" type="text/css" href="../resources/css/style.css" />
 
+<!-- App css -->
+<link href="/resources/dist/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+<link href="/resources/dist/assets/css/app.min.css" rel="stylesheet" type="text/css" id="main-style-container" />
+
 <style>
 ul {
 	list-style: none;
@@ -62,79 +66,119 @@ ul {
 				</div>
 				<!-- ======================= Banner innerpage -->
 
-	<!-- =======================
+	  <!-- =======================
    공지사항 글쓰기 폼 시작 -->
-	<section>
-		<div class="container">
-			<form role="form" method="post" name='frm'>
-				<input type="hidden" name="userNo" value="${login.userNo }">
-				<div class="row mt-5">
-					<div class="col-md-12">
-						<h2 class="mb-2">운영게시글 등록</h2>
-						<br>
-					</div>
-
-					<div class="col-md-2">
-						<select class="custom-select select-big mb-3" name="category">
-							<option value="null">--전체--</option>
-							<option value="공지사항">공지사항</option>
-							<option value="건의">건의</option>
-							<option value="분실물">분실물</option>
-						</select>
-					</div>
-					<div class="col-md-7">
-						<span class="form-group">
-						<input type="text" class="form-control" placeholder="제목을 입력하세요." name="boardTitle"></span>
-					</div>
-
-
-					<div class="col-md-12" style="min-height: 480px;">
-						<span class="form-group"> <textarea cols="40" rows="20" name="boardContent" class="form-control" placeholder="내용을 입력하세요."></textarea>
-						</span>
-					</div>
-
-					<div class="form-group">
-						<label for="exampleInputEmail1" class="col-sm-2 control-label">첨부파일<span class="must-mark">*</span></label>
-					</div>
-					
-					
-					
-
-					<div id='mydropzone' class="dropzone">
-						<!-- <label for="fileUpload">여기</label> -->
-						<input type="file" id="fileUpload" name="fileUpload" style="visibility: hidden;" />
-
-						<div class="fileDrop">
-							<input type="hidden" id="uploadCount">
-							<div class="dz-message needsclick">
-								<i class="h1 text-muted dripicons-cloud-upload"></i>
-								<h3>Drop files here or click to upload.</h3>
-								<span class="text-muted font-13">첨부파일을 업로드하려면 여기에 첨부파일 파일을 끌어 넣거나 클릭해주세요</span>
-							</div>
-						</div>
-					</div>
-					<div>
-						<ul class="dropzone-previews clearfix uploadedList">
-						</ul>
-					</div>
-					
-					
-					
-
-				</div>
-				<div align="right">
-					<input type="submit" value="등록" class="btn btn-grad" /> 
-					<input type="button" value="취소 " class="btn btn-grad" />
-				</div>
-			</form>
-		</div>
-
-	</section>
+		   <section>
+		      <div class="container">
+		         	<form role="form" method="post" name='frm'>
+		            <input type="hidden" name="userNo" value="${login.userNo }">
+		            
+		            
+		      	<div  class="registertop">
+		      			✔는 필수항목입니다.
+		      	</div>
+		            
+		            <div class="row mt-5">
+		                  <div class="divider divider-grad"></div>
+		               
+		
+		                  <table  class="table table-hover registerform"  width="500px">
+		
+		                     <tr>
+		                     
+		                        <th>✔게시유형</th>
+		                        <td>
+		                        	<select class="custom-select3 select-big mb-3" name="category">
+		                              <option value="null">--전체--</option>
+		                              <option value="공지사항">공지사항</option>
+		                              <option value="건의">건의</option>
+		                              <option value="분실물">분실물</option>
+		                        	</select></td>
+		                     </tr>
+		
+		                     <tr>
+		                        <th>✔제목</th>
+		                        <td>
+		                        	<span class="form-group"> 
+		                        	<input type="text" class="form-control" placeholder="제목을 입력하세요." name="boardTitle"></span>
+		                        </td>
+		                     </tr>
+		
+		                     <tr>
+		                        <th >✔내용</th>
+		
+		                        <td style="min-height: 300px;"><span class="form-group">
+		                              <textarea cols="40" rows="15" name="boardContent"
+		                                 class="form-control" placeholder="내용을 입력하세요."></textarea>
+		                        </span></td>
+		                     </tr>
+		                     <tr>
+		                     	<th>첨부파일</th>
+		                    	 <td align="center">
+		                     
+		                     		
+		                     		
+		                     		<div id='mydropzone' class="dropzone">
+		                     
+		                     
+				                     <!-- <label for="fileUpload">여기</label> -->
+				                     <input type="file" id="fileUpload" name="fileUpload"
+				                        style="visibility: hidden;" />
+				
+				                     <div class="fileDrop">
+				                        <input type="hidden" id="uploadCount">
+				                        <div class="dz-message needsclick">
+				                                    
+				                           <i class="h1 text-muted dripicons-cloud-upload"></i>
+				                           <h3>Drop files here or click to upload.</h3>
+				                        <input type="hidden" id="uploadCount">
+				                           <span class="text-muted font-13">첨부파일을 업로드하려면 여기에 첨부파일
+				                              파일을 끌어 넣거나 클릭해주세요</span>
+		                  
+		                     </div>
+		                     </div>
+		                  </div>
+		                  </table>
+		               </div>
+		               
+		               
+		               <div class="divider divider-grad"></div>
+			
+			   <div>
+		                     <ul class="dropzone-previews clearfix uploadedList">
+		                     </ul>
+		                  </div>
+		
+		
+		
+		
+		               <div class="col-sm-12 mb-5">
+		               <br><br>
+		               <div align="right">
+		               		<button type="submit" class="btn btn-outline-grad"><b>등록</b></button>&nbsp;&nbsp;&nbsp;
+		     				<input type="button" class="btn btn-outline-light" value="취소" onclick="location.href='/board/list'">
+		               </div>
+		               </div>
+		               
+		               
+		         </form>
+		      </div>
+		
+		   </section>
+		   
+		   <br><br><br>
+			
+	
+	
+	
+	
+	
+	
+	
+	
 	<!-- =======================
    footer  -->
-	<footer>
 		<%@ include file="/WEB-INF/views/include/footer.jsp"%>
-	</footer>
 	<!-- =======================
    footer  -->
 
@@ -163,7 +207,7 @@ ul {
 <!-- SD PROJECT JS -->
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script type="text/javascript" src="/resources/js/upload.js"></script>
+<script type="text/javascript" src="/resources/js/upload.js?ver=1"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 <script id="template" type="text/x-handlebars-template">
 <li class="dropzone-previews mt-3">
@@ -171,7 +215,7 @@ ul {
 <div class="p-2">
 <div class="row align-items-center">
  <div class="col-auto">
-	 <img data-dz-thumbnail="" class="avatar-sm rounded bg-light" src="{{imgsrc}}">
+    <img data-dz-thumbnail="" class="avatar-sm rounded bg-light" src="{{imgsrc}}">
  </div>
  <div class="col pl-0">
    <a href="/displayFile?fileName={{fullName}}" text-muted font-weight-bold" data-dz-name="">{{fileName}}</a>
@@ -193,6 +237,7 @@ ul {
 
                    formObj.submit(function(event) {
                            event.preventDefault();
+                           //유효성 검사
 
                            var that = $(this);
 
@@ -243,7 +288,6 @@ ul {
 
 	$(".fileDrop").on("drop", function(event) {
 		
-		alert('업로드');
 		event.preventDefault();
 
 		var uploaded = $("#uploadCount").val();

@@ -47,10 +47,10 @@
 						<!-- Top info -->
 						<ul class="nav list-unstyled ml-3">
 							<li class="nav-item mr-3">
-								<a class="navbar-link" href="#"><strong>학과 사무실 :</strong> 042-629-7611</a>
+								<a class="navbar-link" href="#"><strong>학과 사무실 :</strong> 042)629-7611</a>
 							</li>
 							<li class="nav-item mr-3">
-								<a class="navbar-link" href="http://gitb.hannam.ac.kr"><strong>Email:</strong> http://gitb.hannam.ac.kr</a>
+								<a class="navbar-link" href="#"><strong>Email:</strong> mis@hnu.kr</a>
 							</li>
 						</ul>
 					</div>

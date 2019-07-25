@@ -22,11 +22,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    <!-- 상세보기 -->
    <select id="read" resultType="com.lms.domain.BoardVO">
       select
-         board_no, board_title, board_content, regdate, category, viewCnt, user_no
+         b.board_no, b.board_title, b.board_content, b.regdate, b.category, b.viewCnt, b.user_no, u.user_name
       from
-         tbl_board
+         tbl_board b, tbl_user u 
       where
-         board_no = #{board_no}
+         board_no = #{board_no} and b.user_no = u.user_no
    </select>
 
    <!-- 조회수 증가 -->

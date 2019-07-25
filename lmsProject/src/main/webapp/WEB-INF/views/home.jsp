@@ -62,7 +62,7 @@
 		</div>
 		
 		<div class="table-responsive-sm">
-			<div style="margin-top: 5%;">
+			<div>
 				<span style="font-size: 25px;"><a href=""><b>실습실 현황</b></a></span> &nbsp; &nbsp;
 					<c:if test="${lab.myAuthority eq 0 and login.authority ne 1}">
 							<a class="btn btn-link" href="/main/labApply"><i class="fa fa-arrow-circle-right"></i><b>참여</b></a>

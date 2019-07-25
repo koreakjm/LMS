@@ -91,7 +91,7 @@ public class HomeController {
 			session.invalidate();
 		}
 
-		return "redirect:/login";
+		return "redirect:/";
 
 	}
 

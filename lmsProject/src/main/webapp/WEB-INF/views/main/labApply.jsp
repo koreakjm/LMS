@@ -72,7 +72,7 @@
          <div class="border border-dotted p-4 p-sm-5 border-radius-3">
             <div class="text-center px-0 px-sm-5">
              <h4><i class="mr-3 display-8 ti-time"></i>현재시간 <fmt:formatDate pattern="YYYY-MM-dd HH:mm" value="${applyTime}"/></h4>
-             <p class="text-grad"><b>실습실 사용수칙</b></p>
+             <h2><b><a href="">실습실 사용수칙</a></b></h2>
                <br>
             <br>
             <table border=0 align=center>

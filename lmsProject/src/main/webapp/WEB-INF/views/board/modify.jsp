@@ -64,12 +64,12 @@ ul {
 
 	<!-- =======================
    Banner innerpage -->
-	<section>
+	<%-- <section>
 		<div class="container">
 			<div class="row">
 				<form name="frm" action="/board/modify" method="post" role="form">
 					<input type="hidden" name="boardNo" value="${boardVO.boardNo }">
-					<%-- <input type="hidden" name="files" value="${boardVO.files }"> --%>
+					<input type="hidden" name="files" value="${boardVO.files }">
 
 					<div class="col-sm-12 mb-5">
 						<h5 class="text-center mb-4">운영게시판 수정</h5>
@@ -158,7 +158,7 @@ ul {
 			
 			                                                <c:otherwise>
 			                                                <div class="col-auto">
-			                                                   <img data-dz-thumbnail="" class="avatar-sm rounded bg-light" src="/resources/dist/assets/images/file.svg">
+			                                                   <img data-dz-thumbnail="" class="avatar-sm rounded bg-light" src="/resources/images/file.png">
 			                                                </div>
 			                                                 </c:otherwise>
 			
@@ -194,7 +194,153 @@ ul {
 				</form>
 			</div>
 		</div>
-	</section>
+	</section> --%>
+	
+	 <!-- =======================
+   공지사항 글쓰기 폼 시작 -->
+		   <section>
+		      <div class="container">
+		         	<form role="form" method="post" name='frm'>
+		            <input type="hidden" name="userNo" value="${login.userNo }">
+		            
+		            
+		      	<div  class="registertop">
+		      			✔는 필수항목입니다.
+		      	</div>
+		            
+		            <div class="row mt-5">
+		                  <div class="divider divider-grad"></div>
+		               
+		
+		                  <table  class="table table-hover registerform"  width="500px">
+		
+		                     <tr>
+		                     
+		                        <th>✔게시유형</th>
+		                        <td>
+		                        	<select class="custom-select3 select-big mb-3" name="category">
+		                              <option value="--전체--"
+												<c:out value="${boardVO.category eq '--전체--'?'selected':''}"/>>
+												--전체--</option>
+											<option value="공지사항"
+												<c:out value="${boardVO.category eq '공지사항'?'selected':''}"/>>
+												공지사항</option>
+											<option value="건의"
+												<c:out value="${boardVO.category eq '건의'?'selected':''}"/>>
+												건의</option>
+											<option value="분실물"
+												<c:out value="${boardVO.category eq '분실물'?'selected':''}"/>>
+												분실물</option>
+		                        	</select></td>
+		                     </tr>
+		
+		                     <tr>
+		                        <th>✔제목</th>
+		                        <td>
+		                        	<span class="form-group"> 
+		                        	<input type="text" class="form-control" placeholder="제목을 입력하세요." name="boardTitle" value="${boardVO.boardTitle}"></span>
+		                        </td>
+		                     </tr>
+		
+		                     <tr>
+		                        <th >✔내용</th>
+		
+		                        <td style="min-height: 300px;"><span class="form-group">
+		                              <textarea cols="40" rows="15" name="boardContent" 
+		                                 class="form-control" placeholder="내용을 입력하세요.">${boardVO.boardContent}</textarea>
+		                        </span></td>
+		                     </tr>
+		                     <tr>
+		                     	<th>첨부파일</th>
+		                    	 <td align="center">
+		                     
+		                     		
+		                     		
+		                     		<div id='mydropzone' class="dropzone">
+		                     
+		                     
+				                     <!-- <label for="fileUpload">여기</label> -->
+				                     <input type="file" id="fileUpload" name="fileUpload"
+				                        style="visibility: hidden;" />
+				
+				                     <div class="fileDrop">
+				                        <input type="hidden" id="uploadCount">
+				                        <div class="dz-message needsclick">
+				                                    
+				                                    <div class="fileDrop">
+				                           <i class="h1 text-muted dripicons-cloud-upload"></i>
+				                           <h3>Drop files here or click to upload.</h3>
+				                        <input type="hidden" id="uploadCount">
+				                           <span class="text-muted font-13">첨부파일을 업로드하려면 여기에 첨부파일
+				                              파일을 끌어 넣거나 클릭해주세요</span>
+		                  
+		                        </div>
+		                     </div>
+		                     </div>
+		                  </div>
+		                  </table>
+		               </div>
+		               
+		               
+		               <div class="divider divider-grad"></div>
+		                     <input type="hidden" id="uploadCount" value="${fn:length(fileVO)}" >
+									<ul class="dropzone-previews clearfix uploadedList">
+									<c:forEach items="${fileVO}" var="fileVO" varStatus="status">
+			                           <li class="dropzone-previews mt-3">
+			                              <div class="card mt-1 mb-0 shadow-none border dz-processing dz-image-preview dz-success dz-complete">
+			                                 <div class="p-2">
+			                                 
+			                                    <div class="row align-items-center">
+			                                             <c:choose>
+			                                                <c:when test="checkImageType(${fileVO.fileLocation})">
+			                                                    <div class="col-auto">
+			                                                    <img data-dz-thumbnail="" class="avatar-sm rounded bg-light" src="${fileVO.fileName}">
+			                                                 </div>
+			                                                 </c:when>
+			
+			                                                <c:otherwise>
+			                                                <div class="col-auto">
+			                                                   <img data-dz-thumbnail="" class="avatar-sm rounded bg-light" src="/resources/images/file.png">
+			                                                </div>
+			                                                 </c:otherwise>
+			
+			                                             </c:choose>
+			
+			                           	           <div class="col pl-0">
+			                                          <a href="/displayFile?fileName=${fileVO.fileLocation}" text-muted font-weight-bold data-dz-name="">${fileVO.fileName}</a>
+			                                       </div>
+			                                        <div class="col-auto">
+	  														 <a href="${fileVO.fileLocation}" class="btn btn-default btn-xs pull-right delbtn"><i class="dripicons-cross"></i></a>
+	 												</div>
+			                                    </div>
+			                                 </div>
+			                              </div>
+			                           </li>
+		                           </c:forEach>
+								</ul>
+			
+			   <div>
+		                  </div>
+		
+		
+		
+		
+		               <div class="col-sm-12 mb-5">
+		               <br><br>
+		              	<div align="right">
+								<input type="submit" class="btn btn-warning" value="수정"> 
+								<input type="button" value="취소" id="cancel" class="btn btn-primary" onclick="location.href='/board/list'">
+
+						</div>
+		               </div>
+		               
+		               
+		         </form>
+		      </div>
+		
+		   </section>
+		   
+		   <br><br><br>
 
 	<!-- =======================
    footer  -->

@@ -76,17 +76,14 @@
         <input type='hidden' name='labListNo' value="${myLabListNo}">
         <div class="border border-dotted p-4 p-sm-5 border-radius-3">
             <div class="text-center px-0 px-sm-5">
-               <h1><b><a href="">실습실 퇴실하기</a></b></h1>
-               <br>
-             <h4>현재시간 <fmt:formatDate pattern="YYYY-MM-dd HH:mm" value="${returnTime}"/></h4>
-            <br><br><br>
+             <h4><i class="mr-3 display-8 ti-time"></i>현재시간 <fmt:formatDate pattern="YYYY-MM-dd HH:mm" value="${returnTime}"/></h4>
+               <h2><b><a href="">실습실 사용수칙</a></b></h2>
             
-            <h3><b>실습실 사용수칙</b></h3>
-            <ul class="list-group list-group-borderless">
-                  <li class="list-group-item"><i class="fa fa-check text-primary"></i> 실습실을 항상 깨끗이</li>
-                  <li class="list-group-item"><i class="fa fa-check text-primary"></i> 키 분실에 유의!!</li>
-                  <li class="list-group-item"><i class="fa fa-check text-primary"></i> 퇴실시 경비실에 키 반납</li>
-               </ul>
+            <table border=0 align=center>
+                  <tr align="left"><td ><i class="fa fa-check text-primary"></i> 깨끗이 사용하기</td></tr>
+                 <tr align="left"><td ><i class="fa fa-check text-primary"></i> 키 분실에 유의</td></tr>
+                 <tr align="left"><td ><i class="fa fa-check text-primary"></i> 키 반납은 반드시 경비실에 !</td></tr>
+              </table>
             <div class="mt-4 text-center">
             
 		<button type="submit" class="btn btn-outline-grad">반납</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

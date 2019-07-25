@@ -36,6 +36,63 @@
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
+.form-controlreadpage {
+  display: block;
+  width: 100%;
+  height: auto;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.6;
+  background-clip: padding-box;
+  border: 0px solid;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  min-height : 300px;
+}
+
+
+.registerform{
+align:center;
+}
+.registerform tr {
+   border-top:1px solid;
+   
+}
+.registerform th{
+   vertical-align:middle;
+   text-align:center;
+   font-size:17px;
+  background-color: #74bf67 !important;
+ color:#ffffff ;
+}
+.registerform td{
+   vertical-align:middle;
+}
+
+
+.custom-select3 {
+  display: inline-block;
+  width: 130px;
+  height: auto;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #495057;
+  vertical-align: middle;
+  background-color: #fff;
+  border: 2px solid #dfe2e5;
+  border-radius: 0.25rem;
+  appearance: none;
+}
+
+
+.registertop{
+   color:black;
+    font-size: 14px;
+    text-align:right;
+}
+
 .custom-select2 {
   display: inline-block;
   width: 30%;
