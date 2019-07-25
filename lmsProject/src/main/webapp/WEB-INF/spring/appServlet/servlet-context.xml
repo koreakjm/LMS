@@ -46,10 +46,8 @@
 		</interceptor>
 
 		<interceptor>
-			<!-- <mapping path="/sboard/register" />
-			<mapping path="/sboard/modifyPage" />
-			<mapping path="/sboard/removePage" /> -->
 			<mapping path="/user/register" />
+			<mapping path="/board/register" />
 			<mapping path="/review/modifyPage" />
 			<mapping path="/review/removePage" />
 			<beans:ref bean="authInterceptor" />

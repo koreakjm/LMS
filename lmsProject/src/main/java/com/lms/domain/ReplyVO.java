@@ -19,6 +19,7 @@ public class ReplyVO {
 	private Date updatedate;
 	private int boardNo;
 	private String userNo;
+	private String userName;
 
 	public int getReplyNo() {
 		return replyNo;
@@ -68,10 +69,18 @@ public class ReplyVO {
 		this.userNo = userNo;
 	}
 
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
 	@Override
 	public String toString() {
 		return "ReplyVO [replyNo=" + replyNo + ", regdate=" + regdate + ", replyText=" + replyText + ", updatedate="
-				+ updatedate + ", boardNo=" + boardNo + ", userNo=" + userNo + "]";
+				+ updatedate + ", boardNo=" + boardNo + ", userNo=" + userNo + ", userName=" + userName + "]";
 	}
 
 }

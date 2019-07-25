@@ -46,22 +46,17 @@
 	<header>
 		<%@ include file="/WEB-INF/views/include/header.jsp"%>
 	</header>
- <!-- =======================
-   Banner innerpage -->
-	<div class="innerpage-banner center bg-overlay-dark-7 py-7" style="background:url(../assets/images/bg/04.jpg) no-repeat; background-size:cover; background-position: center center;">
-		<div class="container">
-			<div class="row all-text-white">
-				<div class="col-md-12 align-self-center">
-					<h1 class="innerpage-title">${login.userName}님의 실습실 참여</h1>
-					<nav aria-label="breadcrumb">
-					
-					</nav>
-				</div>	
-			</div>
-		</div>
-	</div>
-   <!-- =======================
-   Banner innerpage -->
+   				<!-- ======================= Banner innerpage -->
+				<div class="left bg-grad pattern-overlay-4">
+					<div class="container">
+						<div class="row all-text-white">
+							<div class="col-md-12 align-self-center">
+								<h1 class="font-weight-bold display-4 display-md-1 mb-2 mb-md-n4 mt-9">실습실 참여</h1>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- ======================= Banner innerpage -->
 	<div class="container">
 		<div class="table-responsive-sm">
 			<div style="margin-top: 5%;">

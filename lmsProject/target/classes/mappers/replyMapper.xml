@@ -34,13 +34,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="listPage" resultType="com.lms.domain.ReplyVO">
 	<![CDATA[
 		select * from 
-				( select ROWNUM as RNUM, reply_no, regdate, updatedate, board_no, user_no, reply_text 
+				( select ROWNUM as RNUM, r.reply_no, r.regdate, r.updatedate, r.board_no, r.user_no, r.reply_text, u.user_name
 			from 
-				tbl_reply 
+				tbl_reply r, tbl_user u 
 			where 
-				board_no = #{boardNo} 
+				r.board_no = #{boardNo} and r.user_no = u.user_no
 				
-				order by reply_no desc
+				order by r.reply_no desc
 				
 				)
 		where 

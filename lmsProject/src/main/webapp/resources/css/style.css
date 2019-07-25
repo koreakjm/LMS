@@ -36,6 +36,45 @@
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
+.custom-select2 {
+  display: inline-block;
+  width: 30%;
+  height: auto;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #495057;
+  vertical-align: middle;
+  background-color: #fff;
+  border: 2px solid #dfe2e5;
+  border-radius: 0.25rem;
+  appearance: none;
+}
+.form-control2 {
+  display: block;
+  width: 250px;
+  height: auto;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #495057;
+  background-color: #ffffff;
+  background-clip: padding-box;
+  border: 2px solid #dfe2e5;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.input-group2{
+  position: relative;
+  display: flex;
+/*   flex-wrap: wrap; */
+  align-items: stretch;
+  width: 100%;
+}
+
 *,
 *::before,
 *::after {

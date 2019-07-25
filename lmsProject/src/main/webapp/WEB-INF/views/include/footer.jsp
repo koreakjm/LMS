@@ -19,7 +19,7 @@
 							<li class="list-inline-item pl-2"><a class="list-group-item-action" href="http://gitb.hannam.ac.kr/main/">GITB Homepage</a></li>
 							<li class="list-inline-item pl-2"><a class="list-group-item-action" href="https://www.instagram.com/hnu.gitb.hit/">GITB Instagram</a></li>
 							<li class="list-inline-item pl-2"><a class="list-group-item-action" href="https://www.facebook.com/hannamMIS/">GITB Facebook</a></li>
-							<li class="list-inline-item pl-2"><a class="list-group-item-action pr-0" href="#">GITB 출결관리</a></li>
+							<li class="list-inline-item pl-2"><a class="list-group-item-action pr-0" href="#">GVMS</a></li>
 						</ul>
 					</div>
 				</div>

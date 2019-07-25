@@ -74,136 +74,126 @@
 				</div>
 				<!-- ======================= Banner innerpage -->
 	<section>
-
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-12 mb-5">
-
-					<div class="col-md-12">
-											<div class="col-md-6" style="float: right;">
-									<div class="h-100">
-										
-										<div class="row">
-										
-										<div class="col-md-3">
-											<select class="custom-select select-big mb-2" name="searchType">
-												<option value="n"
-													<c:out value="${cri.searchType == null?'selected':''}"/>>
-													---</option>
-												<option value="t"
-													<c:out value="${cri.searchType eq 't'?'selected':''}"/>>
-													제목</option>
-												<option value="w"
-													<c:out value="${cri.searchType eq 'w'?'selected':''}"/>>
-													작성자</option>
-												<option value="r"
-													<c:out value="${cri.searchType eq 'r'?'selected':''}"/>>
-													작성일</option>
-											</select>
-										</div>
-										
-										<div class="col-md-4">
-												<input type="text" class="form-control" name='keyword' id="keywordInput" value='${cri.keyword }'>
-										</div>		
-										
-										<div class="col-md-2">	
-												<button class="btn btn-light" id='searchBtn'>Search</button>
-										
-										</div>
-										
-									
-									</div>
-									
-									</div>
-								</div>
-
-
-							<div class="table-responsive-sm">
-								<table class="table table-hover">
-
-									<thead>
-
-										<tr>
-											<th scope="col">게시번호</th>
-											<th scope="col">유형</th>
-											<th scope="col">제목</th>
-											<th scope="col">작성자</th>
-											<th scope="col">작성일</th>
-											<th scope="col">조회수</th>
-
-										</tr>
-									</thead>
-
-									<tbody>
-										<c:forEach var="boardVO" items="${list}">
-											<tr>
-
-												<td>${boardVO.boardNo}</td>
-												<td>${boardVO.category}</td>
-												<td><a
-													href='/board/readPage${pageMaker.makeSearch(pageMaker.cri.page) }&boardNo=${boardVO.boardNo}'>
-														${boardVO.boardTitle} </a></td>
-												<td>${boardVO.userNo}</td>
-												<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm"
-														value="${boardVO.regdate}" /></td>
-												<td>${boardVO.viewCnt}</td>
-
-											</tr>
-										</c:forEach>
-
-									</tbody>
-
-								</table>
-								<div align="right">
-									<a class="btn btn-grad" id='newBtn' href="register">글쓰기</a>
-
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				</div>
-				
-	</section>
-   <section class="pt-0">
       <div class="container">
-         <div class="row justify-content-center">
-            <div class="col-md-8">
-               <nav>
-                  <ul class="pagination justify-content-center">
-                     <c:if test="${criteria.pageNum > 1}">
-                        <li class="page-item"><a class="page-link"
-                           href="list${pageMaker.makeSearch(pageMaker.startPage - 1) }">&laquo;</a></li>
-                     </c:if>
+         <div class="row">
+            <div class="col-sm-12 mb-5">
 
+               <!--                            <h2 class="section-title">운영게시판</h2> -->
 
-                     <c:forEach begin="${pageMaker.startPage }"
-                        end="${pageMaker.endPage }" var="idx">
-                        <c:choose>
-                           <c:when test="${idx == Criteria.page}">
-                              <li class="page-item active">
-                              <span
-                                 class="page-link bg-grad">${idx}</span></li>
-                           </c:when>
+               <div class="col-md-12">
+                  <!-- general form elements -->
+                  <div class='box'>
 
-                           <c:otherwise>
-                           
-                              <li class="page-item"><a class="page-link"
-                                 href="list${pageMaker.makeSearch(idx)}">${idx}${Criteria.page}</a></li>
-                           </c:otherwise>
-                        </c:choose>
-                     </c:forEach>
+                     <div class="float-right">
+                        <div class="input-group2">
+                           <select class="custom-select2 select-big " name="searchType">
+                              <option value="n"
+                                 <c:out value="${cri.searchType == null?'selected':''}"/>>
+                                 ---</option>
+                              <option value="t"
+                                 <c:out value="${cri.searchType eq 't'?'selected':''}"/>>
+                                 제목</option>
+                              <option value="w"
+                                 <c:out value="${cri.searchType eq 'w'?'selected':''}"/>>
+                                 작성자</option>
+                              <option value="r"
+                                 <c:out value="${cri.searchType eq 'r'?'selected':''}"/>>
+                                 작성일</option>
+                           </select>&nbsp;<input name='keyword' id="keywordInput"
+                              value='${cri.keyword}' type="text" class="form-control2"
+                              placeholder="search" size="10" width="40"> <span
+                              class="input-group-btn">
+                              <button id='searchBtn' type="submit" class="btn btn-dark ">
+                                 &nbsp; <i class="ti-search"></i>
+                              </button> <!--                                   <a id='searchBtn' class="nav-link collapsed" data-toggle="collapse" -->
+                              <!--                                  href="#search-open" aria-expanded="false"><i -->
+                              <!--                                     class="ti-search"></i></a> -->
+                           </span>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
 
-                     <c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-                        <li class="page-item"><a class="page-link"
-                           href="list${pageMaker.makeSearch(pageMaker.endPage +1) }">&raquo;</a></li>
-                     </c:if>
-                  </ul>
-               </nav>
+         <div class="table-responsive-sm">
+            <table class="table table-hover">
+
+               <thead>
+
+                  <tr>
+                     <th scope="col">게시번호</th>
+                     <th scope="col">유형</th>
+                     <th scope="col">제목</th>
+                     <th scope="col">작성자</th>
+                     <th scope="col">작성일</th>
+                     <th scope="col">조회수</th>
+
+                  </tr>
+               </thead>
+
+               <tbody>
+                  <c:forEach var="boardVO" items="${list}">
+                     <tr>
+
+                        <td>${boardVO.boardNo}</td>
+                        <td>${boardVO.category}</td>
+                        <td><a
+                           href='/board/readPage${pageMaker.makeSearch(pageMaker.cri.page) }&boardNo=${boardVO.boardNo}'>
+                              ${boardVO.boardTitle} </a></td>
+                        <td>${boardVO.userName}</td>
+                        <td><fmt:formatDate pattern="yyyy-MM-dd HH:mm"
+                              value="${boardVO.regdate}" /></td>
+                        <td>${boardVO.viewCnt}</td>
+
+                     </tr>
+                  </c:forEach>
+
+               </tbody>
+
+            </table>
+            <div align="right">
+               <a class="btn btn-grad" id='newBtn' href="register">글쓰기</a>
+
             </div>
          </div>
       </div>
+      <!--    하단페이징 -->
+   <ul class="pagination justify-content-center">
+
+      <!-- PREV -->
+      <c:if test="${pageMaker.prev}">
+         <li class="page-item"><a class="page-link"
+            href="list${pageMaker.makeSearch(pageMaker.startPage - 1) }">PREV</a></li>
+      </c:if>
+
+      <!-- Pageing NO -->
+      <c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}"
+         var="idx">
+         <c:choose>
+            <c:when test="${pageMaker.cri.page == idx}">
+               <li class="page-item disable active"><span
+                  class="page-link bg-grad">${idx}</span></li>
+            </c:when>
+
+            <c:otherwise>
+               <li class="page-item"><a class="page-link"
+                  href="list${pageMaker.makeSearch(idx)}">${idx}</a></li>
+            </c:otherwise>
+         </c:choose>
+      </c:forEach>
+
+      <!-- NEXT -->
+      <c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+         <li class="page-item"><a class="page-link"
+            href="list${pageMaker.makeSearch(pageMaker.endPage +1) }">NEXT</a></li>
+      </c:if>
+   </ul>
+      
    </section>
+
+   
+
 	
 	<script>
 		var result = '${msg}';

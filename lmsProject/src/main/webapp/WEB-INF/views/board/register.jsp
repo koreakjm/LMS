@@ -50,25 +50,17 @@ ul {
 <body>
 	<%@ include file="../include/header.jsp"%>
 
-	<!-- =======================
-   Banner innerpage -->
-	<div class="innerpage-banner center bg-overlay-dark-7 py-7"
-		style="background: url(../assets/images/bg/04.jpg) no-repeat; background-size: cover; background-position: center center;">
-		<div class="container">
-			<div class="row all-text-white">
-				<div class="col-md-12 align-self-center">
-					<nav aria-label="breadcrumb">
-						<ol class="breadcrumb">
-							<li class="breadcrumb-item active"><a
-								href="/main?command=loginForm"><i class="ti-home"></i>Home</a></li>
-						</ol>
-					</nav>
+					<!-- ======================= Banner innerpage -->
+				<div class="left bg-grad pattern-overlay-4">
+					<div class="container">
+						<div class="row all-text-white">
+							<div class="col-md-12 align-self-center">
+								<h1 class="font-weight-bold display-4 display-md-1 mb-2 mb-md-n4 mt-9">운영 게시판</h1>
+							</div>
+						</div>
+					</div>
 				</div>
-			</div>
-		</div>
-	</div>
-	<!-- =======================
-   Banner innerpage -->
+				<!-- ======================= Banner innerpage -->
 
 	<!-- =======================
    공지사항 글쓰기 폼 시작 -->
